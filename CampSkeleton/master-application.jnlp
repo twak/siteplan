@@ -1,0 +1,27 @@
+<jnlp spec="1.0+" codebase="CODEBASE" href="launch.jnlp">
+    <information>
+        <title>${APPLICATION.TITLE}</title>
+        <vendor>${APPLICATION.VENDOR}</vendor>
+        <homepage href="${APPLICATION.HOMEPAGE}"/>
+        <description>${APPLICATION.DESC}</description>
+        <description kind="short">${APPLICATION.DESC.SHORT}</description>
+<!--${JNLP.ICONS}-->
+<!--${JNLP.OFFLINE.ALLOWED}-->
+    </information>
+<!--${JNLP.SECURITY}-->
+  <security>
+      <all-permissions/>
+  </security>
+
+    <resources>
+        <j2se version="1.6+"/>
+    <jar eager="true" href="CampSkeleton.jar" main="true"/>
+<!--${JNLP.RESOURCES.MAIN.JAR}  java-vm-args="-Xmx2G"  -->
+<!--${JNLP.RESOURCES.JARS}-->
+<!--${JNLP.RESOURCES.EXTENSIONS}-->
+<nativelib href="lib/lwjgl_native.jar"/>
+    </resources>
+    <application-desc main-class="${jnlp.main.class}">
+<!--${JNLP.APPLICATION.ARGS}-->
+    </application-desc>
+</jnlp>
