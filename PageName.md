@@ -2,14 +2,14 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=BrCDKrBS9To' target='_blank'><img src='http://img.youtube.com/vi/BrCDKrBS9To/0.jpg' width='425' height=344 /></a>
 
-(the meshes are [here](http://siteplan.googlecode.com/git/CampSkeleton/dist/meshes.zip))
+(the meshes are [here](https://github.com/twak/siteplan/raw/master/CampSkeleton/dist/meshes.zip))
 
 # Getting Started #
 
 To start.
   * Install [java](http://java.sun.com)
-  * Run [this](http://dcs.gla.ac.uk/~tkelly/citysculpt/siteplan/launch.jnlp) ([mirror](http://siteplan.googlecode.com/git/CampSkeleton/dist/launch.jnlp)) file (double click on it in windows), wait for the app to download, and give it permission to run. It runs some native code, and writes a single config file to your home dir.
-  * When the following pops up, uncheck "full screen", then click okay (choose whatever resolution you like). [stuck in fullscreen?](http://code.google.com/p/siteplan/issues/detail?id=1)
+  * Run [mirror](http://siteplan.googlecode.com/git/CampSkeleton/dist/launch.jnlp) file (double click on it in windows), wait for the app to download, and give it permission to run. It runs some native code, and writes a single config file to your home dir.
+  * When the following pops up, uncheck "full screen", then click okay (choose whatever resolution you like). [stuck in fullscreen?](https://github.com/twak/siteplan/issues/1)
 
 ![http://farm7.static.flickr.com/6198/6141601347_5549a25406_o.png](http://farm7.static.flickr.com/6198/6141601347_5549a25406_o.png)
 
