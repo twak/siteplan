@@ -10,9 +10,7 @@ Please use the software! The source code is <a href="https://github.com/twak/sit
 <div>
 <br /></div>
 <div>
-<a href="https://www.youtube.com/watch?v=BrCDKrBS9To">Here's a very clumsy demonstration video of me using the software</a>
-<div>
-And some of the kinds of things you can create if you invest a little more time.</div>
+<a href="https://www.youtube.com/watch?v=BrCDKrBS9To">Here's a very clumsy demonstration video of me using the software</a> And some of the kinds of things you can create if you invest a little more time.</div>
 <br />
 <br />
 <a href="http://www.flickr.com/photos/twak/4998728536/" title="50 by twak, on Flickr"><img alt="50" src="http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg" height="640" width="640" /></a><br />
