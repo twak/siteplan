@@ -2,7 +2,7 @@
 <div style="text-align: center;">
 <a href="http://www.flickr.com/photos/twak/6147665705/" title="rect3075 by twak, on Flickr"><img alt="rect3075" src="http://farm7.static.flickr.com/6084/6147665705_ec376a4dd5_m.jpg" height="240" width="240" /></a></div>
 <br />
-I'm very happy to finally announce the long overdue release of SitePlan, my procedural extrusions implementation. There is information about the project <a href="http://code.google.com/p/siteplan/wiki/PageName">here</a> (or just click <a href="http://dcs.gla.ac.uk/~tkelly/citysculpt/siteplan/launch.jnlp">here</a> to run; java executable; run at your own risk).<br />
+I'm very happy to finally announce the long overdue release of SitePlan, my procedural extrusions implementation. There is information about the project <a href="https://github.com/twak/siteplan/blob/wiki/PageName.md">here</a>.<br />
 <div>
 <br /></div>
 <div>
