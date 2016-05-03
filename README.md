@@ -7,11 +7,10 @@ I'm very happy to finally announce the long overdue release of SitePlan, my proc
 <br /></div>
 <div>
 Please use the software! The source code is <a href="https://github.com/twak/siteplan/">here</a>. This is a <a href="http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html">research project</a>, from many years ago!</div>
-<div>
-<br /></div>
-<div>
-<a href="https://www.youtube.com/watch?v=BrCDKrBS9To">Here's a very clumsy demonstration video of me using the software</a> And some of the kinds of things you can create if you invest a little more time.</div>
+</div>
 <br />
+<div>
+<a href="https://www.youtube.com/watch?v=BrCDKrBS9To">Here's a very clumsy demonstration video of me using the software</a>, and a picture of some of the kinds of buildings you can create if you invest a little more time.</div>
 <br />
 <a href="http://www.flickr.com/photos/twak/4998728536/" title="50 by twak, on Flickr"><img alt="50" src="http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg" height="640" width="640" /></a><br />
 
