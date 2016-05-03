@@ -6,7 +6,7 @@ I'm very happy to finally announce the long overdue release of SitePlan, my proc
 <div>
 <br /></div>
 <div>
-Please use the software! The source code is <a href="https://github.com/twak/siteplan/">here</a>. This is a <a href="http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html">research project</a> and it would really help me if you emailed <a href="http://dcs.gla.ac.uk/~tkelly/">me</a> screen shots of your project and a description of what you used it for.</div>
+Please use the software! The source code is <a href="https://github.com/twak/siteplan/">here</a>. This is a <a href="http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html">research project</a>, from many years ago!</div>
 <div>
 <br /></div>
 <div>
