@@ -2,8 +2,8 @@ package camp.anchors;
 
 import campskeleton.CampSkeleton;
 import javax.swing.AbstractSpinnerModel;
-import utils.AbstractDocumentListener;
-import utils.WeakListener;
+import org.twak.utils.AbstractDocumentListener;
+import org.twak.utils.WeakListener;
 
 /**
  *

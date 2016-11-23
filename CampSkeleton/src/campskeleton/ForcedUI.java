@@ -8,8 +8,8 @@ import java.awt.event.MouseEvent;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.PointEditor;
-import utils.LContext;
-import utils.Loop;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
 
 /**
  * UI for an-almost-plan. A step edge adjustment. First and last points are fixed.

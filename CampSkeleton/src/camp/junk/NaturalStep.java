@@ -1,6 +1,20 @@
 package camp.junk;
 
-import camp.junk.wiggle.NaturalFeature;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.vecmath.Point2d;
+import javax.vecmath.Point3d;
+import javax.vecmath.Vector2d;
+
+import org.twak.utils.ConsecutiveItPairs;
+import org.twak.utils.LContext;
+import org.twak.utils.Line3D;
+import org.twak.utils.Loop;
+import org.twak.utils.Loopable;
+import org.twak.utils.MUtils;
+import org.twak.utils.Pair;
+
 import campskeleton.Global;
 import campskeleton.Plan;
 import campskeleton.PlanSkeleton;
@@ -8,11 +22,6 @@ import campskeleton.PlanUI;
 import campskeleton.Profile;
 import campskeleton.ProfileMachine;
 import campskeleton.StepUI;
-import java.util.Arrays;
-import java.util.List;
-import javax.vecmath.Point2d;
-import javax.vecmath.Point3d;
-import javax.vecmath.Vector2d;
 import straightskeleton.Corner;
 import straightskeleton.CornerClone;
 import straightskeleton.Edge;
@@ -20,13 +29,6 @@ import straightskeleton.Tag;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
 import straightskeleton.ui.PointEditor.BarSelected;
-import utils.ConsecutiveItPairs;
-import utils.LContext;
-import utils.Line3D;
-import utils.Loop;
-import utils.Loopable;
-import utils.MUtils;
-import utils.Pair;
 
 /**
  *

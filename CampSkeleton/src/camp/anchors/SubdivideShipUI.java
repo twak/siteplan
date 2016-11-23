@@ -2,9 +2,9 @@ package camp.anchors;
 
 import campskeleton.CampSkeleton;
 import campskeleton.Plan;
-import utils.AbstractDocumentListener;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.AbstractDocumentListener;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

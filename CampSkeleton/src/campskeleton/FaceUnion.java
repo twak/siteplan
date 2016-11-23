@@ -9,10 +9,10 @@ import straightskeleton.Corner;
 import straightskeleton.Output.Face;
 import straightskeleton.Output.SharedEdge;
 import straightskeleton.debug.DebugDevice;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.MultiMap;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.MultiMap;
 
 /**
  * Takes a bunch of faces and computes their union

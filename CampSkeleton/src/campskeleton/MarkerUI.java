@@ -18,9 +18,9 @@ import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.NaiveMould.PMarker;
 import straightskeleton.ui.PointEditor;
-import utils.LContext;
-import utils.Loopable;
-import utils.ui.Colour;
+import org.twak.utils.LContext;
+import org.twak.utils.Loopable;
+import org.twak.utils.ui.Colour;
 
 /**
  * Shared features for marker manipulations (between planUI and profileUI)

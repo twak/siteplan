@@ -23,9 +23,10 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.ImageU;
-import utils.WebU;
-import utils.ui.WindowManager;
+import org.twak.utils.ImageU;
+import org.twak.utils.WebU;
+import org.twak.utils.ui.ImageComponent;
+import org.twak.utils.ui.WindowManager;
 
 /**
  *
@@ -67,7 +68,7 @@ public class AboutBox extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         helpTextBox = new javax.swing.JTextPane();
-        logoBox = new utils.ui.ImageComponent();
+        logoBox = new ImageComponent();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -139,7 +140,7 @@ public class AboutBox extends javax.swing.JFrame {
     private javax.swing.JTextPane helpTextBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private utils.ui.ImageComponent logoBox;
+    private ImageComponent logoBox;
     // End of variables declaration//GEN-END:variables
 
 }

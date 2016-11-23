@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
-import utils.Loopable;
+import org.twak.utils.Loopable;
 
 /**
  * hacked to animate the speed of a single edge

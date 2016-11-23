@@ -14,12 +14,12 @@ import java.util.TreeSet;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Bar;
-import utils.ItComb;
-import utils.Line;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.Loopable;
+import org.twak.utils.ItComb;
+import org.twak.utils.Line;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.Loopable;
 
 /**
  * A hoodicky to calculate the nearest still active bar, at the start of a chain.

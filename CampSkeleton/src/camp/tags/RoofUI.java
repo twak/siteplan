@@ -7,7 +7,7 @@
 package camp.tags;
 
 import campskeleton.CampSkeleton;
-import utils.WeakListener.Changed;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

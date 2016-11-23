@@ -13,12 +13,12 @@ import straightskeleton.Edge;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.LContext;
-import utils.LoopL.LoopLoopable;
-import utils.LoopL.LoopLoopable;
-import utils.Loopable;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.LContext;
+import org.twak.utils.LoopL.LoopLoopable;
+import org.twak.utils.LoopL.LoopLoopable;
+import org.twak.utils.Loopable;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  * Hacky "feature" to animate the location of an anchor to demonstrate the effect of

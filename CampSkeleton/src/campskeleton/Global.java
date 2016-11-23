@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
-import utils.Loop;
+import org.twak.utils.Loop;
 
 /**
  * There's one of these for every inflection over a plan. All profiles inflect at the same point to preserve

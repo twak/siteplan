@@ -8,10 +8,10 @@ import java.util.Arrays;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.PointEditor.BarSelected;
-import utils.ConsecutiveItPairs;
-import utils.Loop;
-import utils.LoopL;
-import utils.Pair;
+import org.twak.utils.ConsecutiveItPairs;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Pair;
 
 /**
  *

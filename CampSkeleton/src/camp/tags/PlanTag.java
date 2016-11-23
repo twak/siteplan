@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import straightskeleton.Output;
 import straightskeleton.Tag;
 import straightskeleton.ui.Bar;
-import utils.WeakListener.Changed;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

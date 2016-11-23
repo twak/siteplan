@@ -1,24 +1,22 @@
 package camp.anchors;
 
-import camp.jme.JmeBone;
-import camp.jme.Preview;
-import campskeleton.Plan;
-import com.jme.math.Quaternion;
-import com.jme.math.Vector3f;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
+
 import javax.swing.JComponent;
-import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
+
+import org.twak.utils.LContext;
+import org.twak.utils.WeakListener;
+
+import camp.jme.Preview;
+import campskeleton.Plan;
 import straightskeleton.Corner;
 import straightskeleton.Edge;
 import straightskeleton.ui.Marker;
-import utils.LContext;
-import utils.WeakListener;
 
 /**
  * HACK, for a deadline, this ship repeats a single, 2 boned, mesh the given number of times. Saves repeating all those windows. Sorry.
@@ -226,167 +224,167 @@ public class GridMeshShip extends Ship
 
         void bind (List<NormalPt> normalPts, Preview preview , Object key)
         {
-            JmeBone bone = new JmeBone(meshFile);
-            List<JmeBone.BoneLocation> boneLocations = new ArrayList();
-
-
-
-            Vector3f firstNormal = null;
-
-            for (int i = 0; i < normalPts.size(); i++)
-            {
-                NormalPt normalPt = normalPts.get(i);
-//                Anchor anchor = anchors[normalPt.anchorNo];
-                // not bound
-//                if (anchor.planGen == null || anchor.profileGen == null)
-//                    continue;
-                // doesn't exist in this frame
-                if (normalPt.point == null)
-                    continue;
-
-                List<String> names = bone.getNames(meshFile);
-
-                Iterator<String> it = names.iterator();
-                while (it.hasNext())
-                    if (it.next().compareToIgnoreCase("x") == 0)
-                        it.remove();
-
-                String boneName = names.get(normalPt.anchorNo);
-
-
-                Vector3d normal_ = normalPt.normal, uphill_ = normalPt.uphill;
-                Vector3f normal = new Vector3f( (float) normal_.x, (float)normal_.y, (float)normal_.z );
-                Vector3f uphill = new Vector3f( (float) uphill_.x, (float)uphill_.y, (float)uphill_.z );
-
-
-                if (firstNormal == null)
-                    firstNormal = normal;
-
-                if (firstNormalForAll)
-                    normal = new Vector3f(firstNormal);
-
-//                System.out.print(normal.length());
-//                System.out.print(uphill.length());
-
-                Point3d pt = normalPt.point;
-
-                Vector3f cross = new Vector3f(uphill);
-                cross = cross.cross(normal);
-
-
-//                uphill.negateLocal();
+//            JmeBone bone = new JmeBone(meshFile);
+//            List<JmeBone.BoneLocation> boneLocations = new ArrayList();
 //
-//                normal.negateLocal();
-
-                // 1,2, 0 a good kind of wrong
-
-//                Matrix3f rotM = new Matrix3f();
-//                rotM.setColumn(0, normal);
-//                rotM.setColumn(2, uphill);
-//                rotM.setColumn(1, cross);
-//                rotM.setRow(1, normal);
-//                rotM.setRow(0, uphill);
-//                rotM.setRow(2, cross);
-
-
-                /*************************** HACK ALERT ************************** transpose trick isn't playing ball, and I need to ship this to some yanks, so this'll do *******************/
-
-                // rotation for wall angle
-//                Quaternion quat2 = new Quaternion();
-                javax.vecmath.Matrix3f m1 = new javax.vecmath.Matrix3f();
-
-                float sideL = (float)Math.sqrt( normal.x * normal.x + normal.z * normal.z );
-
-                Vector3f flatNormal = new Vector3f (normal.x,normal.y,0);
-                
-                flatNormal.normalize();
-                float angle = -flatNormal.angleBetween(normal);// -Math.atan2(sideL, normal.y);
-                if (normal.z > 0)
-                    angle = -angle;
-
-                if ( ignoreSlope )
-                    angle = 0;
-
-//                AxisAngle4f aa = new AxisAngle4f(new javax.vecmath.Vector3f ( 1f, 0f, 0f ), -angle);
-                AxisAngle4f aa = new AxisAngle4f(new javax.vecmath.Vector3f ( cross.x, cross.z, cross.y ), angle );//(float)Math.PI/4f);
-                m1.set(aa);
-
-
-//                quat2.fromRotationMatrix(
-//                            (float) m.m00, (float) m.m01, (float) m.m02,
-//                            (float) m.m10, (float) m.m11, (float) m.m12,
-//                            (float) m.m20, (float) m.m21, (float) m.m22
 //
-//                            );
-                // rotation around vertical
-                javax.vecmath.Matrix3f m2 = new javax.vecmath.Matrix3f();
-                m2 = new javax.vecmath.Matrix3f();
-//                AxisAngle4f aa2 = new AxisAngle4f(new javax.vecmath.Vector3f(uphill.x, uphill.y, uphill.z), (float) -Math.atan2(cross.y, cross.x));
-                AxisAngle4f aa2 = new AxisAngle4f(new javax.vecmath.Vector3f(0f, 1f, 0f), (float) -Math.atan2(cross.y, cross.x));
-                m2.set(aa2);
-
-
-                m1.mul(m2);
-
-                m2 = m1;
-
-
-                Quaternion quat = new Quaternion();
-                quat.fromRotationMatrix(
-                            (float) m2.m00, (float) m2.m01, (float) m2.m02,
-                            (float) m2.m10, (float) m2.m11, (float) m2.m12,
-                            (float) m2.m20, (float) m2.m21, (float) m2.m22 // switch handedness of coord system
-                            );
-
-//                quat = quat2.add(quat);
-
-//                rotM.setColumn(0, cross);
-//                rotM.setColumn(0, normal);
-//                rotM.setColumn(0, uphill);
-//                quat = quat.fromRotationMatrix(rotM);
-
-//                quat.fromRotationMatrix(orientation);
-//                        (float)cross.x, (float)normal.x, (float)uphill.x,
-//                        (float)cross.y, (float)normal.y, (float)uphill.y,
-//                        (float)cross.z, (float)normal.z, (float)uphill.z );
-
-//                quat.fromRotationMatrix(
-//                        (float)cross.x, (float)cross.y, (float)cross.z,
-//                        (float)normal.x, (float)normal.y, (float)normal.z,
-//                        (float)uphill.x, (float)uphill.y, (float)uphill.z );
-
-
-                JmeBone.BoneLocation loc = new JmeBone.BoneLocation(boneName, new Vector3f( (float) pt.x, (float)pt.y, (float)pt.z), quat);
-
-                boneLocations.add(loc);
-            }
-
-                bone.setScale(scale);
-                bone.setBones(boneLocations);
-                preview.display(bone, key, false);
 //
-//                                // find rotation for bone (erk, rotation transform occurs in feature factory)
-//                    Vector3d dir = new Vector3d (1,0,0);
-//                    m.transform( dir );
+//            Vector3f firstNormal = null;
 //
-//                    double angle = Math.atan2( dir.y, dir.x );
-//
-//                    Quaternion rot = new Quaternion();
-//                    rot.fromRotationMatrix(
-//                            (float)m.m00,(float)m.m01,(float)m.m02,
-//                            (float)m.m10,(float)m.m11,(float)m.m12,
-//                            (float)m.m20,(float)m.m21,(float)m.m22 // switch handedness of coord system
-//                            );
-//
-//                    bone.setBones( Arrays.asList(
-//                            new JmeBone.BoneLocation( "0", new Vector3f( (float) m.m03, (float) m.m13, (float) m.m23 ), rot ),
-//                            new JmeBone.BoneLocation( "1", new Vector3f( (float) m.m03, (float) m.m13, (float) 0 ), rot ) ) );
-//
-//            for (Point3d pt : points)
+//            for (int i = 0; i < normalPts.size(); i++)
 //            {
-//                assert(pt != null);
+//                NormalPt normalPt = normalPts.get(i);
+////                Anchor anchor = anchors[normalPt.anchorNo];
+//                // not bound
+////                if (anchor.planGen == null || anchor.profileGen == null)
+////                    continue;
+//                // doesn't exist in this frame
+//                if (normalPt.point == null)
+//                    continue;
 //
+//                List<String> names = bone.getNames(meshFile);
+//
+//                Iterator<String> it = names.iterator();
+//                while (it.hasNext())
+//                    if (it.next().compareToIgnoreCase("x") == 0)
+//                        it.remove();
+//
+//                String boneName = names.get(normalPt.anchorNo);
+//
+//
+//                Vector3d normal_ = normalPt.normal, uphill_ = normalPt.uphill;
+//                Vector3f normal = new Vector3f( (float) normal_.x, (float)normal_.y, (float)normal_.z );
+//                Vector3f uphill = new Vector3f( (float) uphill_.x, (float)uphill_.y, (float)uphill_.z );
+//
+//
+//                if (firstNormal == null)
+//                    firstNormal = normal;
+//
+//                if (firstNormalForAll)
+//                    normal = new Vector3f(firstNormal);
+//
+////                System.out.print(normal.length());
+////                System.out.print(uphill.length());
+//
+//                Point3d pt = normalPt.point;
+//
+//                Vector3f cross = new Vector3f(uphill);
+//                cross = cross.cross(normal);
+//
+//
+////                uphill.negateLocal();
+////
+////                normal.negateLocal();
+//
+//                // 1,2, 0 a good kind of wrong
+//
+////                Matrix3f rotM = new Matrix3f();
+////                rotM.setColumn(0, normal);
+////                rotM.setColumn(2, uphill);
+////                rotM.setColumn(1, cross);
+////                rotM.setRow(1, normal);
+////                rotM.setRow(0, uphill);
+////                rotM.setRow(2, cross);
+//
+//
+//                /*************************** HACK ALERT ************************** transpose trick isn't playing ball, and I need to ship this to some yanks, so this'll do *******************/
+//
+//                // rotation for wall angle
+////                Quaternion quat2 = new Quaternion();
+//                javax.vecmath.Matrix3f m1 = new javax.vecmath.Matrix3f();
+//
+//                float sideL = (float)Math.sqrt( normal.x * normal.x + normal.z * normal.z );
+//
+//                Vector3f flatNormal = new Vector3f (normal.x,normal.y,0);
+//                
+//                flatNormal.normalize();
+//                float angle = -flatNormal.angleBetween(normal);// -Math.atan2(sideL, normal.y);
+//                if (normal.z > 0)
+//                    angle = -angle;
+//
+//                if ( ignoreSlope )
+//                    angle = 0;
+//
+////                AxisAngle4f aa = new AxisAngle4f(new javax.vecmath.Vector3f ( 1f, 0f, 0f ), -angle);
+//                AxisAngle4f aa = new AxisAngle4f(new javax.vecmath.Vector3f ( cross.x, cross.z, cross.y ), angle );//(float)Math.PI/4f);
+//                m1.set(aa);
+//
+//
+////                quat2.fromRotationMatrix(
+////                            (float) m.m00, (float) m.m01, (float) m.m02,
+////                            (float) m.m10, (float) m.m11, (float) m.m12,
+////                            (float) m.m20, (float) m.m21, (float) m.m22
+////
+////                            );
+//                // rotation around vertical
+//                javax.vecmath.Matrix3f m2 = new javax.vecmath.Matrix3f();
+//                m2 = new javax.vecmath.Matrix3f();
+////                AxisAngle4f aa2 = new AxisAngle4f(new javax.vecmath.Vector3f(uphill.x, uphill.y, uphill.z), (float) -Math.atan2(cross.y, cross.x));
+//                AxisAngle4f aa2 = new AxisAngle4f(new javax.vecmath.Vector3f(0f, 1f, 0f), (float) -Math.atan2(cross.y, cross.x));
+//                m2.set(aa2);
+//
+//
+//                m1.mul(m2);
+//
+//                m2 = m1;
+//
+//
+//                Quaternion quat = new Quaternion();
+//                quat.fromRotationMatrix(
+//                            (float) m2.m00, (float) m2.m01, (float) m2.m02,
+//                            (float) m2.m10, (float) m2.m11, (float) m2.m12,
+//                            (float) m2.m20, (float) m2.m21, (float) m2.m22 // switch handedness of coord system
+//                            );
+//
+////                quat = quat2.add(quat);
+//
+////                rotM.setColumn(0, cross);
+////                rotM.setColumn(0, normal);
+////                rotM.setColumn(0, uphill);
+////                quat = quat.fromRotationMatrix(rotM);
+//
+////                quat.fromRotationMatrix(orientation);
+////                        (float)cross.x, (float)normal.x, (float)uphill.x,
+////                        (float)cross.y, (float)normal.y, (float)uphill.y,
+////                        (float)cross.z, (float)normal.z, (float)uphill.z );
+//
+////                quat.fromRotationMatrix(
+////                        (float)cross.x, (float)cross.y, (float)cross.z,
+////                        (float)normal.x, (float)normal.y, (float)normal.z,
+////                        (float)uphill.x, (float)uphill.y, (float)uphill.z );
+//
+//
+//                JmeBone.BoneLocation loc = new JmeBone.BoneLocation(boneName, new Vector3f( (float) pt.x, (float)pt.y, (float)pt.z), quat);
+//
+//                boneLocations.add(loc);
 //            }
+//
+//                bone.setScale(scale);
+//                bone.setBones(boneLocations);
+//                preview.display(bone, key, false);
+////
+////                                // find rotation for bone (erk, rotation transform occurs in feature factory)
+////                    Vector3d dir = new Vector3d (1,0,0);
+////                    m.transform( dir );
+////
+////                    double angle = Math.atan2( dir.y, dir.x );
+////
+////                    Quaternion rot = new Quaternion();
+////                    rot.fromRotationMatrix(
+////                            (float)m.m00,(float)m.m01,(float)m.m02,
+////                            (float)m.m10,(float)m.m11,(float)m.m12,
+////                            (float)m.m20,(float)m.m21,(float)m.m22 // switch handedness of coord system
+////                            );
+////
+////                    bone.setBones( Arrays.asList(
+////                            new JmeBone.BoneLocation( "0", new Vector3f( (float) m.m03, (float) m.m13, (float) m.m23 ), rot ),
+////                            new JmeBone.BoneLocation( "1", new Vector3f( (float) m.m03, (float) m.m13, (float) 0 ), rot ) ) );
+////
+////            for (Point3d pt : points)
+////            {
+////                assert(pt != null);
+////
+////            }
         }
 
         private void clearCache()

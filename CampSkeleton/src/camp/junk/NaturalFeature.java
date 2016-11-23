@@ -1,4 +1,5 @@
-package camp.junk.wiggle;
+package camp.junk;
+
 
 import campskeleton.Global;
 import camp.junk.PlanFeature;
@@ -15,8 +16,8 @@ import straightskeleton.Edge;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
 import straightskeleton.ui.PointEditor.BarSelected;
-import utils.LContext;
-import utils.LoopL;
+import org.twak.utils.LContext;
+import org.twak.utils.LoopL;
 
 /**
  * dec@cs.

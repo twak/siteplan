@@ -23,12 +23,12 @@ import straightskeleton.Output.Face;
 import straightskeleton.Skeleton;
 import straightskeleton.SkeletonCapUpdate;
 import straightskeleton.debug.DebugDevice;
-import utils.Cache;
-import utils.Cache2;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.ToStrictSetIerable;
+import org.twak.utils.Cache;
+import org.twak.utils.Cache2;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.ToStrictSetIerable;
 
 /**
  * Creates a bunch of events that deal with face extrude/intrude. These are added
@@ -94,28 +94,6 @@ public class GlobalEventFactory
 
             OffsetSkeleton offset = new OffsetSkeleton(cap, 100);
 
-
-            // debug/viz code for outputting the intermediate shape as a obj
-            if (false)
-            offset.debugIntermediate = new OffsetSkeleton.DebugIntermediate() {
-
-                @Override
-                public void debugIntermediate(Skeleton skel) {
-                    try {
-                        Preview p = CampSkeleton.instance.preview;
-                        p.clear = true;
-                        Thread.sleep(200); // cheap hack: no thread control
-                        p.display(skel.output, true, false);
-                        while (p.isPendingUpdate()) {
-                            Thread.sleep(200);
-                        }
-                        p.dump(new File ("intermediate_orange.obj"));
-                        Thread.sleep(200); // cheap hack: no thread control
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            };
 
             assert (global.valency == 2); // we assume that the smallest is closest to the target, and the bigger is furthest away.
 

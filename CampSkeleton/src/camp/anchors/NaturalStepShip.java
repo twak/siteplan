@@ -19,16 +19,16 @@ import straightskeleton.Edge;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
 import straightskeleton.ui.PointEditor.BarSelected;
-import utils.Cache;
-import utils.ConsecutiveItPairs;
-import utils.LContext;
-import utils.Line;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.MUtils;
-import utils.Pair;
-import utils.WeakListener;
+import org.twak.utils.Cache;
+import org.twak.utils.ConsecutiveItPairs;
+import org.twak.utils.LContext;
+import org.twak.utils.Line;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.MUtils;
+import org.twak.utils.Pair;
+import org.twak.utils.WeakListener;
 
 /**
  * @author twak

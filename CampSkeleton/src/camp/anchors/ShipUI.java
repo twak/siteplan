@@ -15,8 +15,8 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import utils.ListDownLayout;
-import utils.WeakListener.Changed;
+import org.twak.utils.ListDownLayout;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

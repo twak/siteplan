@@ -5,16 +5,17 @@
 
 package camp.tags;
 
-import camp.jme.Preview;
-import camp.jme.Tiler;
-import campskeleton.CampSkeleton;
-import campskeleton.Plan;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.swing.JComponent;
+
+import org.twak.utils.WeakListener.Changed;
+
+import camp.jme.Preview;
+import campskeleton.Plan;
 import straightskeleton.Output;
 import straightskeleton.Output.Face;
-import utils.WeakListener.Changed;
 
 /**
  *
@@ -51,7 +52,7 @@ public class RoofTag extends PlanTag
             }
         }
 
-        new Tiler( preview, allFaces, threadKey, this );
+//        new Tiler( preview, allFaces, threadKey, this );
     }
 
 

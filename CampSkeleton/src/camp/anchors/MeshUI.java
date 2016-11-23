@@ -13,9 +13,9 @@ package camp.anchors;
 
 import campskeleton.CampSkeleton;
 import java.io.File;
-import utils.AbstractDocumentListener;
-import utils.SimpleFileChooser;
-import utils.WeakListener;
+import org.twak.utils.AbstractDocumentListener;
+import org.twak.utils.SimpleFileChooser;
+import org.twak.utils.WeakListener;
 
 /**
  *

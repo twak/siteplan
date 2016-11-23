@@ -10,10 +10,10 @@ import javax.vecmath.Vector3d;
 import straightskeleton.Corner;
 import straightskeleton.Skeleton;
 import straightskeleton.SkeletonCapUpdate;
-import utils.DHash;
-import utils.Loop;
-import utils.LoopL;
-import utils.SetCorrespondence;
+import org.twak.utils.DHash;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.SetCorrespondence;
 
 /**
  *
