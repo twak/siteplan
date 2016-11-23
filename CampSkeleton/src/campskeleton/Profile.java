@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Point2d;
-import utils.Loop;
-import utils.LoopL;
-import utils.Rainbow;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Rainbow;
 
 /**
  *

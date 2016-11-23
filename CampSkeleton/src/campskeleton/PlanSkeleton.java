@@ -1,14 +1,5 @@
 package campskeleton;
 
-import camp.anchors.AnchorHauler;
-import camp.anchors.Ship;
-import camp.jme.PillarFactory;
-import camp.jme.Preview;
-import camp.junk.wiggle.WindowFactory;
-import camp.junk.wiggle.MeshFactory;
-import camp.junk.wiggle.ThreeFactory;
-import camp.tags.LowPriorityTag;
-import campskeleton.Profile.GlobalProfile;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -16,18 +7,26 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.vecmath.Point2d;
+
+import org.twak.utils.Cache;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.MultiMap;
+
+import camp.anchors.AnchorHauler;
+import camp.anchors.Ship;
+import camp.jme.Preview;
+import camp.tags.LowPriorityTag;
+import campskeleton.Profile.GlobalProfile;
 import straightskeleton.Corner;
 import straightskeleton.Edge;
-import straightskeleton.Tag;
 import straightskeleton.Machine;
 import straightskeleton.Output.Face;
 import straightskeleton.Skeleton;
+import straightskeleton.Tag;
 import straightskeleton.ui.Bar;
-import utils.Cache;
-import utils.Loop;
-import utils.LoopL;
-import utils.MultiMap;
 
 /**
  * Root class for the straight skeleton extensions.
@@ -35,11 +34,11 @@ import utils.MultiMap;
  */
 public class PlanSkeleton extends Skeleton
 {
-    public PillarFactory pillarFactory = null;
-    public WindowFactory windowFactory = null;
+//    public PillarFactory pillarFactory = null;
+//    public WindowFactory windowFactory = null;
     public GlobalEventFactory globalFac = null;
-    public ThreeFactory threeFactory = null;
-    public MeshFactory meshFactory = null;
+//    public ThreeFactory threeFactory = null;
+//    public MeshFactory meshFactory = null;
 
     // things that create these things we can add
     public static String[][] getShipTypes(){ return new String[][] {

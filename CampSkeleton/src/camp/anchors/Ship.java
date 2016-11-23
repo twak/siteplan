@@ -14,8 +14,8 @@ import straightskeleton.Corner;
 import straightskeleton.Edge;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.LContext;
-import utils.WeakListener;
+import org.twak.utils.LContext;
+import org.twak.utils.WeakListener;
 
 /**
  * A ship is an operation on a set of anchor'd sites. So might be one NatrualStep shape, or a particualar mesh.

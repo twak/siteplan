@@ -29,12 +29,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Marker;
-import utils.LContext;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.SimpleFileChooser;
-import utils.ui.Colour;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.SimpleFileChooser;
+import org.twak.utils.ui.Colour;
 
 /**
  * @author twak

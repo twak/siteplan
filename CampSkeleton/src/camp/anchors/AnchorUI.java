@@ -10,7 +10,7 @@ import campskeleton.CampSkeleton;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
-import utils.WeakListener;
+import org.twak.utils.WeakListener;
 
 /**
  *

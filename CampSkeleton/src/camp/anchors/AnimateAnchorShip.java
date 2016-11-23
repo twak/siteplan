@@ -10,11 +10,11 @@ import straightskeleton.Corner;
 import straightskeleton.Edge;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.LContext;
-import utils.Loop;
-import utils.Loopable;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
+import org.twak.utils.Loopable;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  * Hacky "feature" to animate the location of an anchor to demonstrate the effect of

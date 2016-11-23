@@ -17,8 +17,8 @@ import straightskeleton.Machine;
 import straightskeleton.Skeleton;
 import straightskeleton.ui.DirectionHeightEvent;
 import straightskeleton.ui.MachineEvent;
-import utils.Line;
-import utils.LinearForm;
+import org.twak.utils.Line;
+import org.twak.utils.LinearForm;
 
 /**
  *

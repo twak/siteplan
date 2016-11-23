@@ -11,7 +11,7 @@
 
 package camp.anchors;
 
-import utils.Loopable;
+import org.twak.utils.Loopable;
 
 /**
  *

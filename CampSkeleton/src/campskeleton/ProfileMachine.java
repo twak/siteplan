@@ -16,11 +16,11 @@ import straightskeleton.ui.Bar;
 import straightskeleton.ui.DirectionHeightEvent;
 import straightskeleton.ui.HorizontalHeightEvent;
 import straightskeleton.ui.Marker;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.MUtils;
-import utils.PointDistanceComparator;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.MUtils;
+import org.twak.utils.PointDistanceComparator;
 
 /**
  * There is a profile machine for every chain in a profile

@@ -10,7 +10,7 @@ import camp.anchors.JProfileProfileMap;
 import campskeleton.CampSkeleton;
 import campskeleton.Plan;
 import java.util.ArrayList;
-import utils.WeakListener.Changed;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

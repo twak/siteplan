@@ -201,8 +201,6 @@ public class CapShipUI extends javax.swing.JPanel
                 {
                     Preview preview = CampSkeleton.instance.preview;
 
-                    preview.clear = true;
-                    preview.threadKey = s;
                     
                     preview.display( s.output, true, true, false );
 
@@ -218,8 +216,6 @@ public class CapShipUI extends javax.swing.JPanel
                     
                     preview.dump( new File( String.format( fileField.getText() + "m1/%04d.obj", i ) ) );
                     
-                    preview.clear = true;
-                    preview.threadKey = s;
                     
                     preview.display( s.output, false, false, true );
 

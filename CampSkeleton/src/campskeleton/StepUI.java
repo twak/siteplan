@@ -9,8 +9,8 @@ import java.util.List;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.PointEditor;
-import utils.LContext;
-import utils.Loop;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
 
 /**
  * UI for a square protusion. A natural extrude that gets melded into the plan. First and last points are fixed.

@@ -21,11 +21,11 @@ import straightskeleton.Machine;
 import straightskeleton.Skeleton;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.Line;
-import utils.Line3D;
-import utils.LinearForm3D;
-import utils.Loop;
-import utils.MultiMap;
+import org.twak.utils.Line;
+import org.twak.utils.Line3D;
+import org.twak.utils.LinearForm3D;
+import org.twak.utils.Loop;
+import org.twak.utils.MultiMap;
 import static straightskeleton.ui.Marker.Type.*;
 
 /**

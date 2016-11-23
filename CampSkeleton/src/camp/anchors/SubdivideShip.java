@@ -33,15 +33,15 @@ import straightskeleton.Tag;
 import straightskeleton.offset.PerEdgeOffsetSkeleton;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.Cache;
-import utils.DHash;
-import utils.LContext;
-import utils.Loop;
-import utils.LoopL;
-import utils.Loopable;
-import utils.SetCorrespondence;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.Cache;
+import org.twak.utils.DHash;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.SetCorrespondence;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

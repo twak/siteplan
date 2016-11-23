@@ -6,9 +6,9 @@ import java.awt.geom.Area;
 import java.awt.geom.PathIterator;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Bar;
-import utils.Cache2;
-import utils.Loop;
-import utils.LoopL;
+import org.twak.utils.Cache2;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
 
 /**
  *

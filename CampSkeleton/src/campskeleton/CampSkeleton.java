@@ -5,37 +5,16 @@
  */
 package campskeleton;
 
-import camp.anim.APlanBoxes;
-import camp.anim.RenderAnimFrame;
-import camp.junk.ForcedStep;
-import camp.anchors.NaturalStepShip;
-import camp.anchors.Ship;
-import camp.anchors.Anchor;
-import camp.anim.OverhangPlan;
-import camp.anim.PioneerPlan;
-import camp.bigoldataset.ImportSVG;
-import camp.jme.Jme;
-import camp.jme.Preview;
-import camp.jme.PillarFeature;
-import camp.junk.wiggle.NaturalFeature;
-import camp.junk.wiggle.ThreeFeature;
-import camp.tags.PlanTag;
-import com.jme.math.Vector3f;
-import com.jme.scene.Spatial;
-import com.jme.scene.shape.Box;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import javax.swing.event.ListSelectionEvent;
-import javax.vecmath.Matrix4d;
-import straightskeleton.Tag;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +24,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.Vector;
+
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -57,26 +37,47 @@ import javax.swing.Popup;
 import javax.swing.PopupFactory;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.vecmath.Matrix4d;
 import javax.vecmath.Point2d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
+
+import org.twak.utils.ConsecutivePairs;
+import org.twak.utils.LContext;
+import org.twak.utils.ListDownLayout;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Pair;
+import org.twak.utils.SimpleFileChooser;
+import org.twak.utils.WeakListener;
+import org.twak.utils.ui.SaveLoad;
+import org.twak.utils.ui.WindowManager;
+
+import com.jme3.math.Vector3f;
+import com.jme3.scene.Spatial;
+import com.jme3.scene.shape.Box;
+
+import camp.anchors.Anchor;
+import camp.anchors.NaturalStepShip;
+import camp.anchors.Ship;
+import camp.anim.APlanBoxes;
+import camp.anim.OverhangPlan;
+import camp.anim.PioneerPlan;
+import camp.anim.RenderAnimFrame;
+import camp.jme.Jme;
+import camp.jme.PillarFeature;
+import camp.jme.Preview;
+import camp.junk.ForcedStep;
+import camp.tags.PlanTag;
 import straightskeleton.Output;
 import straightskeleton.Skeleton;
+import straightskeleton.Tag;
 import straightskeleton.debug.DebugDevice;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
 import straightskeleton.ui.PointEditor;
-import utils.ConsecutivePairs;
-import utils.LContext;
-import utils.ListDownLayout;
-import utils.Loop;
-import utils.LoopL;
-import utils.Pair;
-import utils.SimpleFileChooser;
-import utils.WeakListener;
-import utils.ui.SaveLoad;
-import utils.ui.WindowManager;
 /**
  * User interface for editing the skeleton
  * @author twak
@@ -168,7 +169,6 @@ public class CampSkeleton extends javax.swing.JFrame
                 	try
                 	{
                     preview = new Preview();
-                    preview.start();
                 	}
                 	catch (Throwable th)
                 	{
@@ -1301,7 +1301,7 @@ public class CampSkeleton extends javax.swing.JFrame
             if ( planUI != null )
                 planUI.repaint();
 
-            if (o instanceof ForcedStep || o instanceof PillarFeature || o instanceof NaturalFeature || o instanceof ThreeFeature)
+            if (o instanceof ForcedStep || o instanceof PillarFeature )
                 setTool( Tool.Anchor );
             else
                 setTool (Tool.Tag);
@@ -1679,7 +1679,7 @@ public class CampSkeleton extends javax.swing.JFrame
             @Override
             public void heresTheFile(File f) throws Throwable
             {
-                new ImportSVG( f, plan );
+//                new ImportSVG( f, plan );
                 planUI.repaint();
             }
         };
@@ -1979,8 +1979,7 @@ public class CampSkeleton extends javax.swing.JFrame
         Point3d loc = Jme.convert( new Vector3d ( mat.getM03(), mat.getM13(), mat.getM23() ) );
         System.out.println(mat);
         System.out.println(loc);
-        Box box = new Box("debug marker" , new Vector3f((float)loc.x, (float)loc.y, (float)loc.z), 0.3f,0.3f,0.3f);
-        markers.add( box );
+        Box box = new Box(new Vector3f((float)loc.x, (float)loc.y, (float)loc.z), 0.3f,0.3f,0.3f);
     }
 
     /**
@@ -1996,8 +1995,6 @@ public class CampSkeleton extends javax.swing.JFrame
         if (preview != null) // might take a while...
         {
             preview.clear = true;
-            preview.threadKey = threadKey;
-            preview.display( output, true, true );
 
             Point2d pt = getMiddle( plan.points );
             preview.setViewStats( pt.x / Jme.scale, threadKey.height / Jme.scale, pt.y / Jme.scale, threadKey );

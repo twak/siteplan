@@ -14,8 +14,8 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 import straightskeleton.ui.Bar;
 import straightskeleton.ui.Marker;
-import utils.Loop;
-import utils.MUtils;
+import org.twak.utils.Loop;
+import org.twak.utils.MUtils;
 
 /**
  *

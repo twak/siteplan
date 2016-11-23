@@ -13,13 +13,13 @@ import straightskeleton.Edge;
 import straightskeleton.SkeletonCapUpdate;
 import straightskeleton.debug.DebugDevice;
 import straightskeleton.ui.Marker;
-import utils.DHash;
-import utils.LContext;
-import utils.LoopL;
-import utils.Loopable;
-import utils.SetCorrespondence;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.DHash;
+import org.twak.utils.LContext;
+import org.twak.utils.LoopL;
+import org.twak.utils.Loopable;
+import org.twak.utils.SetCorrespondence;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

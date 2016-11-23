@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 import straightskeleton.ui.DirectionEvent;
 import straightskeleton.ui.MachineEvent;
-import utils.MUtils;
+import org.twak.utils.MUtils;
 
 /**
  *

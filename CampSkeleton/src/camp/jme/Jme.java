@@ -1,7 +1,7 @@
 package camp.jme;
 
-import com.jme.math.Quaternion;
-import com.jme.math.Vector3f;
+import com.jme3.math.Quaternion;
+import com.jme3.math.Vector3f;
 import javax.vecmath.Matrix4d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;

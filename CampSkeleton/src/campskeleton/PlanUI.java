@@ -12,12 +12,12 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 import javax.vecmath.Point2d;
-import utils.LContext;
-import utils.Loop;
-import utils.LoopL;
-import utils.PolygonArea;
-import utils.ReverseList;
-import utils.ui.Colour;
+import org.twak.utils.LContext;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.PolygonArea;
+import org.twak.utils.ReverseList;
+import org.twak.utils.ui.Colour;
 
 /**
  * uses the point editor to create a plan

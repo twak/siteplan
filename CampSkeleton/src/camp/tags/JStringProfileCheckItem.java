@@ -7,8 +7,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
-import utils.WeakListener;
-import utils.WeakListener.Changed;
+import org.twak.utils.WeakListener;
+import org.twak.utils.WeakListener.Changed;
 
 /**
  *

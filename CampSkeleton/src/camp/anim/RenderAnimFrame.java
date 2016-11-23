@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import straightskeleton.ui.NaiveMould;
-import utils.SimpleFileChooser;
+import org.twak.utils.SimpleFileChooser;
 
 /**
  *
@@ -190,9 +190,6 @@ public class RenderAnimFrame extends javax.swing.JFrame {
                         {
                             Preview preview = CampSkeleton.instance.preview;
 
-                            preview.clear = true;
-                            preview.threadKey = s;
-
 
                     preview.display( s.output, true, true, false );
 
@@ -208,9 +205,6 @@ public class RenderAnimFrame extends javax.swing.JFrame {
                     while (preview.isPendingUpdate());
 
                     preview.dump( new File( String.format( dirField.getText() + "/m1/%04d.obj", i ) ) );
-
-                    preview.clear = true;
-                    preview.threadKey = s;
 
                     preview.display( s.output, false, false, true );
 

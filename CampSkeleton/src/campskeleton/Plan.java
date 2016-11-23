@@ -16,10 +16,10 @@ import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Point2d;
 import straightskeleton.ui.Marker;
-import utils.ConsecutivePairs;
-import utils.Loop;
-import utils.LoopL;
-import utils.Pair;
+import org.twak.utils.ConsecutivePairs;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.Pair;
 
 /**
  * @author twak
