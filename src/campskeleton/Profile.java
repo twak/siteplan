@@ -12,8 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Point2d;
+
+import org.twak.utils.ConsecutiveItPairs;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
+import org.twak.utils.Pair;
 import org.twak.utils.Rainbow;
 
 /**
@@ -68,7 +71,16 @@ public class Profile
         }
     }
 
-    @Override
+    public Profile(List<Point2d> pts) {
+
+        Loop<Bar> loop;
+        points.add( loop = new Loop<>() );
+        
+        for ( Pair<Point2d, Point2d> pt : new ConsecutiveItPairs<Point2d> (pts) )
+        	loop.append( new Bar ( pt.first(), pt.second() ) );
+    }
+
+	@Override
     public String toString()
     {
         return name;
