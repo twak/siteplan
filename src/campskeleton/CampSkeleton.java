@@ -102,7 +102,6 @@ public class CampSkeleton extends javax.swing.JFrame
 
     private SaveLoad saveLoad;
 
-    // hacked-in features for roof-generation
     public Tag wall = new Tag ("wall"), roof = new Tag ("roof"), weakEdge = new Tag ("weak edge");
 
     // what we're currently working on
@@ -122,45 +121,14 @@ public class CampSkeleton extends javax.swing.JFrame
     // animation frame we're on
     int frame = 0;
 
-    public CampSkeleton (boolean dummy)
+    public CampSkeleton ()
     {
-        // dummy
+    	this(null);
     }
 
     /** Creates new form CampSkeleton */
-    public CampSkeleton()
+    public CampSkeleton(Plan plan)
     {
-
-//         debug for dumping output to disk (when webstart's crappy console craps out)
-//        try
-//        {
-//            File f;
-//            try
-//            {
-//                f = new File( System.getProperty( "user.home" ) );
-//            }
-//            catch ( Throwable th )
-//            {
-//                f = new File("C:\\");
-//            }
-//
-//
-//            System.setOut(
-//    new PrintStream(
-//      new BufferedOutputStream(
-//       new FileOutputStream( new File (f, "citysculpt_out.txt")))));
-//
-//            System.setErr(
-//    new PrintStream(
-//      new BufferedOutputStream(
-//       new FileOutputStream(  new File (f,"citysculpt_err.txt")))) );
-//
-//        }
-//        catch ( FileNotFoundException ex )
-//        {
-//            ex.printStackTrace();
-//        }
-
 
         new Thread()
             {
@@ -267,7 +235,10 @@ public class CampSkeleton extends javax.swing.JFrame
         };
         saveLoad.addSaveLoadMenuItems( fileMenu, "plan", this ); // reflective reference to field plan
 
-        setDefaultPlan();
+        if (plan == null)
+        	setDefaultPlan();
+        else 
+        	setPlan( plan );
 
         setupProfileCombo();
 
@@ -833,7 +804,7 @@ public class CampSkeleton extends javax.swing.JFrame
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+       	setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         goButton.setText("go");
         goButton.addActionListener(new java.awt.event.ActionListener() {
