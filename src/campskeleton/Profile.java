@@ -180,7 +180,7 @@ public class Profile
         // one chain, and all others should have an even number (always two atm!)
         public List<Loop<Bar>> chainStarts = new ArrayList();
 
-        // info that is derrived from the input
+        // info that is derived from the input
         transient Map <Loop<Bar>, ProfileChainInfo> chainInfo = new HashMap();
 
 
