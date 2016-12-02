@@ -1,139 +1,160 @@
 package camp.jme;
 
+import java.awt.BorderLayout;
+import java.awt.Canvas;
+import java.awt.Dimension;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.vecmath.Point3d;
 
-import org.twak.utils.SimpleFileChooser;
+import org.twak.utils.Arrayz;
+import org.twak.utils.Loop;
+import org.twak.utils.Loopable;
 
+import com.jme3.app.SimpleApplication;
+import com.jme3.asset.plugins.FileLocator;
+import com.jme3.light.AmbientLight;
+import com.jme3.light.DirectionalLight;
+import com.jme3.material.Material;
+import com.jme3.math.ColorRGBA;
+import com.jme3.math.Vector3f;
+import com.jme3.scene.Geometry;
+import com.jme3.scene.Mesh;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
+import com.jme3.scene.VertexBuffer;
+import com.jme3.system.AppSettings;
+import com.jme3.system.JmeCanvasContext;
 
 import campskeleton.PlanSkeleton;
 import straightskeleton.Output;
 import straightskeleton.Output.Face;
-import straightskeleton.Output.LoopNormal;
 import straightskeleton.Skeleton;
 
-public class Preview
+public class Preview extends SimpleApplication
 {
 
+	Node skel = new Node();
+	
+	public JPanel getPanel() {
+		JPanel out = new JPanel(new BorderLayout());
+		
+		Dimension d3Dim = new Dimension (100, 640);
+		
+		AppSettings settings = new AppSettings(true);
+		
+		settings.setWidth(d3Dim.width);
+		settings.setHeight(d3Dim.height);
+		settings.setSamples(4);
+		settings.setVSync(true);
+		settings.setFrameRate(60);
+		
+		setSettings(settings);
+		createCanvas();
+		
+		JmeCanvasContext ctx = (JmeCanvasContext) getContext();
+		ctx.setSystemListener(this);
+
+		Canvas canvas = ctx.getCanvas();
+		canvas.setPreferredSize(d3Dim);
+		
+		startCanvas();
+		
+		out.add (canvas, BorderLayout.CENTER);
+		
+		rootNode.attachChild( skel );
+		
+		return out;
+	}
+	
+
+	@Override
+	public void simpleInitApp() {
+		DirectionalLight sun = new DirectionalLight();
+		sun.setDirection(new Vector3f(-0.1f, -0.7f, -1.0f).normalizeLocal());
+		sun.setColor(new ColorRGBA(1f, 0.95f, 0.99f, 1f));
+		rootNode.addLight(sun);
+
+		AmbientLight al = new AmbientLight();
+		al.setColor(ColorRGBA.White.mult(0.3f));
+		rootNode.addLight(al);
+
+		assetManager.registerLocator("/home/twak/", FileLocator.class);
+
+		// FilterPostProcessor fpp = new FilterPostProcessor(assetManager);
+		// SSAOFilter ssao = new SSAOFilter(0.49997783f, 42.598858f, 35.999966f,
+		// 0.39299846f );
+		// fpp.addFilter(ssao);
+		// viewPort.addProcessor(fpp);
+
+		setDisplayFps(false);
+		setDisplayStatView(false);	
+		
+		getFlyByCamera().setDragToRotate(true);
+		getFlyByCamera().setMoveSpeed(100);
+		cam.setFrustumFar( 1e4f );
+	}
 
     public synchronized void display( Output output, boolean showFaces, boolean showOther, boolean showCap )
     {
-        Node solid = new Node();
-//        Node wire = new Node();
-//
-//        wire.setRenderState( blackMaterial );
-//        wire.setRenderState( localWireState );
+    	for (Spatial s : skel.getChildren())
+    		s.removeFromParent();
+    	
+    	Geometry geom = new Geometry("mesh", createMesh( output ));
+    	
+    	Material mat = new Material( getAssetManager(), "Common/MatDefs/Light/Lighting.j3md" );
+//		mat.setColor( "Diffuse", new ColorRGBA( randy.nextFloat(), randy.nextFloat(), randy.nextFloat(), 1f ) );
 
-        if ( showFaces )
-            for ( Face f : output.faces.values() )
-                try
-                {
-//                    JmeFace spatial = new JmeFace( f );
-                    
-                } catch ( Throwable e )
-                {
-                    if ( f != null )
-                        System.err.println( "point count is " + f.pointCount() );
-
-                    e.printStackTrace();
-                    if ( e.getCause() != null )
-                        e.getCause().printStackTrace();
-                }
-
-        if ( showOther )
-            for ( LoopNormal ln : output.nonSkelFaces )
-                try
-                {
-//                    JmeLoopL spatial = new JmeLoopL( ln.loopl, ln.norm, true );
-//                    if ( spatial.valid )
-//                        solid.attachChild( spatial );
-                } catch ( Throwable e )
-                {
-                    e.printStackTrace();
-                    if ( e.getCause() != null )
-                        e.getCause().printStackTrace();
-                }
-
-
-          if ( showCap )
-            for ( LoopNormal ln : output.nonSkelFaces2 )
-                try
-                {
-//                    JmeLoopL spatial = new JmeLoopL( ln.loopl, ln.norm, true );
-//                    if ( spatial.valid )
-//                        solid.attachChild( spatial );
-                } catch ( Throwable e )
-                {
-                    e.printStackTrace();
-                    if ( e.getCause() != null )
-                        e.getCause().printStackTrace();
-                }
-
-//        Set<Output.SharedEdge> roofLines = new HashSet();
-//        for (Output.SharedEdge se : output.edges.map.values())
-//        {
-//            if (
-//                se.left.profile.contains( CampSkeleton.instance.roof ) &&
-//                se.right.profile.contains( CampSkeleton.instance.roof ) )
-//                    roofLines.add( se );
-//        }
-
-//        for (Output.SharedEdge se : roofLines)
-//        {
-//
-//            Point3d start = se.getStart( se.left );
-//            Point3d end = se.getEnd( se.left );
-//
-//            if (start.z > end.z)
-//            {
-//                end = start;
-//                start = tmp;
-//            }
-
-//            Point3d lE = new Point3d (end.x, end.y, start.z);
-//
-//            Vector3d slope = new Vector3d (end);
-//            slope.sub( start );
-//            Vector3d flat = new Vector3d (lE);
-//            flat.sub( start );
-//
-//            double angle = slope.angle( flat );
-//
-//            Cylinder c = new Cylinder( "bob", 2, 5, 0.1f, (float)(start.distance( end )/Jme.scale));
-//
-//            Point3d perp = new Point3d (start.x - slope.y, start.y + slope.x, start.z);
-//            Vector3d pv = new Vector3d(start);
-//            pv.sub( perp );
-//
-//
-////            LinearForm lf = new LinearForm( new Line (end.x, end.y, start.x, start.y));
-////            lf.perpendicular();
-////            Line l = lf.toLine( 0, 10 );
-//
-//            Quaternion quat = new Quaternion();
-//            quat.fromAngleAxis( (float)angle , Jme.toF( pv ) );
-//
-//            c.setLocalTranslation( Jme.toF( Jme.convert( start )));
-//            c.setModelBound( new OrientedBoundingBox() );
-//            c.setLocalRotation( quat );
-//            c.updateModelBound();
-//            out.attachChild( c );
-//        }
-
-
-//        if (allFaces.size() > 0)
-//            out.attachChild( new Tiller( allFaces.iterator().next() ) );
-
-//        System.out.println (" we ahve "+ out.getChildren().size() );
-
-//        spatialsToShow.add( wire );
-//        spatialsToShow.add( solid );
+		geom.setMaterial( mat );
+    	
+    	rootNode.attachChild( geom );
     }
 
+	private Mesh createMesh( Output output ) {
+		List<Float> pos = new ArrayList<>(), norms = new ArrayList();
+		List<Integer> ind = new ArrayList<>();
+
+		if ( output.faces != null )
+			f:
+			for ( Face f : output.faces.values() ) {
+
+				for ( Loop<Point3d> ll : f.getLoopL() ) {
+					for (Loopable<Point3d> lll : ll.loopableIterator())
+						if (lll.get().distance( lll.getNext().get() ) > 100)
+							continue f;
+				}
+				
+				for ( Loop<Point3d> ll : f.getLoopL() ) {
+					org.twak.utils.Loopz.triangulate( ll, true, ind, pos, norms );
+				}
+			}
+
+
+		// output is z-up, we're y-up
+		for ( int i = 0; i < pos.size(); i += 3 ) {
+			swap( pos, i + 1, i + 2 );
+			swap( norms, i + 1, i + 2 );
+		}
+		Mesh m = new Mesh();
+
+		m.setMode( Mesh.Mode.Triangles );
+
+		m.setBuffer( VertexBuffer.Type.Position, 3, Arrayz.toFloatArray( pos ) );
+		m.setBuffer( VertexBuffer.Type.Normal, 3, Arrayz.toFloatArray( norms ) );
+		m.setBuffer( VertexBuffer.Type.Index, 3, Arrayz.toIntArray( ind ) );
+		return m;
+	}
+    
+	private void swap( List<Float> array, int i, int j ) {
+		float tmp = array.get( i );
+		array.set( i, array.get( j ) );
+		array.set( j, tmp );
+	}
+	
     public void outputObj( final JFrame swingHandle ) {}
 
     public synchronized void dump( File file ){}
@@ -160,4 +181,5 @@ public class Preview
 		// TODO Auto-generated method stub
 		
 	}
+
 }
