@@ -127,7 +127,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 
 	/** Creates new form CampSkeleton */
 	public CampSkeleton( Plan plan ) {
-		preview = new Preview();
+//		preview = new Preview();
 
 		instance = this;
 
@@ -852,7 +852,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 
 		rootPanel.add( jPanel5, java.awt.BorderLayout.EAST );
 
-		rootPanel.add( preview.getPanel(), java.awt.BorderLayout.WEST );
+//		rootPanel.add( preview.getPanel(), java.awt.BorderLayout.WEST );
 
 		getContentPane().add( rootPanel, java.awt.BorderLayout.CENTER );
 
