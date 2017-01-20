@@ -27,6 +27,21 @@ import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
 import org.twak.utils.MultiMap;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.vecmath.Point2d;
+
+import org.twak.utils.Cache;
+import org.twak.utils.Loop;
+import org.twak.utils.LoopL;
+import org.twak.utils.MultiMap;
+
 /**
  * Root class for the straight skeleton extensions.
  * @author twak
@@ -75,33 +90,6 @@ public class PlanSkeleton extends Skeleton
 
     public transient AnchorHauler anchorHauler;
 
-    /**
-     * Which edges are created from which bar? (only input edges?)
-     * How do we deal with multiple edges from one bar (instance or reference?)
-     * How do we get an event when a new edges is created? (or can we always follow to base?)
-     *
-     * Always follow to base edge. Map<input edge -> bar>.  <plan bar -> global, valency>
-     *
-     * Normal skeleton deals with edge direction changes. plan skeleton deals with additional bars/edges
-     *
-     * How do edges merging/splitting work into all this?
-     *
-     * *****Why not edge -> profileMachine w/bar? - pMachines currently operate on a set of edges
-     *
-     * read sicsa papers. - while on holiday. make notes, nothing more.
-     * try implementing topological skeleton?
-     * sicsa poster. - can wait til home
-     *
-     * where do we figure out which bit of profiles we'll use? and how big the step for each global.
-     *
-     * get globals working with new system (enabled/disabled)
-     * anchor placement (relative/absolute)
-     * anchors - grid, columns/rows, morph-bones.
-     * how do anchors work with merging faces.
-     *    1) parallel faces defined as one in input?
-     * multiple bar-instances?
-     *
-     */
 
     public PlanSkeleton()
     {
