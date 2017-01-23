@@ -18,25 +18,10 @@ import org.twak.siteplan.tags.LowPriorityTag;
 import org.twak.straightskeleton.Corner;
 import org.twak.straightskeleton.Edge;
 import org.twak.straightskeleton.Machine;
+import org.twak.straightskeleton.Output.Face;
 import org.twak.straightskeleton.Skeleton;
 import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.Output.Face;
 import org.twak.straightskeleton.ui.Bar;
-import org.twak.utils.Cache;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.MultiMap;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.vecmath.Point2d;
-
 import org.twak.utils.Cache;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
@@ -79,7 +64,7 @@ public class PlanSkeleton extends Skeleton
     // the basic skeleton implementation doesn't know about bars, profiles etc... this structure
     // contains additional informaiton about a horiztonal stack of edges, indexed by the lowest(defining) edge.
     // this edge can be found in Output.
-    private Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap();
+    private Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap<Edge, ColumnProperties>();
     // acceleration structure for column properties
     public MultiMap<Bar, Edge> planEdgeToBar;
 
@@ -111,11 +96,11 @@ public class PlanSkeleton extends Skeleton
         // reset data structures that assume plan unchanged
         plan.clearCache();
 
-        LoopL <Corner> out = new LoopL();
+        LoopL <Corner> out = new LoopL<>();
 
-        Map <GlobalProfile, List<Machine>> machines = new LinkedHashMap();
+        Map <GlobalProfile, List<Machine>> machines = new LinkedHashMap<>();
         globalFac = new GlobalEventFactory ( plan );
-        planEdgeToBar = new MultiMap();
+        planEdgeToBar = new MultiMap<Bar, Edge>();
 
         for ( Global g : plan.globals )
         {
@@ -124,7 +109,7 @@ public class PlanSkeleton extends Skeleton
             
             for ( Loop<Bar> lb : plan.points)
             {
-                Loop<Corner> loop = new Loop();
+                Loop<Corner> loop = new Loop<>();
 
                 Cache<Point2d, Corner> barCache = new Cache<Point2d, Corner>() {
 
@@ -143,8 +128,7 @@ public class PlanSkeleton extends Skeleton
                     // once for each profile
                     if ( m == null )
                     {
-                        m = new ArrayList();
-                        List<Loop<Bar>> loops = profile.globalProfiles.get(g).chainStarts;
+                        m = new ArrayList<Machine>();
                         for (int i = 0; i < g.valency; i++)
                             m.add( new ProfileMachine(  profile, g, i ));
                         machines.put( gp, m );
@@ -364,8 +348,8 @@ public class PlanSkeleton extends Skeleton
      */
     public Set<Corner> findLiveEdgesFrom( Bar planBar )
     {
-        Set<Edge> allEdges = new HashSet ( planEdgeToBar.get( planBar ) );
-        Set<Corner> out = new HashSet();
+        Set<Edge> allEdges = new HashSet<Edge> ( planEdgeToBar.get( planBar ) );
+        Set<Corner> out = new HashSet<>();
         for (Corner c : liveCorners)
             if (allEdges.contains( c.nextL) )
                 out.add(c);

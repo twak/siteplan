@@ -1,27 +1,24 @@
 package org.twak.siteplan.campskeleton;
 
-import java.io.File;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
 import org.twak.siteplan.campskeleton.Profile.ProfileChainInfo;
-import org.twak.siteplan.jme.Preview;
 import org.twak.straightskeleton.Corner;
 import org.twak.straightskeleton.CornerClone;
 import org.twak.straightskeleton.Edge;
 import org.twak.straightskeleton.HeightEvent;
 import org.twak.straightskeleton.Machine;
 import org.twak.straightskeleton.Output;
+import org.twak.straightskeleton.Output.Face;
 import org.twak.straightskeleton.Skeleton;
 import org.twak.straightskeleton.SkeletonCapUpdate;
-import org.twak.straightskeleton.Output.Face;
 import org.twak.straightskeleton.debug.DebugDevice;
 import org.twak.straightskeleton.offset.OffsetSkeleton;
 import org.twak.utils.Cache;
@@ -40,7 +37,7 @@ import org.twak.utils.ToStrictSetIerable;
 public class GlobalEventFactory
 {
     private Plan plan;
-    private Map <Global, GlobalHE> perGlobal = new LinkedHashMap();
+    private Map <Global, GlobalHE> perGlobal = new LinkedHashMap<>();
 
     public GlobalEventFactory( Plan plan )
     {
@@ -144,7 +141,7 @@ public class GlobalEventFactory
             CornerClone cc = new CornerClone(cap);
 
             // this union merges a set of faces to form the offset area.
-            FaceUnion<Edge> union = new FaceUnion( );
+            FaceUnion<Edge> union = new FaceUnion<>( );
 
             // add each face to map, tag with eventual propertiesS
             Output offsetOutput = offset.outputSkeleton.output;
@@ -204,7 +201,7 @@ public class GlobalEventFactory
 
             for (Loop<Point3d> loopP : shapeP)
             {
-                Loop<Corner> loopC = new Loop();
+                Loop<Corner> loopC = new Loop<>();
                 cc.output.add( loopC );
 
                 for (Loopable<Point3d> loopablePt: loopP.loopableIterator())
@@ -260,11 +257,11 @@ public class GlobalEventFactory
                 }
             };
 
-            LoopL<Corner> out = new LoopL();
+            LoopL<Corner> out = new LoopL<>();
             for (Loop<Point3d> loopIn : in)
             {
 //                System.out.println("loopsize:"+in.count());
-                Loop<Corner> loopC = new Loop();
+                Loop<Corner> loopC = new Loop<>();
                 out.add(loopC);
 
                 for (Point3d pt :loopIn )
