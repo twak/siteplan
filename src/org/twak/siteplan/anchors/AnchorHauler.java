@@ -8,13 +8,17 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.vecmath.Point2d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
-import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.anchors.Ship.Instance;
-import org.twak.siteplan.campskeleton.*;
+import org.twak.siteplan.campskeleton.Global;
+import org.twak.siteplan.campskeleton.Plan;
+import org.twak.siteplan.campskeleton.PlanSkeleton;
+import org.twak.siteplan.campskeleton.Profile;
+import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.straightskeleton.Corner;
 import org.twak.straightskeleton.CornerClone;
 import org.twak.straightskeleton.Edge;
@@ -37,7 +41,6 @@ import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
 import org.twak.utils.Loopable;
 import org.twak.utils.SetCorrespondence;
-import org.twak.utils.SetCorrespondence.ConvertB;
 
 /**
  * Computes the location of anchors, and dispatches them at the appropriate height to a set of handles
@@ -48,10 +51,10 @@ public class AnchorHauler
 {
 
 //    MultiMap<Feature, Marker> planSteps = new MultiMap();
-    Map<Double, AnchorHeightEvent> events = new LinkedHashMap();
+    Map<Double, AnchorHeightEvent> events = new LinkedHashMap<>();
 //    private MultiMap<Bar, Edge> barToPlanEdge;
     private Plan plan;
-    Map<Edge, Set<Tag>> newEdgeFeatures = new LinkedHashMap();
+    Map<Edge, Set<Tag>> newEdgeFeatures = new LinkedHashMap<>();
     PlanSkeleton skel;
 
     public AnchorHauler( PlanSkeleton skel  )
@@ -105,12 +108,6 @@ public class AnchorHauler
                         skel.qu.add(evt);
                     }
     }
-
-
-
-
-
-    
 
     private static class EdgeGlobalValencyBar
     {
@@ -211,8 +208,6 @@ public class AnchorHauler
                 {
                     // properties when this edge was first introduced
                     PlanSkeleton.ColumnProperties defining = skel.getDefiningColumn( e );
-
-                    
 
                     Bar b = defining.defBar;
                     Set<Corner> sections = e.findLeadingCorners();
