@@ -228,52 +228,5 @@ public class PlanUI extends MarkerUI
     protected void somethingChanged( Graphics2D g2 )
     {
         CampSkeleton.instance.somethingChanged();
-//        try
-//        {painting
-//            Skeleton s = new PlanSkeleton ( plan );
-//            s.skeleton();
-//
-//            if ( s.output.faces != null )
-//            {
-//                Output output = s.output;
-//
-//                if ( g2 != null )
-//                {
-//                    g2.setStroke( new BasicStroke( 1 ) );
-//                    for ( Face face : output.faces.values() )
-//                        {
-//                            LoopL<Point3d> loopl = face.getLoopL();
-//                            int count = 0;
-//
-//                            for (Loop<Point3d> loop : loopl )
-//                            {
-//                                Polygon pg = new Polygon();
-//                                for ( Point3d p : loop ) //loop.count()
-//                                    pg.addPoint( ma.toX( p.x ), ma.toY( p.y ) );
-//
-//                                if ( pg.npoints > 2 )
-//                                {
-//                                    g2.setColor( Color.black );
-//                                    g2.drawPolygon( pg );
-//
-//                                    if ( count == 0 )
-//                                        g2.setColor( new Color( (int) ( Math.random() * 100 ) + 100, (int) ( Math.random() * 100 ) + 100, (int) ( Math.random() * 100 ) + 100, 100 ) );
-//                                    else
-//                                        g2.setColor( Color.black ); // hole..?
-//
-//                                    g2.fillPolygon( pg );
-//                                }
-//                                count++;
-//                            }
-//
-//                        }
-//                }
-//                CampSkeleton.instance.show( s.output, s );
-//            }
-//        }
-//        catch ( Throwable t )
-//        {
-//            t.printStackTrace();
-//        }
     }
 }

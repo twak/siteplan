@@ -33,31 +33,21 @@ import org.twak.utils.MultiMap;
  */
 public class PlanSkeleton extends Skeleton
 {
-//    public PillarFactory pillarFactory = null;
-//    public WindowFactory windowFactory = null;
     public GlobalEventFactory globalFac = null;
-//    public ThreeFactory threeFactory = null;
-//    public MeshFactory meshFactory = null;
 
-    // things that create these things we can add
     public static String[][] getShipTypes(){ return new String[][] {
-        {"camp.anchors.MeshShip", "Mesh"},
-//        {"camp.anchors.GridMeshShip", "Grid Mesh"}, // <-- TEMP
-        {"camp.anchors.VerticalMeshShip", "Upright Mesh"},
-        {"camp.anchors.NaturalStepShip", "Natural Step"},
-        {"camp.anchors.SubdivideShip", "Subdivide"},
-        {"camp.anchors.CapShip", "Cap"},
-//        {"camp.anchors.AnimateAnchorShip", "Animate Anchor"},
-//        {"camp.anchors.AnimateAnchorCircularShip", "Animate Circular"},
-//        {"camp.anchors.NaturalStepShipHACK", "** Natural Step HACK **"},
+        {"org.twak.siteplan.anchors.MeshShip", "Mesh"},
+        {"org.twak.siteplan.anchors.VerticalMeshShip", "Upright Mesh"},
+        {"org.twak.siteplan.anchors.NaturalStepShip", "Natural Step"},
+        {"org.twak.siteplan.anchors.SubdivideShip", "Subdivide"},
+        {"org.twak.siteplan.anchors.CapShip", "Cap"},
     }; }
 
     public static String[][] tagTypes = new String[][]
     {
-        // library of types of PlanTag
-        {"camp.tags.RoofTag", "Roof"},
-        {"camp.tags.LowPriorityTag", "Low Priority"},
-        {"camp.tags.SubdivideTag", "Subdivide"},
+        {"org.twak.siteplan.tags.RoofTag", "Roof"},
+        {"org.twak.siteplan.tags.LowPriorityTag", "Low Priority"},
+        {"org.twak.siteplan.tags.SubdivideTag", "Subdivide"},
     };
 
 
