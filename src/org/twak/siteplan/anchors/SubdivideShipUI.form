@@ -51,7 +51,7 @@
         <Property name="text" type="java.lang.String" value="name"/>
       </Properties>
     </Component>
-    <Component class="camp.anchors.JProfileProfileMap" name="jProfileProfileMap1">
+    <Component class="org.twak.siteplan.JProfileProfileMap" name="jProfileProfileMap1">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JProfileProfileMap(plan, ship.volumeSubdivide, plan.findProfiles());"/>
       </AuxValues>
