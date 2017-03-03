@@ -1,13 +1,14 @@
 package org.twak.siteplan.campskeleton;
 
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
+
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -17,8 +18,8 @@ import org.twak.siteplan.anchors.Anchor;
 import org.twak.straightskeleton.Tag;
 import org.twak.straightskeleton.ui.Bar;
 import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.straightskeleton.ui.NaiveMould.PMarker;
+import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.LContext;
 import org.twak.utils.Loopable;
 import org.twak.utils.ui.Colour;
