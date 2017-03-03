@@ -1,12 +1,5 @@
 package org.twak.siteplan.campskeleton;
 
-import com.thoughtworks.xstream.XStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.vecmath.Tuple2d;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -16,17 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
-import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
+import javax.vecmath.Tuple2d;
 
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
 import org.twak.straightskeleton.ui.Bar;
@@ -35,7 +27,6 @@ import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
 import org.twak.utils.Loopable;
-import org.twak.utils.SimpleFileChooser;
 import org.twak.utils.ui.Colour;
 
 /**
@@ -71,6 +62,7 @@ public class ProfileUI extends MarkerUI
         this.plan = plan;
         setBackground( Colour.sky );
         setup();
+        ma.setZoom(12);
     }
 
     @Override
@@ -412,14 +404,12 @@ public class ProfileUI extends MarkerUI
 
             ctx.loop.start.get().end.set( ctx.loop.start.getNext().get().end );
             ctx.loop.remove( ctx.loop.start.getNext() );
-            ctx.loop.start.getNext().get().start = ctx.loop.start.get().end;
 
             return false;
         }
 
         if (ctx.loop.start.get().start == corner || ctx.loop.start.get().end == corner ) // can't remove first bar
         {
-//            JOptionPane.showMessageDialog( this, "Delete from global (hollow/height) marker" );
             return false;
         }
         
