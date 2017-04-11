@@ -1,6 +1,6 @@
 Use this program at your own risk. It may well destroy your computer, and make out with your grandmother and/or dog. It isn't well tested, and isn't fit for any purpose. 
 
-(c) 2011 tom kelly, twak.org. Source/bundled resources that I created released under some sort of LGPL-ish license. Please reference "Interactive Modeling with Procedural Extrusions" if you publish anything in academia using this software.
+(c) 2017 twak, twak.org. Source/bundled resources that I created released under some sort of LGPL-ish license. Please reference "Interactive Modeling with Procedural Extrusions" if you publish anything in academia using this software.
 
 3D Window Controls:
 
