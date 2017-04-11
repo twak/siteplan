@@ -1310,10 +1310,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 	}
 
 	PlaybackStatus playbackStatus = PlaybackStatus.PAUSE;
-	PlaybackThread playbackThread = new PlaybackThread();
-	{
-		playbackThread.start();
-	}
+	PlaybackThread playbackThread;
 
 	public class PlaybackThread extends Thread {
 		public boolean run = false;
@@ -1349,6 +1346,12 @@ public class CampSkeleton extends javax.swing.JFrame {
 	}
 
 	public void togglePlaybackStatus() {
+		
+		if (playbackThread == null) {
+			playbackThread = new PlaybackThread();
+			playbackThread.start();
+		}
+		
 		if ( playbackStatus == PlaybackStatus.PLAY )
 			playbackStatus = playbackStatus.PAUSE;
 		else

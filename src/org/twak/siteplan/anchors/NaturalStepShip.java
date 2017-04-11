@@ -139,7 +139,7 @@ public class NaturalStepShip extends Ship
             // we clamp the plan marker to be a certain distance from the start or end (19/3/2010)
             Line l = new Line ( new Point2d ( insertAfter.x, insertAfter.y), new Point2d ( insertBefore.x, insertBefore.y ) );
             double tol = 1./l.length(); // <-- need to find some science behind this (clamp input size of natural step?)
-            Point2d clampedPlanMarker = l.fromFrac( MUtils.clamp( l.findFrac( planMarker ), tol, 1-tol ) );
+            Point2d clampedPlanMarker = l.fromPPram( MUtils.clamp( l.findPPram( planMarker ), tol, 1-tol ) );
 
             // clone shape from bars
             // scale to "very small"

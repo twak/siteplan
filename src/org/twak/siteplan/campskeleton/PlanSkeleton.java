@@ -96,7 +96,8 @@ public class PlanSkeleton extends Skeleton
         {
             if ( g != plan.root )
                  globalFac.add( g );
-            
+           
+
             for ( Loop<Bar> lb : plan.points)
             {
                 Loop<Corner> loop = new Loop<>();
