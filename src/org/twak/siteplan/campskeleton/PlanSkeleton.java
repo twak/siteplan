@@ -64,6 +64,7 @@ public class PlanSkeleton extends Skeleton
 //    public ProfileMachine sideProfileMachine;
 
     public transient AnchorHauler anchorHauler;
+	public double capArea;
 
 
     public PlanSkeleton()
