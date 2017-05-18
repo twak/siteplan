@@ -131,6 +131,8 @@ public class CampSkeleton extends javax.swing.JFrame {
 		instance = this;
 
 		initComponents();
+		
+		autoupdateButtom.doClick();
 
 		centralPanel.setLayout( new ListDownLayout() );
 		centralPanel.setPreferredSize( new Dimension( 200, 300 ) );
