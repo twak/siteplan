@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComponent;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.jme.Preview;
@@ -73,7 +73,7 @@ public abstract class Ship
     protected Anchor createNewAnchor()
     {
         // allows subclasses to create a profileanchor instaed
-        return CampSkeleton.instance.plan.createAnchor( Plan.AnchorType.PROFILE_PLAN, null, null );
+        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE_PLAN, null, null );
     }
 
     public void update( int frame, int delta, Plan plan )

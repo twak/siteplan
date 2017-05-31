@@ -56,23 +56,23 @@ public class MarkerUI extends PointEditor
     public void remove( LContext<Bar> ctx, Point2d dragged )
     {
 
-        if (CampSkeleton.instance == null)
+        if (SitePlan.instance == null)
             return;
 
-        switch ( CampSkeleton.instance.mode )
+        switch ( SitePlan.instance.mode )
         {
             case Tag:
 
                 if (ctx.loopable == null)
                     return;
 
-                if ( CampSkeleton.instance.selectedTag == null )
+                if ( SitePlan.instance.selectedTag == null )
                 {
                     JOptionPane.showMessageDialog( this, "Please select a type of tag to remove" );
                     return;
                 }
 
-                ctx.get().tags.remove( CampSkeleton.instance.selectedTag );
+                ctx.get().tags.remove( SitePlan.instance.selectedTag );
 
                 break;
 
@@ -160,7 +160,7 @@ public class MarkerUI extends PointEditor
         if ( pt instanceof Marker )
         {
             // only when in the correct mode!
-            if ( CampSkeleton.instance.mode != Tool.Features )
+            if ( SitePlan.instance.mode != Tool.Features )
                 return;
 
             if ( pressed == null ) // when we start moving
@@ -189,7 +189,7 @@ public class MarkerUI extends PointEditor
     @Override
     public void addBetween( LContext<Bar> ctx, Point l )
     {
-        CampSkeleton cs = CampSkeleton.instance;
+        SitePlan cs = SitePlan.instance;
         switch ( cs.mode )
         {
             case Vertex:
@@ -269,7 +269,7 @@ public class MarkerUI extends PointEditor
                 public void actionPerformed( ActionEvent e )
                 {
                     p.rel = rel.isSelected();
-                    CampSkeleton.instance.somethingChanged();
+                    SitePlan.instance.somethingChanged();
                 }
             } );
 
@@ -291,7 +291,7 @@ public class MarkerUI extends PointEditor
     {
         if ( location == null )
             return; // mousereleased
-        CampSkeleton cs = CampSkeleton.instance;
+        SitePlan cs = SitePlan.instance;
 
         if ( cs == null )
             return;
@@ -368,12 +368,12 @@ public class MarkerUI extends PointEditor
 //                    continue;
 
                 boolean highlit = false;
-                for ( Anchor ac : CampSkeleton.instance.highlitAnchors )
+                for ( Anchor ac : SitePlan.instance.highlitAnchors )
                     highlit |= mark.generator.equals( ac.getProfileGen() ) || mark.generator.equals( ac.getPlanGen() );
 
                 boolean selected = false;
-                if ( CampSkeleton.instance.selectedAnchor != null )
-                    selected = mark.generator.equals( CampSkeleton.instance.selectedAnchor.getProfileGen() ) || mark.generator.equals( CampSkeleton.instance.selectedAnchor.getPlanGen() );
+                if ( SitePlan.instance.selectedAnchor != null )
+                    selected = mark.generator.equals( SitePlan.instance.selectedAnchor.getProfileGen() ) || mark.generator.equals( SitePlan.instance.selectedAnchor.getPlanGen() );
 
 
 

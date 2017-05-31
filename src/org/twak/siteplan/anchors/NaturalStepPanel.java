@@ -2,7 +2,7 @@ package org.twak.siteplan.anchors;
 
 import javax.swing.AbstractSpinnerModel;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.utils.AbstractDocumentListener;
 import org.twak.utils.WeakListener;
 
@@ -104,7 +104,7 @@ public class NaturalStepPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void planEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planEditButtonActionPerformed
-        CampSkeleton.instance.setPlan( ship.createPlanUI(CampSkeleton.instance.new PlanEdgeSelected()) );
+        SitePlan.instance.setPlan( ship.createPlanUI(SitePlan.instance.new PlanEdgeSelected()) );
     }//GEN-LAST:event_planEditButtonActionPerformed
 
     private void nGonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nGonButtonActionPerformed

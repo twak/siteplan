@@ -22,7 +22,7 @@ public class ForcedUI extends PlanUI
 
     public ForcedUI( ForcedStep forcedStep, PointEditor.BarSelected es )
     {
-        super (CampSkeleton.instance.plan, forcedStep.shape , es);
+        super (SitePlan.instance.plan, forcedStep.shape , es);
         this.step = forcedStep;
     }
 
