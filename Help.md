@@ -45,4 +45,4 @@ The plans must not self-intersect ("don't cross the beams"), or be inside out (o
 
 Edit the profiles in a similar way to the plans, note that they can only move upwards, or horizontally (the "monotone restriction"). To get around this, double-clicking in a profile will add a global event (overhanging roof).
 
-You can [download](http://siteplan.googlecode.com/git/CampSkeleton/dist/meshes.zip) a zip files of meshes.
+You can [download](https://github.com/twak/siteplan/blob/master/dist/meshes.zip) a zip files of meshes.
