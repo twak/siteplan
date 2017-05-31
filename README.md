@@ -2,7 +2,7 @@
 <div style="text-align: center;">
 <a href="http://www.flickr.com/photos/twak/6147665705/" title="rect3075 by twak, on Flickr"><img alt="rect3075" src="http://farm7.static.flickr.com/6084/6147665705_ec376a4dd5_m.jpg" height="240" width="240" /></a></div>
 <br />
-I'm very happy to finally announce the long overdue release of SitePlan, my procedural extrusions implementation. Learn how to run and build the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>.<br />
+I'm very happy to finally announce the long overdue release of siteplan, my procedural extrusions implementation. Info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>.<br />
 <div>
 <br /></div>
 <div>
