@@ -2,11 +2,11 @@
 <div style="text-align: center;">
 <a href="http://www.flickr.com/photos/twak/6147665705/" title="rect3075 by twak, on Flickr"><img alt="rect3075" src="http://farm7.static.flickr.com/6084/6147665705_ec376a4dd5_m.jpg" height="240" width="240" /></a></div>
 <br />
-I'm very happy to finally announce the long overdue release of SitePlan, my procedural extrusions implementation. There is information about the project <a href="https://github.com/twak/siteplan/blob/wiki/PageName.md">here</a>.<br />
+I'm very happy to finally announce the long overdue release of SitePlan, my procedural extrusions implementation. There is information about the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>.<br />
 <div>
 <br /></div>
 <div>
-Please use the software! The source code is <a href="https://github.com/twak/siteplan/">here</a>. This is a <a href="http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html">research project</a>, from many years ago!</div>
+Please use the software! This is a <a href="http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html">research project</a>, from a while back...</div>
 </div>
 <br />
 <div>
