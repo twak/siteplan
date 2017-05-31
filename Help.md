@@ -14,8 +14,8 @@ To run the compiled jar:
 # To Build #
 
   * install my deps into maven "mvn compile install" from the same directory as the pom.xml:
-  ** [jutils](https://github.com/twak/jutils)
-  ** [campskeleton](https://github.com/twak/campskeleton)
+    * [jutils](https://github.com/twak/jutils)
+    * [campskeleton](https://github.com/twak/campskeleton)
   * clone the siteplan repo
   * compile to a jar with "mvn package" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
   * There are lots of bugs, report them on github.
@@ -24,16 +24,16 @@ To run the compiled jar:
 
 (designed for nice demo videos, rather than being useful)
 
-** WASD - move forward/strafe
-** Mouse - look around
+* WASD - move forward/strafe
+* Mouse - look around
 
 # 2D Mouse Window Controls #
 
 Note: a 3 buttoned mouse is needed for most editing operations just now. Sorry.
 
-**Left - select, drag corners, & anchors. Double click on anchors for additional options.** Control + Left click add stuff - click on a blank space to add a plan/global offset, or a line to add a point.
-**Shift + Left click - delete points, delete all the points to remove a plan** Right drag - move view
-**Wheel - zoom view** The Alt key will change the behavour of the corner-dragging - in plan mode it snaps to grid (if active), and profile mode it moves all points above the selected point as well.
+*Left - select, drag corners, & anchors. Double click on anchors for additional options.** Control + Left click add stuff - click on a blank space to add a plan/global offset, or a line to add a point.
+*Shift + Left click - delete points, delete all the points to remove a plan** Right drag - move view
+*Wheel - zoom view** The Alt key will change the behavour of the corner-dragging - in plan mode it snaps to grid (if active), and profile mode it moves all points above the selected point as well.
 
 # 2D Interface Introduction #
 
