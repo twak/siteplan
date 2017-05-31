@@ -6,11 +6,13 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 
 # Getting Started #
 
-To start, 
+To run the compiled jar:
+ * install sun's java 1.8+
  * download [the jar](https://github.com/twak/siteplan/raw/wiki/siteplan-0.0.1-SNAPSHOT.jar)
- * java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+ * run "java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
 
-To build:
+# To Build #
+
   * install my deps into maven "mvn compile install" from the same directory as the pom.xml:
   ** [jutils](https://github.com/twak/jutils)
   ** [campskeleton](https://github.com/twak/campskeleton)
