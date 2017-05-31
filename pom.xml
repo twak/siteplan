@@ -26,7 +26,6 @@
   </build>
   
   	<repositories>
-
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net repository</name>
@@ -37,15 +36,14 @@
 			<id>jcenter</id>
 			<url>http://jcenter.bintray.com</url>
 		</repository>
-
 	</repositories>
   
-  	<properties>
+	<properties>
 		<jme3_g>org.jmonkeyengine</jme3_g>
-		<jme3_v>3.1.0-beta1</jme3_v>
+		<jme3_v>3.1.0-stable</jme3_v>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-  
+	
   	<dependencies>
 
 		<dependency>

@@ -17,7 +17,7 @@ import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
 import javax.vecmath.Tuple2d;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.straightskeleton.Corner;
@@ -42,7 +42,7 @@ public class NaturalStepUI extends PlanUI
 
     public NaturalStepUI( NaturalStepShip step, PointEditor.BarSelected es )
     {
-        super (CampSkeleton.instance.plan, step.shape , es);
+        super (SitePlan.instance.plan, step.shape , es);
 
         this.step = step;
 //        edges = new LoopL();

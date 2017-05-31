@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.vecmath.Point2d;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.straightskeleton.ui.Bar;
@@ -45,7 +45,7 @@ public class NaturalStepShipHACK extends NaturalStepShip
             mid.getPrev().get().end = mid.get().start;
             mid.getNext().get().start = mid.get().end;
 
-            Profile p = CampSkeleton.instance.plan.profiles.get( shape.get(0).start.getNext().get() );
+            Profile p = SitePlan.instance.plan.profiles.get( shape.get(0).start.getNext().get() );
             Point2d lastInP = p.points.get(0).start.getPrev().get().end;
 
             if ( (lastInP.x > 0 && yOff > 0) || (lastInP.x < 0 && yOff < 0 )) {

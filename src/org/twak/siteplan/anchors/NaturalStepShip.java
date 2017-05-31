@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.swing.JComponent;
 import javax.vecmath.Point2d;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
@@ -60,7 +60,7 @@ public class NaturalStepShip extends Ship
     };
 
     public NaturalStepShip()
-    { this (CampSkeleton.instance.plan); }
+    { this (SitePlan.instance.plan); }
     public NaturalStepShip( Plan plan )
     {
 //        Plan plan = CampSkeleton.instance.plan;
@@ -88,7 +88,7 @@ public class NaturalStepShip extends Ship
             plan.profiles.put( b, profs[i++] ); 
         }
 
-        CampSkeleton.instance.profileListChanged();
+        SitePlan.instance.profileListChanged();
         
         Loop<Double> speedLoop = new Loop();
         this.speeds.add(speedLoop);

@@ -14,7 +14,7 @@ import java.io.File;
 import javax.swing.JOptionPane;
 
 import org.twak.siteplan.anchors.Ship.Instance;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.siteplan.campskeleton.Profile;
@@ -200,7 +200,7 @@ public class CapShipUI extends javax.swing.JPanel
 
                 if ( s.output.faces != null )
                 {
-                    Preview preview = CampSkeleton.instance.preview;
+                    Preview preview = SitePlan.instance.preview;
 
                     
                     preview.display( s.output, true, true, false );
@@ -245,7 +245,7 @@ public class CapShipUI extends javax.swing.JPanel
         ((NaiveMould.PMarker)heightEdit.generator).set( heightEdit );
 
         // flush changes from preview
-        CampSkeleton.instance.somethingChanged();
+        SitePlan.instance.somethingChanged();
     }//GEN-LAST:event_outputButtonActionPerformed
 
     private void atZeroHeightCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atZeroHeightCheckActionPerformed

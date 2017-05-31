@@ -54,7 +54,7 @@ public class PlanUI extends MarkerUI
         this.shape = shape;
         this.plan = plan;
         setup();
-        ma.setZoom(12);
+        ma.setZoom(3);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class PlanUI extends MarkerUI
         if ( pt instanceof Marker )
 //            if ( evt.getPoint().distanceSq( pressed ) < 25 ) // radius of 5
             {
-                CampSkeleton.instance.setAnchorPlan ((Marker) pt);
+                SitePlan.instance.setAnchorPlan ((Marker) pt);
                 repaint();
             }
 //        pressed = null;
@@ -228,6 +228,6 @@ public class PlanUI extends MarkerUI
 
     protected void somethingChanged( Graphics2D g2 )
     {
-        CampSkeleton.instance.somethingChanged();
+        SitePlan.instance.somethingChanged();
     }
 }

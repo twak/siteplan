@@ -24,7 +24,7 @@ public class StepUI extends PlanUI
 
     public StepUI( NaturalStep step, PointEditor.BarSelected es )
     {
-        super (CampSkeleton.instance.plan, step.shape , es);
+        super (SitePlan.instance.plan, step.shape , es);
         this.step = step;
     }
 

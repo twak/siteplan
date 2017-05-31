@@ -9,7 +9,7 @@ package org.twak.siteplan.tags;
 import java.util.ArrayList;
 
 import org.twak.siteplan.anchors.JProfileProfileMap;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.utils.WeakListener.Changed;
 
@@ -75,7 +75,7 @@ public class SubdivideTagUI extends javax.swing.JPanel {
     private void outputAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputAreaActionPerformed
         tag.enabled = outputArea.isSelected();
         outputMap.setVisible(tag.enabled);
-        CampSkeleton.instance.somethingChanged();
+        SitePlan.instance.somethingChanged();
     }//GEN-LAST:event_outputAreaActionPerformed
 
 

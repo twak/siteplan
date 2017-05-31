@@ -6,7 +6,7 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.straightskeleton.Corner;
@@ -84,7 +84,7 @@ public class CapShip extends Ship
     @Override
     protected Anchor createNewAnchor()
     {
-        return CampSkeleton.instance.plan.createAnchor( Plan.AnchorType.PROFILE, this );
+        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, this );
     }
 
     @Override

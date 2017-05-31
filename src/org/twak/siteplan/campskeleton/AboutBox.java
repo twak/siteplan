@@ -23,6 +23,9 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.SwingUtilities;
+
 import org.twak.utils.ImageU;
 import org.twak.utils.WebU;
 import org.twak.utils.ui.ImageComponent;
@@ -38,18 +41,26 @@ public class AboutBox extends javax.swing.JFrame {
     public AboutBox() {
         try {
             initComponents();
-            BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/camp/resources/help.txt")));
+            BufferedReader br = new BufferedReader(new InputStreamReader(getClass().
+            		getResourceAsStream("/org/twak/siteplan/resources/help.txt")));
             StringBuffer sb = new StringBuffer();
             while (br.ready()) {
                 sb.append(br.readLine()+"\n");
             }
-            logoBox.image = ImageU.cacheResource.get( "/camp/resources/icon256.png" );
+            logoBox.image = ImageU.cacheResource.get( "/org/twak/siteplan/resources/icon256.png" );
             helpTextBox.setText(sb.toString());
             setSize(getPreferredSize());
             WindowManager.register(this);
             setVisible(true);
-            setTitle("About siteplan");
             setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
+            
+            SwingUtilities.invokeLater( new Runnable() {
+				
+				@Override
+				public void run() {
+					jScrollPane1.getVerticalScrollBar().setValue( 0 );
+				}
+			} );
             
         } catch (Throwable ex) {
             ex.printStackTrace();
@@ -122,7 +133,7 @@ public class AboutBox extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        WebU.showBrowser("http://twak.blogspot.com/2011/06/siteplan-help.html");
+        WebU.showBrowser("https://github.com/twak/siteplan/blob/wiki/Help.md");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -62,7 +62,7 @@ public class ProfileUI extends MarkerUI
         this.plan = plan;
         setBackground( Colour.sky );
         setup();
-        ma.setZoom(12);
+        ma.setZoom(3);
     }
 
     @Override
@@ -205,7 +205,7 @@ public class ProfileUI extends MarkerUI
                      public void actionPerformed(ActionEvent e)
                      {
                          profile.globalProfiles.get(ph.global).flipEnabled();
-                         CampSkeleton.instance.somethingChanged();
+                         SitePlan.instance.somethingChanged();
                          ProfileUI.this.repaint();
                      }
                  });
@@ -218,9 +218,9 @@ public class ProfileUI extends MarkerUI
                     public void actionPerformed(ActionEvent e)
                     {
                         if (ph.global.edgeProfile == null) // "backwards compatibility"
-                            ph.global.edgeProfile = CampSkeleton.instance.plan.createNewProfile(null);
+                            ph.global.edgeProfile = SitePlan.instance.plan.createNewProfile(null);
 
-                        CampSkeleton.instance.setProfile(ph.global.edgeProfile);
+                        SitePlan.instance.setProfile(ph.global.edgeProfile);
                     }
                 });
 
@@ -247,7 +247,7 @@ public class ProfileUI extends MarkerUI
         if ( pt instanceof Marker )
         {
                         // only when in the correct mode!
-            if (CampSkeleton.instance.mode != Tool.Features )
+            if (SitePlan.instance.mode != Tool.Features )
                 return;
 
             if (pressed == null) // when we start moving
@@ -369,7 +369,7 @@ public class ProfileUI extends MarkerUI
         if (pt instanceof Marker) {
 //            if (evt.getPoint().distanceSq(pressed) < 25) // radius of 5
             {
-                CampSkeleton.instance.setAnchorProfile((Marker) pt);
+                SitePlan.instance.setAnchorProfile((Marker) pt);
                 repaint();
             }
         }
@@ -526,8 +526,8 @@ public class ProfileUI extends MarkerUI
 
                 g2.setStroke( new BasicStroke( 3 ) );
             }
-        if (CampSkeleton.instance != null)
-         CampSkeleton.instance.somethingChanged();
+        if (SitePlan.instance != null)
+         SitePlan.instance.somethingChanged();
     }
 
     static Polygon unitArrow = new Polygon();
