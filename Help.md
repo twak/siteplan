@@ -7,7 +7,7 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 # Getting Started #
 
 To start, 
- * download 
+ * download [the jar](https://github.com/twak/siteplan/raw/wiki/siteplan-0.0.1-SNAPSHOT.jar)
  * java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
 To build:
@@ -16,11 +16,7 @@ To build:
   ** [campskeleton](https://github.com/twak/campskeleton)
   * clone the siteplan repo
   * compile to a jar with "mvn package" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
-  
-
-![http://farm7.static.flickr.com/6198/6141601347_5549a25406_o.png](http://farm7.static.flickr.com/6198/6141601347_5549a25406_o.png)
-
-  * There are lots of bugs, report them [here](http://groups.google.com/group/siteplan).
+  * There are lots of bugs, report them on github.
 
 # 3D Window Controls #
 
