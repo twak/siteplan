@@ -1,31 +1,47 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.twak.siteplan</groupId>
-  <artifactId>siteplan</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>CampSkeleton/src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>CampSkeleton/src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source/>
-          <target/>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  
-  	<repositories>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.twak.siteplan</groupId>
+	<artifactId>siteplan</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<sourceDirectory>CampSkeleton/src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>CampSkeleton/src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source />
+					<target />
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.twak.siteplan.campskeleton.SitePlan</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net repository</name>
@@ -37,14 +53,14 @@
 			<url>http://jcenter.bintray.com</url>
 		</repository>
 	</repositories>
-  
+
 	<properties>
 		<jme3_g>org.jmonkeyengine</jme3_g>
 		<jme3_v>3.1.0-stable</jme3_v>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
-  	<dependencies>
+
+	<dependencies>
 
 		<dependency>
 			<groupId>org.twak.utils</groupId>
@@ -64,8 +80,8 @@
 			<artifactId>vecmath</artifactId>
 			<version>1.5.2</version>
 		</dependency>
-  
-  		<dependency>
+
+		<dependency>
 			<groupId>org.apache.xmlgraphics</groupId>
 			<artifactId>batik-svg-dom</artifactId>
 			<version>1.8</version>
@@ -76,7 +92,7 @@
 			<artifactId>xstream</artifactId>
 			<version>1.4.9</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>${jme3_g}</groupId>
 			<artifactId>jme3-core</artifactId>
@@ -99,6 +115,6 @@
 			<version>${jme3_v}</version>
 		</dependency>
 
-  	</dependencies>
-  
+	</dependencies>
+
 </project>
