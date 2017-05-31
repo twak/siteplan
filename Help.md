@@ -2,8 +2,6 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=BrCDKrBS9To' target='_blank'><img src='http://img.youtube.com/vi/BrCDKrBS9To/0.jpg' width='425' height=344 /></a>
 
-(the meshes are [here](https://github.com/twak/siteplan/raw/master/CampSkeleton/dist/meshes.zip))
-
 # Getting Started #
 
 To run the compiled jar:
