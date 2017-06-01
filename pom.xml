@@ -4,14 +4,25 @@
 	<groupId>org.twak.siteplan</groupId>
 	<artifactId>siteplan</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	  
+	
+	<packaging>jar</packaging>
+  
+	<properties>
+		<jme3_g>org.jmonkeyengine</jme3_g>
+		<jme3_v>3.1.0-stable</jme3_v>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      	<maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>  
+	</properties>
+  
 	<build>
-		<sourceDirectory>CampSkeleton/src</sourceDirectory>
+		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
-				<directory>CampSkeleton/src</directory>
+				<directory>src</directory>
 				<excludes>
 					<exclude>**/*.java</exclude>
+					<exclude>**/*.form</exclude>
 				</excludes>
 			</resource>
 		</resources>
@@ -31,7 +42,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>org.twak.siteplan.campskeleton.SitePlan</mainClass>
+							<mainClass>org.twak.siteplan.campskeleton.Siteplan</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -54,12 +65,6 @@
 			<url>http://jcenter.bintray.com</url>
 		</repository>
 	</repositories>
-
-	<properties>
-		<jme3_g>org.jmonkeyengine</jme3_g>
-		<jme3_v>3.1.0-stable</jme3_v>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 
 	<dependencies>
 

@@ -7,7 +7,6 @@ import java.awt.Dimension;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -37,7 +36,6 @@ import com.jme3.input.controls.MouseButtonTrigger;
 import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.light.PointLight;
-import com.jme3.material.Material;
 import com.jme3.material.TechniqueDef.LightMode;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
