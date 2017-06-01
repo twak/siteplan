@@ -13,7 +13,7 @@ To run the compiled jar:
 
 # To Build #
 
-  * install my deps into maven "mvn compile install" from the same directory as the pom.xml:
+  * install my deps into maven "mvn compile install" from the same directory as each pom.xml:
     * [jutils](https://github.com/twak/jutils)
     * [campskeleton](https://github.com/twak/campskeleton)
   * clone the siteplan repo
