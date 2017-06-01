@@ -7,7 +7,10 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 To run the compiled jar:
  * install [sun's java 1.8+](http://java.sun.com)
  * download [the jar](https://github.com/twak/siteplan/raw/wiki/siteplan-0.0.1-SNAPSHOT.jar)
- * run "java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar"
+ * run the jar:
+ ```
+ java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+ ```
 
 # To Build #
 
