@@ -31,7 +31,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.utils.DuckTypeAlphabetComparator;
@@ -123,8 +123,8 @@ public class FeatureUI extends javax.swing.JPanel {
 
         Object o = shipList.getSelectedValue();
 
-        SitePlan.instance.nowSelectingFor(null);
-        SitePlan.instance.highlightFor(new ArrayList<Anchor>());
+        Siteplan.instance.nowSelectingFor(null);
+        Siteplan.instance.highlightFor(new ArrayList<Anchor>());
         DefaultListModel lm = new DefaultListModel();
         Collections.sort(plan.ships, DuckTypeAlphabetComparator.byToString());
 
@@ -332,7 +332,7 @@ public class FeatureUI extends javax.swing.JPanel {
                     if (ship != null)
                     {
                         removeShip(ship);
-                        SitePlan.instance.showRoot();
+                        Siteplan.instance.showRoot();
                     }
                 }
             });

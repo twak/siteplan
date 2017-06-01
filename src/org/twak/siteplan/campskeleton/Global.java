@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import javax.vecmath.Point2d;
 
-import org.twak.straightskeleton.ui.Bar;
+import org.twak.camp.ui.Bar;
 import org.twak.utils.Loop;
 
 /**

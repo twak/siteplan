@@ -1,6 +1,6 @@
 package org.twak.siteplan.campskeleton;
 
-import org.twak.straightskeleton.ui.PointEditor;
+import org.twak.camp.ui.PointEditor;
 
 /**
  *

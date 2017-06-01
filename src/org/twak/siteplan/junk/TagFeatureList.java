@@ -13,8 +13,8 @@ package org.twak.siteplan.junk;
 
 import javax.swing.DefaultListModel;
 
-import org.twak.siteplan.campskeleton.SitePlan;
-import org.twak.straightskeleton.Tag;
+import org.twak.camp.Tag;
+import org.twak.siteplan.campskeleton.Siteplan;
 
 /**
  *

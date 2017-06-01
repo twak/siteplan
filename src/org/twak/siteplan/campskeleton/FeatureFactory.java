@@ -1,6 +1,6 @@
 package org.twak.siteplan.campskeleton;
 
-import static org.twak.straightskeleton.ui.Marker.Type.*;
+import static org.twak.camp.ui.Marker.Type.*;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -16,14 +16,14 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;
 import javax.vecmath.Vector3d;
 
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.HeightEvent;
-import org.twak.straightskeleton.Machine;
-import org.twak.straightskeleton.Skeleton;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.HeightEvent;
+import org.twak.camp.Machine;
+import org.twak.camp.Skeleton;
+import org.twak.camp.Tag;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.utils.Line;
 import org.twak.utils.Line3D;
 import org.twak.utils.LinearForm3D;

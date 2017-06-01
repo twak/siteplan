@@ -10,12 +10,12 @@ import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.anchors.ProfileAnchor;
 import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.tags.PlanTag;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.ConsecutivePairs;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;

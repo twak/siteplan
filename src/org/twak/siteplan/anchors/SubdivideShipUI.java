@@ -1,6 +1,6 @@
 package org.twak.siteplan.anchors;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.utils.AbstractDocumentListener;
 import org.twak.utils.WeakListener;
@@ -33,7 +33,7 @@ public class SubdivideShipUI extends javax.swing.JPanel {
         this.ship = ship;
         initComponents();
 
-        SitePlan.instance.profileListChangedListeners.add( pListChangedListener );
+        Siteplan.instance.profileListChangedListeners.add( pListChangedListener );
 
         useOriginalCheck.setSelected( ship.keepOriginal );
         nameField.setText( ship.name );
@@ -98,7 +98,7 @@ public class SubdivideShipUI extends javax.swing.JPanel {
     private void useOriginalCheckActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_useOriginalCheckActionPerformed
     {//GEN-HEADEREND:event_useOriginalCheckActionPerformed
         ship.keepOriginal = useOriginalCheck.isSelected();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
     }//GEN-LAST:event_useOriginalCheckActionPerformed
 
 

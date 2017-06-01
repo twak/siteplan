@@ -15,8 +15,18 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.CornerClone;
+import org.twak.camp.Edge;
+import org.twak.camp.SkeletonCapUpdate;
+import org.twak.camp.Tag;
+import org.twak.camp.Output.Face;
+import org.twak.camp.Output.SharedEdge;
+import org.twak.camp.offset.PerEdgeOffsetSkeleton;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.FaceUnion;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
@@ -24,16 +34,6 @@ import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.tags.SubdivideTag;
 import org.twak.siteplan.tags.SubdivideTag.ProfileMerge;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.CornerClone;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.SkeletonCapUpdate;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.Output.Face;
-import org.twak.straightskeleton.Output.SharedEdge;
-import org.twak.straightskeleton.offset.PerEdgeOffsetSkeleton;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.Cache;
 import org.twak.utils.DHash;
 import org.twak.utils.LContext;
@@ -83,7 +83,7 @@ public class SubdivideShip extends Ship
     @Override
     protected Anchor createNewAnchor()
     {
-        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, (Object)null );
+        return Siteplan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, (Object)null );
     }
 
     public class SubdivideShipInstance extends Instance

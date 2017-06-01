@@ -1,6 +1,6 @@
 package org.twak.siteplan.jme;
 
-import org.twak.straightskeleton.Tag;
+import org.twak.camp.Tag;
 
 /**
  *

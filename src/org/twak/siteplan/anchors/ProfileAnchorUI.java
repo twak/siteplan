@@ -3,7 +3,7 @@ package org.twak.siteplan.anchors;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 
 /**
  * Type of anchor that only has a height. Okay the class hierarchy is upside down, but this is
@@ -23,7 +23,7 @@ public class ProfileAnchorUI extends AnchorUI
     {
         int count = 0;
 
-        if (SitePlan.instance.plan.countMarkerMatches(anchor.getProfileGen()) > 0)
+        if (Siteplan.instance.plan.countMarkerMatches(anchor.getProfileGen()) > 0)
             count++;
 
         selectButton.setText( count + "/1" );

@@ -17,15 +17,15 @@ import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
 import javax.vecmath.Tuple2d;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
+import org.twak.camp.Corner;
+import org.twak.camp.offset.Offset;
+import org.twak.camp.offset.PerEdgeOffsetSkeleton;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.offset.Offset;
-import org.twak.straightskeleton.offset.PerEdgeOffsetSkeleton;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.BackgroundUpdate;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
@@ -42,7 +42,7 @@ public class NaturalStepUI extends PlanUI
 
     public NaturalStepUI( NaturalStepShip step, PointEditor.BarSelected es )
     {
-        super (SitePlan.instance.plan, step.shape , es);
+        super (Siteplan.instance.plan, step.shape , es);
 
         this.step = step;
 //        edges = new LoopL();

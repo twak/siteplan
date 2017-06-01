@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComponent;
 
+import org.twak.camp.Output;
+import org.twak.camp.Tag;
+import org.twak.camp.ui.Bar;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.jme.Preview;
-import org.twak.straightskeleton.Output;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.Bar;
 import org.twak.utils.WeakListener.Changed;
 
 /**

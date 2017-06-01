@@ -4,13 +4,13 @@ package org.twak.siteplan.anchors;
 import javax.swing.JComponent;
 import javax.vecmath.Vector2d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 import org.twak.utils.Loopable;
@@ -64,7 +64,7 @@ public class AnimateAnchorShip extends Ship
             Bar bar = planMarker.bar;
             Loop<Bar> loop = null;
 
-            for (Loop<Bar> lloop : SitePlan.instance.plan.points)
+            for (Loop<Bar> lloop : Siteplan.instance.plan.points)
                 for (Bar b : lloop)
                     if (b == bar)
                         loop = lloop;

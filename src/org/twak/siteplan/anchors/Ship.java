@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComponent;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.jme.Preview;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.LContext;
 import org.twak.utils.WeakListener;
 
@@ -73,7 +73,7 @@ public abstract class Ship
     protected Anchor createNewAnchor()
     {
         // allows subclasses to create a profileanchor instaed
-        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE_PLAN, null, null );
+        return Siteplan.instance.plan.createAnchor( Plan.AnchorType.PROFILE_PLAN, null, null );
     }
 
     public void update( int frame, int delta, Plan plan )

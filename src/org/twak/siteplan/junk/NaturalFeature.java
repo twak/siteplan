@@ -4,6 +4,12 @@ package org.twak.siteplan.junk;
 import java.awt.Color;
 import java.util.List;
 
+import org.twak.camp.Corner;
+import org.twak.camp.CornerClone;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.PointEditor.BarSelected;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
@@ -11,12 +17,6 @@ import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.junk.PlanFeature;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.CornerClone;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.PointEditor.BarSelected;
 import org.twak.utils.LContext;
 import org.twak.utils.LoopL;
 

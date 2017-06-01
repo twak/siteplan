@@ -5,7 +5,7 @@
 
 package org.twak.siteplan.campskeleton;
 
-import org.twak.straightskeleton.Tag;
+import org.twak.camp.Tag;
 
 /**
  *

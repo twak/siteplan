@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.junk.NaturalStep;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 
@@ -24,7 +24,7 @@ public class StepUI extends PlanUI
 
     public StepUI( NaturalStep step, PointEditor.BarSelected es )
     {
-        super (SitePlan.instance.plan, step.shape , es);
+        super (Siteplan.instance.plan, step.shape , es);
         this.step = step;
     }
 

@@ -10,7 +10,7 @@ import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JToggleButton;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.utils.WeakListener;
 
 /**
@@ -34,8 +34,8 @@ public class AnchorUI extends javax.swing.JPanel implements WeakListener.Changed
         initComponents();
         nameLabel.setText(anchor.name);
         bg.add(selectButton);
-        SitePlan.instance.selectedAnchorListeners.add(this);
-        SitePlan.instance.somethingChangedListeners.add(this);
+        Siteplan.instance.selectedAnchorListeners.add(this);
+        Siteplan.instance.somethingChangedListeners.add(this);
         changed();
     }
 
@@ -46,15 +46,15 @@ public class AnchorUI extends javax.swing.JPanel implements WeakListener.Changed
 
     public void updateButton()
     {
-        if (SitePlan.instance.selectedAnchor != anchor)
+        if (Siteplan.instance.selectedAnchor != anchor)
             selectButton.setSelected(false);
 
         int count = 0;
 
-        if (SitePlan.instance.plan.countMarkerMatches(anchor.getPlanGen()) > 0)
+        if (Siteplan.instance.plan.countMarkerMatches(anchor.getPlanGen()) > 0)
             count++;
 
-        if (SitePlan.instance.plan.countMarkerMatches(anchor.getProfileGen()) > 0)
+        if (Siteplan.instance.plan.countMarkerMatches(anchor.getProfileGen()) > 0)
             count++;
         
         selectButton.setText( count + "/2" );
@@ -107,7 +107,7 @@ public class AnchorUI extends javax.swing.JPanel implements WeakListener.Changed
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        SitePlan.instance.nowSelectingFor(anchor);
+        Siteplan.instance.nowSelectingFor(anchor);
     }//GEN-LAST:event_selectButtonActionPerformed
 
 

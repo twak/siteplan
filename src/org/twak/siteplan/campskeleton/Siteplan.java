@@ -44,6 +44,13 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import org.twak.camp.Output;
+import org.twak.camp.Skeleton;
+import org.twak.camp.Tag;
+import org.twak.camp.debug.DebugDevice;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.anchors.NaturalStepShip;
 import org.twak.siteplan.anchors.Ship;
@@ -56,13 +63,6 @@ import org.twak.siteplan.jme.PillarFeature;
 import org.twak.siteplan.jme.Preview;
 import org.twak.siteplan.junk.ForcedStep;
 import org.twak.siteplan.tags.PlanTag;
-import org.twak.straightskeleton.Output;
-import org.twak.straightskeleton.Skeleton;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.debug.DebugDevice;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.ConsecutivePairs;
 import org.twak.utils.LContext;
 import org.twak.utils.ListDownLayout;
@@ -83,12 +83,12 @@ import com.jme3.scene.shape.Box;
  * 
  * @author twak
  */
-public class SitePlan extends javax.swing.JFrame {
+public class Siteplan extends javax.swing.JFrame {
 	private static final String GO = "go";
 	public final static String toolKey = "related tool";
 	public final static boolean Is_User = false; // dev flag
 
-	public static SitePlan instance;
+	public static Siteplan instance;
 	public final WeakListener selectedAnchorListeners = new WeakListener();
 	public final WeakListener somethingChangedListeners = new WeakListener();
 	public final WeakListener profileListChangedListeners = new WeakListener();
@@ -121,12 +121,12 @@ public class SitePlan extends javax.swing.JFrame {
 	// animation frame we're on
 	int frame = 0;
 
-	public SitePlan() {
+	public Siteplan() {
 		this( null );
 	}
 
 	/** Creates new form CampSkeleton */
-	public SitePlan( Plan plan ) {
+	public Siteplan( Plan plan ) {
 		
 		instance = this;
 		
@@ -242,7 +242,7 @@ public class SitePlan extends javax.swing.JFrame {
 
 	public void setTool( Tool mode ) {
 		nowSelectingFor( null );
-		SitePlan.instance.highlightFor( new ArrayList() );
+		Siteplan.instance.highlightFor( new ArrayList() );
 
 		this.mode = mode;
 
@@ -456,7 +456,7 @@ public class SitePlan extends javax.swing.JFrame {
 	}
 
 	public void loadPlan( Plan plan ) {
-		SitePlan.this.reset();
+		Siteplan.this.reset();
 
 		int nSteps = 0, nInstances = 0;
 
@@ -1539,7 +1539,7 @@ public class SitePlan extends javax.swing.JFrame {
 			ex.printStackTrace();
 		}
 
-		SitePlan cs = new SitePlan();
+		Siteplan cs = new Siteplan();
 		cs.setVisible( true );
 		WindowManager.register( cs );
 

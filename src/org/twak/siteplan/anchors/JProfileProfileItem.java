@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.utils.WeakListener.Changed;
@@ -47,7 +47,7 @@ public class JProfileProfileItem extends javax.swing.JPanel
                 {
                     Object o = outCombo.getSelectedItem();
                     if ( o instanceof ProfileComboItem )
-                        SitePlan.instance.setProfile( ((ProfileComboItem) o).p );
+                        Siteplan.instance.setProfile( ((ProfileComboItem) o).p );
                 }
             }
         } );
@@ -59,7 +59,7 @@ public class JProfileProfileItem extends javax.swing.JPanel
             public void mouseClicked( MouseEvent e )
             {
                 if ( e.getButton() == 3 )
-                    SitePlan.instance.setProfile( JProfileProfileItem.this.profile );
+                    Siteplan.instance.setProfile( JProfileProfileItem.this.profile );
             }
         } );
 
@@ -86,7 +86,7 @@ public class JProfileProfileItem extends javax.swing.JPanel
             public void onSelect()
             {
                 toUpdate.put( profile, null );
-                SitePlan.instance.somethingChanged();
+                Siteplan.instance.somethingChanged();
             }
         } );
 
@@ -111,8 +111,8 @@ public class JProfileProfileItem extends javax.swing.JPanel
             public void onSelect()
             {
                 toUpdate.put( profile, plan.createNewProfile( null ) );
-                SitePlan.instance.somethingChanged();
-                SitePlan.instance.profileListChanged();
+                Siteplan.instance.somethingChanged();
+                Siteplan.instance.profileListChanged();
                 setupCombo();
             }
         } );
@@ -150,7 +150,7 @@ public class JProfileProfileItem extends javax.swing.JPanel
         public void onSelect()
         {
             toUpdate.put( profile, p );
-            SitePlan.instance.somethingChanged();
+            Siteplan.instance.somethingChanged();
         }
     }
 

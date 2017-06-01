@@ -5,14 +5,14 @@ import java.util.Arrays;
 import javax.swing.JComponent;
 import javax.vecmath.Vector2d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.LContext;
 import org.twak.utils.LoopL.LoopLoopable;
 import org.twak.utils.LoopL.LoopLoopable;
@@ -105,8 +105,8 @@ public class AnimateAnchorCircularShip extends Ship
 //            Loopable<Bar> able = null;
 
             LoopLoopable<Bar>
-                cAble = SitePlan.instance.plan.points.find( bar ),
-                mAble = SitePlan.instance.plan.points.find( planM.bar );
+                cAble = Siteplan.instance.plan.points.find( bar ),
+                mAble = Siteplan.instance.plan.points.find( planM.bar );
 
             if ( cAble == null || mAble == null )
                 return; // didn't find marker on main plan. give up.

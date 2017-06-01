@@ -6,9 +6,9 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.junk.ForcedStep;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 
@@ -22,7 +22,7 @@ public class ForcedUI extends PlanUI
 
     public ForcedUI( ForcedStep forcedStep, PointEditor.BarSelected es )
     {
-        super (SitePlan.instance.plan, forcedStep.shape , es);
+        super (Siteplan.instance.plan, forcedStep.shape , es);
         this.step = forcedStep;
     }
 

@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.Tag;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.PointEditor;
+import org.twak.camp.ui.NaiveMould.PMarker;
 import org.twak.siteplan.anchors.Anchor;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.NaiveMould.PMarker;
-import org.twak.straightskeleton.ui.PointEditor;
 import org.twak.utils.LContext;
 import org.twak.utils.Loopable;
 import org.twak.utils.ui.Colour;
@@ -56,23 +56,23 @@ public class MarkerUI extends PointEditor
     public void remove( LContext<Bar> ctx, Point2d dragged )
     {
 
-        if (SitePlan.instance == null)
+        if (Siteplan.instance == null)
             return;
 
-        switch ( SitePlan.instance.mode )
+        switch ( Siteplan.instance.mode )
         {
             case Tag:
 
                 if (ctx.loopable == null)
                     return;
 
-                if ( SitePlan.instance.selectedTag == null )
+                if ( Siteplan.instance.selectedTag == null )
                 {
                     JOptionPane.showMessageDialog( this, "Please select a type of tag to remove" );
                     return;
                 }
 
-                ctx.get().tags.remove( SitePlan.instance.selectedTag );
+                ctx.get().tags.remove( Siteplan.instance.selectedTag );
 
                 break;
 
@@ -160,7 +160,7 @@ public class MarkerUI extends PointEditor
         if ( pt instanceof Marker )
         {
             // only when in the correct mode!
-            if ( SitePlan.instance.mode != Tool.Features )
+            if ( Siteplan.instance.mode != Tool.Features )
                 return;
 
             if ( pressed == null ) // when we start moving
@@ -189,7 +189,7 @@ public class MarkerUI extends PointEditor
     @Override
     public void addBetween( LContext<Bar> ctx, Point l )
     {
-        SitePlan cs = SitePlan.instance;
+        Siteplan cs = Siteplan.instance;
         switch ( cs.mode )
         {
             case Vertex:
@@ -269,7 +269,7 @@ public class MarkerUI extends PointEditor
                 public void actionPerformed( ActionEvent e )
                 {
                     p.rel = rel.isSelected();
-                    SitePlan.instance.somethingChanged();
+                    Siteplan.instance.somethingChanged();
                 }
             } );
 
@@ -291,7 +291,7 @@ public class MarkerUI extends PointEditor
     {
         if ( location == null )
             return; // mousereleased
-        SitePlan cs = SitePlan.instance;
+        Siteplan cs = Siteplan.instance;
 
         if ( cs == null )
             return;
@@ -368,12 +368,12 @@ public class MarkerUI extends PointEditor
 //                    continue;
 
                 boolean highlit = false;
-                for ( Anchor ac : SitePlan.instance.highlitAnchors )
+                for ( Anchor ac : Siteplan.instance.highlitAnchors )
                     highlit |= mark.generator.equals( ac.getProfileGen() ) || mark.generator.equals( ac.getPlanGen() );
 
                 boolean selected = false;
-                if ( SitePlan.instance.selectedAnchor != null )
-                    selected = mark.generator.equals( SitePlan.instance.selectedAnchor.getProfileGen() ) || mark.generator.equals( SitePlan.instance.selectedAnchor.getPlanGen() );
+                if ( Siteplan.instance.selectedAnchor != null )
+                    selected = mark.generator.equals( Siteplan.instance.selectedAnchor.getProfileGen() ) || mark.generator.equals( Siteplan.instance.selectedAnchor.getPlanGen() );
 
 
 

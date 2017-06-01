@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import javax.vecmath.Point2d;
 
-import org.twak.straightskeleton.ui.Bar;
+import org.twak.camp.ui.Bar;
 import org.twak.utils.ConsecutiveItPairs;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;

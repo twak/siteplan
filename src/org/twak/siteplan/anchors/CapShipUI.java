@@ -13,15 +13,15 @@ package org.twak.siteplan.anchors;
 import java.io.File;
 import javax.swing.JOptionPane;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.NaiveMould;
 import org.twak.siteplan.anchors.Ship.Instance;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.jme.Preview;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.NaiveMould;
 
 /**
  * Debug routine to output many .obj files that we can then render nicely!
@@ -200,7 +200,7 @@ public class CapShipUI extends javax.swing.JPanel
 
                 if ( s.output.faces != null )
                 {
-                    Preview preview = SitePlan.instance.preview;
+                    Preview preview = Siteplan.instance.preview;
 
                     
                     preview.display( s.output, true, true, false );
@@ -245,7 +245,7 @@ public class CapShipUI extends javax.swing.JPanel
         ((NaiveMould.PMarker)heightEdit.generator).set( heightEdit );
 
         // flush changes from preview
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
     }//GEN-LAST:event_outputButtonActionPerformed
 
     private void atZeroHeightCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atZeroHeightCheckActionPerformed
