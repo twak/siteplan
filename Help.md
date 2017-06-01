@@ -27,11 +27,13 @@ To run the compiled jar:
 
 # 2D Mouse Window Controls #
 
-Note: a 3 buttoned mouse is needed for most editing operations just now. Sorry.
+Note: a 3 button mouse is needed for most editing operations just now.
 
-*Left - select, drag corners, & anchors. Double click on anchors for additional options.** Control + Left click add stuff - click on a blank space to add a plan/global offset, or a line to add a point.
-*Shift + Left click - delete points, delete all the points to remove a plan** Right drag - move view
-*Wheel - zoom view** The Alt key will change the behavour of the corner-dragging - in plan mode it snaps to grid (if active), and profile mode it moves all points above the selected point as well.
+* Left - select, drag corners, & anchors. Double click on anchors for additional options.
+* Control + Left click add stuff - click on a blank space to add a plan/global offset, or a line to add a point.
+* Shift + Left click - delete points, delete all the points to remove a plan** Right drag - move view
+* Wheel - zoom view
+* The Alt key will change the behavour of the corner-dragging - in plan mode it snaps to grid (if active), and profile mode it moves all points above the selected point as well.
 
 # 2D Interface Introduction #
 
