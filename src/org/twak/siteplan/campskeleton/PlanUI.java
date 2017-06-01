@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 import javax.vecmath.Point2d;
 
-import org.twak.straightskeleton.ui.*;
+import org.twak.camp.ui.*;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
@@ -89,7 +89,7 @@ public class PlanUI extends MarkerUI
         if ( pt instanceof Marker )
 //            if ( evt.getPoint().distanceSq( pressed ) < 25 ) // radius of 5
             {
-                SitePlan.instance.setAnchorPlan ((Marker) pt);
+                Siteplan.instance.setAnchorPlan ((Marker) pt);
                 repaint();
             }
 //        pressed = null;
@@ -228,6 +228,6 @@ public class PlanUI extends MarkerUI
 
     protected void somethingChanged( Graphics2D g2 )
     {
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
     }
 }

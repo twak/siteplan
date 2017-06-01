@@ -15,9 +15,9 @@ import javax.vecmath.Matrix4d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import org.twak.camp.Output;
+import org.twak.camp.Output.Face;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
-import org.twak.straightskeleton.Output;
-import org.twak.straightskeleton.Output.Face;
 import org.twak.utils.Arrayz;
 import org.twak.utils.Loop;
 import org.twak.utils.Loopable;

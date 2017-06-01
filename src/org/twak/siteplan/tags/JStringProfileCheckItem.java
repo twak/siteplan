@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.utils.WeakListener;
@@ -46,7 +46,7 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
 
         initComponents();
 
-        SitePlan.instance.profileListChangedListeners.add( pListListener );
+        Siteplan.instance.profileListChangedListeners.add( pListListener );
 
         inLabel.setText( profile.toString() );
         mergeCheckBox.setSelected( toUpdate.merge );
@@ -61,7 +61,7 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
                 {
                     Object o = outCombo.getSelectedItem();
                     if ( o instanceof ProfileComboItem )
-                        SitePlan.instance.setProfile( ((ProfileComboItem) o).p );
+                        Siteplan.instance.setProfile( ((ProfileComboItem) o).p );
                 }
             }
         } );
@@ -88,7 +88,7 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
             public void onSelect()
             {
                 toUpdate.profile = null;
-                SitePlan.instance.somethingChanged();
+                Siteplan.instance.somethingChanged();
             }
         } );
 
@@ -113,8 +113,8 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
             public void onSelect()
             {
                 toUpdate.profile = plan.createNewProfile( null );
-                SitePlan.instance.somethingChanged();
-                SitePlan.instance.profileListChanged();
+                Siteplan.instance.somethingChanged();
+                Siteplan.instance.profileListChanged();
                 setupCombo();
             }
         } );
@@ -150,7 +150,7 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
         public void onSelect()
         {
             toUpdate.profile = p;
-            SitePlan.instance.somethingChanged();
+            Siteplan.instance.somethingChanged();
         }
     }
 
@@ -203,7 +203,7 @@ public class JStringProfileCheckItem extends javax.swing.JPanel
     private void mergeCheckBoxActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mergeCheckBoxActionPerformed
     {//GEN-HEADEREND:event_mergeCheckBoxActionPerformed
         toUpdate.merge = mergeCheckBox.isSelected();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
     }//GEN-LAST:event_mergeCheckBoxActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel inLabel;

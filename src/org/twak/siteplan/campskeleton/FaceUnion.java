@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Set;
 import javax.vecmath.Point3d;
 
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Output.Face;
-import org.twak.straightskeleton.Output.SharedEdge;
-import org.twak.straightskeleton.debug.DebugDevice;
+import org.twak.camp.Corner;
+import org.twak.camp.Output.Face;
+import org.twak.camp.Output.SharedEdge;
+import org.twak.camp.debug.DebugDevice;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
 import org.twak.utils.Loopable;

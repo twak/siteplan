@@ -17,7 +17,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.border.LineBorder;
 
-import org.twak.straightskeleton.ui.MachineEvent;
+import org.twak.camp.ui.MachineEvent;
 
 /**
  *

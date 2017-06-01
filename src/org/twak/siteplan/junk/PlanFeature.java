@@ -1,8 +1,8 @@
 package org.twak.siteplan.junk;
 
+import org.twak.camp.Tag;
+import org.twak.camp.ui.PointEditor.BarSelected;
 import org.twak.siteplan.campskeleton.PlanUI;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.PointEditor.BarSelected;
 
 /**
  *

@@ -7,14 +7,14 @@ import java.util.Map;
 import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.anchors.NaturalStepShip;
 import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.Loop;
 import org.twak.utils.MUtils;
 

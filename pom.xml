@@ -4,6 +4,7 @@
 	<groupId>org.twak.siteplan</groupId>
 	<artifactId>siteplan</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	  
 	<build>
 		<sourceDirectory>CampSkeleton/src</sourceDirectory>
 		<resources>

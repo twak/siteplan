@@ -10,18 +10,18 @@ import java.util.Set;
 
 import javax.vecmath.Point2d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.Machine;
+import org.twak.camp.Skeleton;
+import org.twak.camp.Tag;
+import org.twak.camp.Output.Face;
+import org.twak.camp.ui.Bar;
 import org.twak.siteplan.anchors.AnchorHauler;
 import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
 import org.twak.siteplan.jme.Preview;
 import org.twak.siteplan.tags.LowPriorityTag;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.Machine;
-import org.twak.straightskeleton.Output.Face;
-import org.twak.straightskeleton.Skeleton;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.Bar;
 import org.twak.utils.Cache;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;

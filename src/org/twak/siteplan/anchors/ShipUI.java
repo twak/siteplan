@@ -15,7 +15,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import org.twak.siteplan.anchors.Anchor;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.utils.ListDownLayout;
 import org.twak.utils.WeakListener.Changed;
 
@@ -41,7 +41,7 @@ public class ShipUI extends javax.swing.JPanel {
         initList();
         setInstanceNo(0);
 
-        SitePlan.instance.selectedAnchorListeners.add(new Changed() {
+        Siteplan.instance.selectedAnchorListeners.add(new Changed() {
 
             @Override
             public void changed() {
@@ -83,11 +83,11 @@ public class ShipUI extends javax.swing.JPanel {
         final ButtonGroup anchorBG = new ButtonGroup();
         final JToggleButton dummy = new JToggleButton("none");
         anchorBG.add(dummy);
-        SitePlan.instance.selectedAnchorListeners.add(new Changed() {
+        Siteplan.instance.selectedAnchorListeners.add(new Changed() {
 
             @Override
             public void changed() {
-                if (SitePlan.instance.selectedAnchor == null)
+                if (Siteplan.instance.selectedAnchor == null)
                     dummy.setSelected(true);
             }
         });
@@ -115,13 +115,13 @@ public class ShipUI extends javax.swing.JPanel {
         if (instance != null)
         for ( Anchor ac : instance.anchors)
             highlit.add(ac);
-        SitePlan.instance.highlightFor(highlit);
+        Siteplan.instance.highlightFor(highlit);
     }
 
     private void setInstanceNo( int val )
     {
-        SitePlan.instance.nowSelectingFor(null);
-        SitePlan.instance.highlightFor(new ArrayList<Anchor>());
+        Siteplan.instance.nowSelectingFor(null);
+        Siteplan.instance.highlightFor(new ArrayList<Anchor>());
 
         instanceNo = val;
         if (instanceNo >= ship.getInstances().size())
@@ -276,7 +276,7 @@ public class ShipUI extends javax.swing.JPanel {
         if (ship.getInstances().size() == 0)
         {
             parent.removeShip(ship);
-            SitePlan.instance.showRoot();
+            Siteplan.instance.showRoot();
         }
 
 

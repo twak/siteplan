@@ -10,10 +10,10 @@ import java.util.Set;
 
 import javax.swing.JComponent;
 
+import org.twak.camp.Output;
+import org.twak.camp.Output.Face;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.jme.Preview;
-import org.twak.straightskeleton.Output;
-import org.twak.straightskeleton.Output.Face;
 import org.twak.utils.WeakListener.Changed;
 
 /**

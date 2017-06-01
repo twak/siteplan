@@ -3,12 +3,12 @@ package org.twak.siteplan.junk;
 import java.util.Arrays;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.PointEditor.BarSelected;
 import org.twak.siteplan.campskeleton.ForcedUI;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.PointEditor.BarSelected;
 import org.twak.utils.ConsecutiveItPairs;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;

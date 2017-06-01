@@ -3,8 +3,8 @@ package org.twak.siteplan.anchors;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.twak.straightskeleton.Output.Face;
-import org.twak.straightskeleton.Output.SharedEdge;
+import org.twak.camp.Output.Face;
+import org.twak.camp.Output.SharedEdge;
 
 /**
  * Given a set of faces, and certain shared edges, marked for merging, we must

@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.twak.straightskeleton.ui.Bar;
+import org.twak.camp.ui.Bar;
 import org.twak.utils.DumbCluster1D;
 import org.twak.utils.Line;
 import org.twak.utils.LoopL;

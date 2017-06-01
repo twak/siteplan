@@ -8,8 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 
-import org.twak.straightskeleton.ui.DirectionEvent;
-import org.twak.straightskeleton.ui.MachineEvent;
+import org.twak.camp.ui.DirectionEvent;
+import org.twak.camp.ui.MachineEvent;
 import org.twak.utils.MUtils;
 
 /**

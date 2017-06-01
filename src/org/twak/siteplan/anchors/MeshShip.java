@@ -12,11 +12,11 @@ import javax.vecmath.AxisAngle4f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.jme.Preview;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.LContext;
 import org.twak.utils.WeakListener;
 

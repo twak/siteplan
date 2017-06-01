@@ -6,7 +6,7 @@
 
 package org.twak.siteplan.tags;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.utils.WeakListener.Changed;
 
 /**
@@ -130,24 +130,24 @@ public class RoofUI extends javax.swing.JPanel {
 
     private void widthScrollAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_widthScrollAdjustmentValueChanged
         roof.width = widthScroll.getValue() / (double) widthScroll.getMaximum();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
         rebuildFeatureList.changed();
     }//GEN-LAST:event_widthScrollAdjustmentValueChanged
 
     private void jitterScrollAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_jitterScrollAdjustmentValueChanged
         roof.jitter = jitterScroll.getValue() / (double) jitterScroll.getMaximum();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
     }//GEN-LAST:event_jitterScrollAdjustmentValueChanged
 
     private void heightScrollAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_heightScrollAdjustmentValueChanged
         roof.height = heightScroll.getValue() / (double) heightScroll.getMaximum();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
         rebuildFeatureList.changed();
     }//GEN-LAST:event_heightScrollAdjustmentValueChanged
 
     private void staggerCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staggerCheckBoxActionPerformed
         roof.stagger = staggerCheckBox.isSelected();
-        SitePlan.instance.somethingChanged();
+        Siteplan.instance.somethingChanged();
 }//GEN-LAST:event_staggerCheckBoxActionPerformed
 
 

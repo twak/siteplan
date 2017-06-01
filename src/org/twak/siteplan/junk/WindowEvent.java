@@ -9,15 +9,15 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 import javax.vecmath.Vector3d;
 
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.EdgeCreator;
-import org.twak.straightskeleton.HeightEvent;
-import org.twak.straightskeleton.Machine;
-import org.twak.straightskeleton.Skeleton;
-import org.twak.straightskeleton.Tag;
-import org.twak.straightskeleton.ui.DirectionHeightEvent;
-import org.twak.straightskeleton.ui.MachineEvent;
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.EdgeCreator;
+import org.twak.camp.HeightEvent;
+import org.twak.camp.Machine;
+import org.twak.camp.Skeleton;
+import org.twak.camp.Tag;
+import org.twak.camp.ui.DirectionHeightEvent;
+import org.twak.camp.ui.MachineEvent;
 import org.twak.utils.Line;
 import org.twak.utils.LinearForm;
 

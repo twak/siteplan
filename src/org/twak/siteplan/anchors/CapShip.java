@@ -5,15 +5,15 @@ import javax.swing.JComponent;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.SkeletonCapUpdate;
+import org.twak.camp.debug.DebugDevice;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.SkeletonCapUpdate;
-import org.twak.straightskeleton.debug.DebugDevice;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.DHash;
 import org.twak.utils.LContext;
 import org.twak.utils.LoopL;
@@ -84,7 +84,7 @@ public class CapShip extends Ship
     @Override
     protected Anchor createNewAnchor()
     {
-        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, this );
+        return Siteplan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, this );
     }
 
     @Override

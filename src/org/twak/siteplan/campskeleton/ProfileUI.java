@@ -20,9 +20,9 @@ import javax.swing.JPopupMenu;
 import javax.vecmath.Point2d;
 import javax.vecmath.Tuple2d;
 
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
 import org.twak.utils.LContext;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;
@@ -205,7 +205,7 @@ public class ProfileUI extends MarkerUI
                      public void actionPerformed(ActionEvent e)
                      {
                          profile.globalProfiles.get(ph.global).flipEnabled();
-                         SitePlan.instance.somethingChanged();
+                         Siteplan.instance.somethingChanged();
                          ProfileUI.this.repaint();
                      }
                  });
@@ -218,9 +218,9 @@ public class ProfileUI extends MarkerUI
                     public void actionPerformed(ActionEvent e)
                     {
                         if (ph.global.edgeProfile == null) // "backwards compatibility"
-                            ph.global.edgeProfile = SitePlan.instance.plan.createNewProfile(null);
+                            ph.global.edgeProfile = Siteplan.instance.plan.createNewProfile(null);
 
-                        SitePlan.instance.setProfile(ph.global.edgeProfile);
+                        Siteplan.instance.setProfile(ph.global.edgeProfile);
                     }
                 });
 
@@ -247,7 +247,7 @@ public class ProfileUI extends MarkerUI
         if ( pt instanceof Marker )
         {
                         // only when in the correct mode!
-            if (SitePlan.instance.mode != Tool.Features )
+            if (Siteplan.instance.mode != Tool.Features )
                 return;
 
             if (pressed == null) // when we start moving
@@ -369,7 +369,7 @@ public class ProfileUI extends MarkerUI
         if (pt instanceof Marker) {
 //            if (evt.getPoint().distanceSq(pressed) < 25) // radius of 5
             {
-                SitePlan.instance.setAnchorProfile((Marker) pt);
+                Siteplan.instance.setAnchorProfile((Marker) pt);
                 repaint();
             }
         }
@@ -526,8 +526,8 @@ public class ProfileUI extends MarkerUI
 
                 g2.setStroke( new BasicStroke( 3 ) );
             }
-        if (SitePlan.instance != null)
-         SitePlan.instance.somethingChanged();
+        if (Siteplan.instance != null)
+         Siteplan.instance.somethingChanged();
     }
 
     static Polygon unitArrow = new Polygon();

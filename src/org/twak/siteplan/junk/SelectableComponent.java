@@ -1,7 +1,7 @@
 
 package org.twak.siteplan.junk;
 
-import org.twak.straightskeleton.ui.MachineEvent;
+import org.twak.camp.ui.MachineEvent;
 
 /**
  *

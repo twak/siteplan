@@ -7,7 +7,12 @@ import java.util.Set;
 import javax.swing.JComponent;
 import javax.vecmath.Point2d;
 
-import org.twak.siteplan.campskeleton.SitePlan;
+import org.twak.siteplan.campskeleton.Siteplan;
+import org.twak.camp.Corner;
+import org.twak.camp.Edge;
+import org.twak.camp.ui.Bar;
+import org.twak.camp.ui.Marker;
+import org.twak.camp.ui.PointEditor.BarSelected;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
@@ -15,11 +20,6 @@ import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.campskeleton.PlanSkeleton.ColumnProperties;
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Edge;
-import org.twak.straightskeleton.ui.Bar;
-import org.twak.straightskeleton.ui.Marker;
-import org.twak.straightskeleton.ui.PointEditor.BarSelected;
 import org.twak.utils.Cache;
 import org.twak.utils.ConsecutiveItPairs;
 import org.twak.utils.LContext;
@@ -60,7 +60,7 @@ public class NaturalStepShip extends Ship
     };
 
     public NaturalStepShip()
-    { this (SitePlan.instance.plan); }
+    { this (Siteplan.instance.plan); }
     public NaturalStepShip( Plan plan )
     {
 //        Plan plan = CampSkeleton.instance.plan;
@@ -88,7 +88,7 @@ public class NaturalStepShip extends Ship
             plan.profiles.put( b, profs[i++] ); 
         }
 
-        SitePlan.instance.profileListChanged();
+        Siteplan.instance.profileListChanged();
         
         Loop<Double> speedLoop = new Loop();
         this.speeds.add(speedLoop);

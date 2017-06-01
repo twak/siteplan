@@ -8,9 +8,9 @@ package org.twak.siteplan.campskeleton;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
-import org.twak.straightskeleton.Corner;
-import org.twak.straightskeleton.Skeleton;
-import org.twak.straightskeleton.SkeletonCapUpdate;
+import org.twak.camp.Corner;
+import org.twak.camp.Skeleton;
+import org.twak.camp.SkeletonCapUpdate;
 import org.twak.utils.DHash;
 import org.twak.utils.Loop;
 import org.twak.utils.LoopL;

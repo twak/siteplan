@@ -12,8 +12,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import javax.vecmath.Point2d;
 
+import org.twak.camp.ui.Bar;
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
-import org.twak.straightskeleton.ui.Bar;
 import org.twak.utils.ItComb;
 import org.twak.utils.Line;
 import org.twak.utils.Loop;

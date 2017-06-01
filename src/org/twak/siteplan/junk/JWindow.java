@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 
-import org.twak.straightskeleton.ui.MachineEvent;
+import org.twak.camp.ui.MachineEvent;
 
 /**
  * Doffit that represents a window event in the direciton - rack
