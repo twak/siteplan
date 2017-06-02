@@ -6,10 +6,10 @@ import java.util.Set;
 import javax.vecmath.Point2d;
 
 import org.twak.siteplan.campskeleton.Siteplan;
+import org.twak.utils.collections.Loopable;
 import org.twak.camp.ui.Bar;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.utils.Loopable;
 
 /**
  * hacked to animate the speed of a single edge

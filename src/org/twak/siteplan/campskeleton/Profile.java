@@ -13,11 +13,11 @@ import java.util.Set;
 import javax.vecmath.Point2d;
 
 import org.twak.camp.ui.Bar;
-import org.twak.utils.ConsecutiveItPairs;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
 import org.twak.utils.Pair;
-import org.twak.utils.Rainbow;
+import org.twak.utils.collections.ConsecutiveItPairs;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.ui.Rainbow;
 
 /**
  *

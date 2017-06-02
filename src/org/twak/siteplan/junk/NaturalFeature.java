@@ -18,7 +18,7 @@ import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.junk.PlanFeature;
 import org.twak.utils.LContext;
-import org.twak.utils.LoopL;
+import org.twak.utils.collections.LoopL;
 
 /**
  * dec@cs.

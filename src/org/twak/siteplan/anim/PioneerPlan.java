@@ -15,8 +15,8 @@ import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.utils.Loop;
 import org.twak.utils.MUtils;
+import org.twak.utils.collections.Loop;
 
 /**
  *

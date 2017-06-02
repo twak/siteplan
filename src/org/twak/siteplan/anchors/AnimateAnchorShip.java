@@ -12,10 +12,10 @@ import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
 import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.utils.LContext;
-import org.twak.utils.Loop;
-import org.twak.utils.Loopable;
 import org.twak.utils.WeakListener;
 import org.twak.utils.WeakListener.Changed;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.Loopable;
 
 /**
  * Hacky "feature" to animate the location of an anchor to demonstrate the effect of

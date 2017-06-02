@@ -16,10 +16,10 @@ import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.anchors.ProfileAnchor;
 import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.tags.PlanTag;
-import org.twak.utils.ConsecutivePairs;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
 import org.twak.utils.Pair;
+import org.twak.utils.collections.ConsecutivePairs;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
 
 /**
  * @author twak

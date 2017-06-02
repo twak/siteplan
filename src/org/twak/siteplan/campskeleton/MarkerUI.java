@@ -21,7 +21,7 @@ import org.twak.camp.ui.PointEditor;
 import org.twak.camp.ui.NaiveMould.PMarker;
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.utils.LContext;
-import org.twak.utils.Loopable;
+import org.twak.utils.collections.Loopable;
 import org.twak.utils.ui.Colour;
 
 /**

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.vecmath.Point2d;
 
 import org.twak.camp.ui.Bar;
-import org.twak.utils.Loop;
+import org.twak.utils.collections.Loop;
 
 /**
  * There's one of these for every inflection over a plan. All profiles inflect at the same point to preserve

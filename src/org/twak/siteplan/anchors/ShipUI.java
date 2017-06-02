@@ -16,8 +16,8 @@ import javax.swing.event.DocumentListener;
 
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.siteplan.campskeleton.Siteplan;
-import org.twak.utils.ListDownLayout;
 import org.twak.utils.WeakListener.Changed;
+import org.twak.utils.ui.ListDownLayout;
 
 /**
  *

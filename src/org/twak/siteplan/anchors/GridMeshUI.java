@@ -7,9 +7,9 @@ package org.twak.siteplan.anchors;
 import java.io.File;
 
 import org.twak.siteplan.campskeleton.Siteplan;
-import org.twak.utils.AbstractDocumentListener;
-import org.twak.utils.SimpleFileChooser;
 import org.twak.utils.WeakListener;
+import org.twak.utils.ui.AbstractDocumentListener;
+import org.twak.utils.ui.SimpleFileChooser;
 
 /**
  *

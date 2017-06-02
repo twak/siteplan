@@ -33,14 +33,14 @@ import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
-import org.twak.utils.DHash;
 import org.twak.utils.LContext;
-import org.twak.utils.Line;
-import org.twak.utils.Line.AlongLineComparator;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.SetCorrespondence;
+import org.twak.utils.collections.DHash;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.collections.SetCorrespondence;
+import org.twak.utils.geom.Line;
+import org.twak.utils.geom.Line.AlongLineComparator;
 
 /**
  * Computes the location of anchors, and dispatches them at the appropriate height to a set of handles

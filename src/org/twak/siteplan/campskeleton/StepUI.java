@@ -11,7 +11,7 @@ import org.twak.camp.ui.Bar;
 import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.junk.NaturalStep;
 import org.twak.utils.LContext;
-import org.twak.utils.Loop;
+import org.twak.utils.collections.Loop;
 
 /**
  * UI for a square protusion. A natural extrude that gets melded into the plan. First and last points are fixed.

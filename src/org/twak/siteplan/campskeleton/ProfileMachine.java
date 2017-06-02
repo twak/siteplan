@@ -17,11 +17,11 @@ import org.twak.camp.ui.DirectionHeightEvent;
 import org.twak.camp.ui.HorizontalHeightEvent;
 import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
 import org.twak.utils.MUtils;
 import org.twak.utils.PointDistanceComparator;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
 
 /**
  * There is a profile machine for every chain in a profile

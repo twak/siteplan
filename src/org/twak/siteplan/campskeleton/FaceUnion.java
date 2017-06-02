@@ -10,10 +10,10 @@ import org.twak.camp.Corner;
 import org.twak.camp.Output.Face;
 import org.twak.camp.Output.SharedEdge;
 import org.twak.camp.debug.DebugDevice;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.MultiMap;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.collections.MultiMap;
 
 /**
  * Takes a bunch of faces and computes their union

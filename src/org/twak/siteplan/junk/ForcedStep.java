@@ -9,10 +9,10 @@ import org.twak.siteplan.campskeleton.ForcedUI;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.utils.ConsecutiveItPairs;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
 import org.twak.utils.Pair;
+import org.twak.utils.collections.ConsecutiveItPairs;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
 
 /**
  *

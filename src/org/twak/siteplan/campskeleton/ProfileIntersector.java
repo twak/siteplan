@@ -14,12 +14,11 @@ import javax.vecmath.Point2d;
 
 import org.twak.camp.ui.Bar;
 import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
-import org.twak.utils.ItComb;
-import org.twak.utils.Line;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.Loopable;
+import org.twak.utils.collections.ItComb;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.geom.Line;
 
 /**
  * A hoodicky to calculate the nearest still active bar, at the start of a chain.

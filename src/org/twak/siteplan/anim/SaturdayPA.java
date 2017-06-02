@@ -11,8 +11,8 @@ import java.util.Set;
 
 import org.twak.camp.ui.Bar;
 import org.twak.utils.DumbCluster1D;
-import org.twak.utils.Line;
-import org.twak.utils.LoopL;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.geom.Line;
 
 /**
  *

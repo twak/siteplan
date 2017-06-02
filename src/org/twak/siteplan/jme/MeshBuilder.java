@@ -9,13 +9,13 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;
 import javax.vecmath.Vector3d;
 
-import org.twak.utils.Arrayz;
-import org.twak.utils.DRectangle;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.Loopz;
 import org.twak.utils.MUtils;
+import org.twak.utils.collections.Arrayz;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.collections.Loopz;
+import org.twak.utils.geom.DRectangle;
 import org.twak.utils.geom.Line3d;
 import org.twak.utils.triangulate.EarCutTriangulator;
 
