@@ -17,10 +17,10 @@ import javax.vecmath.Vector3d;
 import org.twak.camp.Output;
 import org.twak.camp.Output.Face;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
-import org.twak.utils.Arrayz;
-import org.twak.utils.Loop;
-import org.twak.utils.Loopable;
 import org.twak.utils.MUtils;
+import org.twak.utils.collections.Arrayz;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.Loopable;
 import org.twak.utils.ui.WindowManager;
 
 import com.jme3.app.SimpleApplication;
@@ -133,7 +133,7 @@ public class Preview extends SimpleApplication
 				}
 				
 				for ( Loop<Point3d> ll : f.getLoopL() ) {
-					org.twak.utils.Loopz.triangulate( ll, true, ind, pos, norms );
+					org.twak.utils.collections.Loopz.triangulate( ll, true, ind, pos, norms );
 				}
 			}
 

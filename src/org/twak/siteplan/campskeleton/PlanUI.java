@@ -14,10 +14,10 @@ import javax.vecmath.Point2d;
 
 import org.twak.camp.ui.*;
 import org.twak.utils.LContext;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.PolygonArea;
-import org.twak.utils.ReverseList;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.ReverseList;
+import org.twak.utils.geom.PolygonArea;
 import org.twak.utils.ui.Colour;
 
 /**

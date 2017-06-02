@@ -11,10 +11,10 @@ import javax.vecmath.Vector3d;
 import org.twak.camp.Corner;
 import org.twak.camp.Skeleton;
 import org.twak.camp.SkeletonCapUpdate;
-import org.twak.utils.DHash;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.SetCorrespondence;
+import org.twak.utils.collections.DHash;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.SetCorrespondence;
 
 /**
  *

@@ -8,8 +8,8 @@ import javax.vecmath.Point2d;
 import org.twak.camp.ui.Bar;
 import org.twak.siteplan.campskeleton.*;
 import org.twak.utils.Cache2;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
 
 /**
  *

@@ -21,13 +21,13 @@ import org.twak.siteplan.campskeleton.PlanUI;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.campskeleton.StepUI;
-import org.twak.utils.ConsecutiveItPairs;
 import org.twak.utils.LContext;
-import org.twak.utils.Line3D;
-import org.twak.utils.Loop;
-import org.twak.utils.Loopable;
 import org.twak.utils.MUtils;
 import org.twak.utils.Pair;
+import org.twak.utils.collections.ConsecutiveItPairs;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.geom.Line3D;
 
 /**
  *

@@ -21,7 +21,7 @@ import org.twak.camp.ui.NaiveMould;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.siteplan.jme.Preview;
-import org.twak.utils.SimpleFileChooser;
+import org.twak.utils.ui.SimpleFileChooser;
 
 /**
  *

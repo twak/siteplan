@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.utils.ListDownLayout;
+import org.twak.utils.ui.ListDownLayout;
 
 /**
  *

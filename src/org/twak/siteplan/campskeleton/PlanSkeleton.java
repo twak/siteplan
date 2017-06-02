@@ -23,9 +23,9 @@ import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
 import org.twak.siteplan.jme.Preview;
 import org.twak.siteplan.tags.LowPriorityTag;
 import org.twak.utils.Cache;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.MultiMap;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.MultiMap;
 
 /**
  * Root class for the straight skeleton extensions.

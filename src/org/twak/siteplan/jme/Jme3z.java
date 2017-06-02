@@ -11,13 +11,13 @@ import javax.vecmath.Tuple3d;
 //import javax.vecmath.Vector3f;
 import javax.vecmath.Vector3d;
 
-import org.twak.utils.Arrayz;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.Loopz;
-import org.twak.utils.ObjDump;
+import org.twak.utils.collections.Arrayz;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.collections.Loopz;
 import org.twak.utils.geom.Line3d;
+import org.twak.utils.geom.ObjDump;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.asset.AssetManager;

@@ -2,9 +2,9 @@ package org.twak.siteplan.anchors;
 
 import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
-import org.twak.utils.AbstractDocumentListener;
 import org.twak.utils.WeakListener;
 import org.twak.utils.WeakListener.Changed;
+import org.twak.utils.ui.AbstractDocumentListener;
 
 /**
  *

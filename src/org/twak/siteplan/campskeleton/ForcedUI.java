@@ -10,7 +10,7 @@ import org.twak.camp.ui.Bar;
 import org.twak.camp.ui.PointEditor;
 import org.twak.siteplan.junk.ForcedStep;
 import org.twak.utils.LContext;
-import org.twak.utils.Loop;
+import org.twak.utils.collections.Loop;
 
 /**
  * UI for an-almost-plan. A step edge adjustment. First and last points are fixed.

@@ -24,11 +24,11 @@ import org.twak.camp.Skeleton;
 import org.twak.camp.Tag;
 import org.twak.camp.ui.Bar;
 import org.twak.camp.ui.Marker;
-import org.twak.utils.Line;
-import org.twak.utils.Line3D;
-import org.twak.utils.LinearForm3D;
-import org.twak.utils.Loop;
-import org.twak.utils.MultiMap;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.MultiMap;
+import org.twak.utils.geom.Line;
+import org.twak.utils.geom.Line3D;
+import org.twak.utils.geom.LinearForm3D;
 
 /**
  * @author twak

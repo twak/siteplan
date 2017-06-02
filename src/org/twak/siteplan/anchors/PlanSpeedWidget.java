@@ -11,7 +11,7 @@
 
 package org.twak.siteplan.anchors;
 
-import org.twak.utils.Loopable;
+import org.twak.utils.collections.Loopable;
 
 /**
  *

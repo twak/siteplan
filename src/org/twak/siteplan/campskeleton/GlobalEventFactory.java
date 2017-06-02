@@ -23,10 +23,10 @@ import org.twak.siteplan.campskeleton.Profile.GlobalProfile;
 import org.twak.siteplan.campskeleton.Profile.ProfileChainInfo;
 import org.twak.utils.Cache;
 import org.twak.utils.Cache2;
-import org.twak.utils.Loop;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
 import org.twak.utils.ToStrictSetIerable;
+import org.twak.utils.collections.Loop;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
 
 /**
  * Creates a bunch of events that deal with face extrude/intrude. These are added

@@ -14,13 +14,13 @@ import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
 import org.twak.siteplan.campskeleton.Siteplan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
-import org.twak.utils.DHash;
 import org.twak.utils.LContext;
-import org.twak.utils.LoopL;
-import org.twak.utils.Loopable;
-import org.twak.utils.SetCorrespondence;
 import org.twak.utils.WeakListener;
 import org.twak.utils.WeakListener.Changed;
+import org.twak.utils.collections.DHash;
+import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
+import org.twak.utils.collections.SetCorrespondence;
 
 /**
  *
