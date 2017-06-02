@@ -13,19 +13,22 @@ To run the compiled jar:
 
 # To Build #
 
-  * install my deps into maven "mvn compile install" from the same directory as each pom.xml:
+  * install my deps into maven using "mvn compile install" from the same directory as each pom.xml:
     * [jutils](https://github.com/twak/jutils)
     * [campskeleton](https://github.com/twak/campskeleton)
   * clone the siteplan repo
-  * compile to a jar with "mvn package" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
-  * There are lots of bugs, report them on github.
+  * either
+    ** compile to a jar with "mvn package" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
+    ** build as an eclipse [project](https://github.com/twak/siteplan/blob/master/pom.xml). jutils and campskeleton are also setup for eclipse.
+
+there are lots of bugs, report them on github.
 
 # 3D Window Controls #
 
-(designed for nice demo videos, rather than being useful)
-
 * WASD - move forward/strafe
 * Mouse - look around
+* left/right arrows - ambient 
+* up/down arrows - camera speed
 
 # 2D Mouse Window Controls #
 
@@ -40,7 +43,7 @@ Note: a 3 button mouse is needed for most editing operations just now.
 # 2D Interface Introduction #
 
 The left window is the plan view. The right window is the profile view. Select an edge in the plan by clicking on it, in the left window.
-Selecting the "updates" button will update the 3D every time you change something. This can get slow. The go button just creates the 3D for the current design.
+Selecting the "updates" button will update the 3D every time you change something. This can get slow. The go button just creates the 3D for the plan and profiles.
 After selecting an edge, assign a profile to it from the combo box above the profile window.
 Create a new profile using the new profile button.
 The plans must not self-intersect ("don't cross the beams"), or be inside out (or you'll get inside out buildings). Courtyards/holes in footprints must be defined in the opposite diretiction. If you add a new plan inside an existing shape, it should reverse the loop for you, but no guarantees.
