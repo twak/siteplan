@@ -1,6 +1,7 @@
 package org.twak.siteplan.jme;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.vecmath.Matrix4d;
@@ -18,6 +19,7 @@ import org.twak.utils.collections.Loopz;
 import org.twak.utils.geom.DRectangle;
 import org.twak.utils.geom.Line3d;
 import org.twak.utils.triangulate.EarCutTriangulator;
+import org.twak.utils.ui.Plot;
 
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Mesh;
@@ -185,29 +187,18 @@ public class MeshBuilder {
 		add( new Loop<Point3d> (pts).singleton(), true );
 	}
 	
-	public void add( LoopL<? extends Point3d> loopl, 
-			boolean reverseTriangles ) {
-
-		for (Loop<? extends Point3d> loop : loopl)
-			for (Loopable<? extends Point3d> ll : loop.loopableIterator()) {
-				
-				Vector3d a = new Vector3d( ll.getNext().get() ),
-						 b = new Vector3d( ll.get() );
-				
-				a.sub (ll.get());
-				b.sub (ll.getPrev().get());
-
-				if ( ll.getNext() != ll )
-					if (ll.get().equals (ll.getNext().get()) ||
-							a.angle( b ) > Math.PI - 0.01)
-						loop.remove( (Loopable) ll );
-			}
+	public void add( LoopL<? extends Point3d> loopl, boolean reverseTriangles ) {
+		
+		fixForTriangulator( loopl );
 		
 		if (loopl.count() <= 2)
 			return;
 		
 		for ( Loop<? extends Point3d> loop : loopl ) {
 
+			if (loop.start == null)
+				continue;
+			
 			List<Float> pos = new ArrayList();
 			List<Integer> ids = new ArrayList();
 
@@ -263,6 +254,38 @@ public class MeshBuilder {
 			}
 		}
 
+	}
+
+	private void fixForTriangulator( LoopL<? extends Point3d> loopl ) {
+		for (Loop<? extends Point3d> loop : loopl) 
+		{
+			
+			Loopable<? extends Point3d> start = loop.start, current = start;
+			
+			do
+			{
+				Vector3d a = new Vector3d( current.getNext().get() ),
+						 b = new Vector3d( current.get() );
+				
+				a.sub (current.get());
+				b.sub (current.getPrev().get());
+				
+				if ( current.getNext() == current ) {
+					loop.start = null;
+					break;
+				}
+					if (a.lengthSquared() == 0  
+							|| 							a.angle( b ) > Math.PI - 0.1) {
+						loop.remove( (Loopable) current );
+						start = current = current.getPrev();
+					}
+				
+				current = current.next;
+			} while (current != start);
+			
+		}
+		
+//		new Plot(loopl);
 	}
 
 	
