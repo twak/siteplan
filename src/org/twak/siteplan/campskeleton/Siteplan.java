@@ -122,15 +122,16 @@ public class Siteplan extends javax.swing.JFrame {
 	int frame = 0;
 
 	public Siteplan() {
-		this( null );
+		this( null, true );
 	}
 
 	/** Creates new form CampSkeleton */
-	public Siteplan( Plan plan ) {
+	public Siteplan( Plan plan, boolean showPreview ) {
 		
 		instance = this;
 		
-		preview = new Preview();
+		if (showPreview)
+			preview = new Preview();
 
 		initComponents();
 		
