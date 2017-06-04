@@ -1,5 +1,5 @@
 
-[![](http://www.flickr.com/photos/twak/6147665705/)](http://www.flickr.com/photos/twak/6147665705/)
+[![](https://farm7.staticflickr.com/6084/6147665705_ec376a4dd5_m_d.jpg)](http://www.flickr.com/photos/twak/6147665705/)
 
 I'm very happy to finally announce the long overdue release of siteplan, my procedural extrusions implementation. Info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>.<br />
 
@@ -20,5 +20,5 @@ This is a [research project](http://twak.blogspot.com/2011/04/interactive-archit
 
 (video)[https://www.youtube.com/watch?v=BrCDKrBS9To]. some of the kinds of buildings you can create if you invest a little more time:
 
-[![](http://www.flickr.com/photos/twak/4998728536/)](http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg") 
+[![](https://farm5.staticflickr.com/4105/4998728536_748924325d_z_d.jpg)](http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg") 
 
