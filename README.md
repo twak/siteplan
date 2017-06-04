@@ -18,7 +18,7 @@ This is a [research project](http://twak.blogspot.com/2011/04/interactive-archit
 }
 </pre>
 
-(video)[https://www.youtube.com/watch?v=BrCDKrBS9To]. some of the kinds of buildings you can create if you invest a little more time:
+[video](https://www.youtube.com/watch?v=BrCDKrBS9To). some of the kinds of buildings you can create if you invest a little more time:
 
 [![](https://farm5.staticflickr.com/4105/4998728536_748924325d_z_d.jpg)](http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg") 
 
