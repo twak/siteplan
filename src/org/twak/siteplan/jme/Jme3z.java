@@ -236,7 +236,7 @@ public class Jme3z {
 //					color = Rainbow.getColour( c++ );
 				
 				if (color != null)
-					dump.setCurrentTexture( color, 0.2 );
+					dump.setCurrentMaterial( color, 0.2 );
 				
 				dump( dump, s, i+1 );
 			}
