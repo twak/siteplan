@@ -18,7 +18,7 @@ import org.twak.camp.Skeleton;
 import org.twak.camp.Tag;
 import org.twak.camp.ui.DirectionHeightEvent;
 import org.twak.camp.ui.MachineEvent;
-import org.twak.utils.geom.Line;
+import org.twak.utils.Line;
 import org.twak.utils.geom.LinearForm;
 
 /**

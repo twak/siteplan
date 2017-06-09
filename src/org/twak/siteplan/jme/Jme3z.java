@@ -216,6 +216,9 @@ public class Jme3z {
 		}
 	}
 
+	
+	public static String MAT_KEY = "material";
+	
 	public static void dump( ObjDump dump, Spatial spat, int i ) {
 		
 		if ( spat instanceof Node ) {
@@ -236,7 +239,7 @@ public class Jme3z {
 //					color = Rainbow.getColour( c++ );
 				
 				if (color != null)
-					dump.setCurrentMaterial( color, 0.2 );
+					dump.setCurrentMaterial( s.getUserData( MAT_KEY ), color, 0.2 );
 				
 				dump( dump, s, i+1 );
 			}
