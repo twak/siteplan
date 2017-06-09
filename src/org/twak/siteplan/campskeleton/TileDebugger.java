@@ -8,10 +8,10 @@ import javax.swing.JFrame;
 
 import org.twak.camp.ui.Bar;
 import org.twak.camp.ui.PointEditor;
+import org.twak.utils.Line;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
 import org.twak.utils.collections.Loopable;
-import org.twak.utils.geom.Line;
 
 /**
  *

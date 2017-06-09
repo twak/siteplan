@@ -22,6 +22,7 @@ import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.campskeleton.PlanSkeleton.ColumnProperties;
 import org.twak.utils.Cache;
 import org.twak.utils.LContext;
+import org.twak.utils.Line;
 import org.twak.utils.MUtils;
 import org.twak.utils.Pair;
 import org.twak.utils.WeakListener;
@@ -29,7 +30,6 @@ import org.twak.utils.collections.ConsecutiveItPairs;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
 import org.twak.utils.collections.Loopable;
-import org.twak.utils.geom.Line;
 
 /**
  * @author twak

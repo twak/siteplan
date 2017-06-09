@@ -262,6 +262,9 @@ public class MeshBuilder {
 			
 			Loopable<? extends Point3d> start = loop.start, current = start;
 			
+			if (current == null)
+				continue;
+			
 			do
 			{
 				Vector3d a = new Vector3d( current.getNext().get() ),
