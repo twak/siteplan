@@ -6,7 +6,7 @@ import javax.swing.JComponent;
 import javax.vecmath.Vector2d;
 
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
 import org.twak.straightskeleton.Corner;
@@ -105,8 +105,8 @@ public class AnimateAnchorCircularShip extends Ship
 //            Loopable<Bar> able = null;
 
             LoopLoopable<Bar>
-                cAble = CampSkeleton.instance.plan.points.find( bar ),
-                mAble = CampSkeleton.instance.plan.points.find( planM.bar );
+                cAble = SitePlan.instance.plan.points.find( bar ),
+                mAble = SitePlan.instance.plan.points.find( planM.bar );
 
             if ( cAble == null || mAble == null )
                 return; // didn't find marker on main plan. give up.

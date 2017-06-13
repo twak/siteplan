@@ -13,7 +13,7 @@ package org.twak.siteplan.anchors;
 
 import java.io.File;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.utils.AbstractDocumentListener;
 import org.twak.utils.SimpleFileChooser;
 import org.twak.utils.WeakListener;
@@ -158,7 +158,7 @@ public class MeshUI extends javax.swing.JPanel {
 
     private void browseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseButtonActionPerformed
 
-        new SimpleFileChooser (CampSkeleton.instance, false, "select mesh") {
+        new SimpleFileChooser (SitePlan.instance, false, "select mesh") {
             @Override
             public void heresTheFile(File f) throws Throwable {
                 fileField.setText( f.getPath() );

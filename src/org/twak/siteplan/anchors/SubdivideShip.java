@@ -16,7 +16,7 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.FaceUnion;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
@@ -83,7 +83,7 @@ public class SubdivideShip extends Ship
     @Override
     protected Anchor createNewAnchor()
     {
-        return CampSkeleton.instance.plan.createAnchor( Plan.AnchorType.PROFILE, (Object)null );
+        return SitePlan.instance.plan.createAnchor( Plan.AnchorType.PROFILE, (Object)null );
     }
 
     public class SubdivideShipInstance extends Instance

@@ -83,11 +83,12 @@ import com.jme3.scene.shape.Box;
  * 
  * @author twak
  */
-public class CampSkeleton extends javax.swing.JFrame {
+public class SitePlan extends javax.swing.JFrame {
+	private static final String GO = "go";
 	public final static String toolKey = "related tool";
-	public final static boolean Is_User = false; // i can haz dev?
+	public final static boolean Is_User = false; // dev flag
 
-	public static CampSkeleton instance;
+	public static SitePlan instance;
 	public final WeakListener selectedAnchorListeners = new WeakListener();
 	public final WeakListener somethingChangedListeners = new WeakListener();
 	public final WeakListener profileListChangedListeners = new WeakListener();
@@ -120,20 +121,19 @@ public class CampSkeleton extends javax.swing.JFrame {
 	// animation frame we're on
 	int frame = 0;
 
-	public CampSkeleton() {
+	public SitePlan() {
 		this( null );
 	}
 
 	/** Creates new form CampSkeleton */
-	public CampSkeleton( Plan plan ) {
-//		preview = new Preview();
-
+	public SitePlan( Plan plan ) {
+		
 		instance = this;
+		
+		preview = new Preview();
 
 		initComponents();
 		
-		autoupdateButtom.doClick();
-
 		centralPanel.setLayout( new ListDownLayout() );
 		centralPanel.setPreferredSize( new Dimension( 200, 300 ) );
 		centralPanel.setMaximumSize( new Dimension( 200, 30000 ) );
@@ -237,12 +237,12 @@ public class CampSkeleton extends javax.swing.JFrame {
 	}
 
 	void updateTitle() {
-		setTitle( "Procedural Extrusions " );// out for demo (saveLoad.saveAs == null ? "" : saveLoad.saveAs.getName() ));
+		setTitle( "siteplan" );
 	}
 
 	public void setTool( Tool mode ) {
 		nowSelectingFor( null );
-		CampSkeleton.instance.highlightFor( new ArrayList() );
+		SitePlan.instance.highlightFor( new ArrayList() );
 
 		this.mode = mode;
 
@@ -380,8 +380,10 @@ public class CampSkeleton extends javax.swing.JFrame {
 		plan = new Plan();
 		plan.name = "root-plan";
 
-		Profile defaultProf = new Profile( 100 );
-		defaultProf.points.get( 0 ).start.get().end.x += 20;
+		Profile defaultProf = new Profile( 50 );
+		defaultProf.points.get(0).append(new Bar( defaultProf.points.get(0).start.get().end, new Point2d (50,-100) ) );
+//		defaultProf.points.get( 0 ).start.get().end.x += 20;
+		
 
 		createCross( plan, defaultProf );
 		plan.addLoop( defaultProf.points.get( 0 ), plan.root, defaultProf );
@@ -454,7 +456,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 	}
 
 	public void loadPlan( Plan plan ) {
-		CampSkeleton.this.reset();
+		SitePlan.this.reset();
 
 		int nSteps = 0, nInstances = 0;
 
@@ -514,7 +516,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 	public void setPlan( Plan selected ) {
 		// nothing to do?
 		this.plan = (Plan) selected;
-		setPlan( planUI = new PlanUI( (Plan) selected, new PlanEdgeSelected() ) ); //wtf?
+		setPlan( planUI = new PlanUI( (Plan) selected, new PlanEdgeSelected() ) ); 
 		setImage( bgImage );
 
 		setEdge( null );
@@ -711,7 +713,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 
 		setDefaultCloseOperation( javax.swing.WindowConstants.EXIT_ON_CLOSE );
 
-		goButton.setText( "go" );
+		goButton.setText( GO );
 		goButton.addActionListener( new java.awt.event.ActionListener() {
 			public void actionPerformed( java.awt.event.ActionEvent evt ) {
 				goButtonActionPerformed( evt );
@@ -1132,8 +1134,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 
 			show( output, (Skeleton) threadKey );
 
-			//            preview.display( output );
-			//
+            preview.display( output, true, true, true );
 
 			for ( PlanTag pt : plan.tags ) {
 				pt.postProcess( output, preview, threadKey );
@@ -1229,7 +1230,7 @@ public class CampSkeleton extends javax.swing.JFrame {
 						//                         preview.dump(new File ( "C:\\Users\\twak\\step_frames\\"+frame+".obj") );
 					} finally {
 						busy = false;
-						goButton.setText( "go" );
+						goButton.setText( GO );
 						// if something's changed since we started work, run again...
 						if ( dirty )
 							SwingUtilities.invokeLater( new Runnable() {
@@ -1531,14 +1532,14 @@ public class CampSkeleton extends javax.swing.JFrame {
 	}//GEN-LAST:event_frameSpinnerStateChanged
 
 	public static void main( String[] args ) {
-		WindowManager.iconName = "/camp/resources/icon32.png";
+		WindowManager.init( "siteplan", "/org/twak/siteplan/resources/icon256.png" );
 		try {
 			UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
 		} catch ( Throwable ex ) {
 			ex.printStackTrace();
 		}
 
-		CampSkeleton cs = new CampSkeleton();
+		SitePlan cs = new SitePlan();
 		cs.setVisible( true );
 		WindowManager.register( cs );
 
@@ -1746,12 +1747,16 @@ public class CampSkeleton extends javax.swing.JFrame {
 			preview.clear = true;
 
 			Point2d pt = getMiddle( plan.points );
-			preview.setViewStats( pt.x / Jme.scale, threadKey.height / Jme.scale, pt.y / Jme.scale, threadKey );
+			
+			preview.display( output, true, true, true );
+			
+//			preview.setViewStats( pt.x / Jme.scale, threadKey.height / Jme.scale, pt.y / Jme.scale, threadKey );
 
-			if ( !markers.isEmpty() ) {
-				for ( Spatial s : markers )
-					preview.display( s, threadKey );
-			}
+//			if ( !markers.isEmpty() ) {
+//				for ( Spatial s : markers )
+//					preview.display( s, threadKey );
+//			}
+			
 			markers.clear();
 		}
 	}

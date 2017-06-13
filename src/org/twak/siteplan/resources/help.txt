@@ -6,12 +6,10 @@ Use this program at your own risk. It may well destroy your computer, and make o
 
 (designed for nice demo videos, rather than being useful)
 
-Space - stop/start spinning
-Q,Z - zoom
-W,S - tilt
-A,D - pan
-(T - show mesh)
-(L - lighting toggle)
+WASD: strafe/move camera
+mouse: rotate camera
+up/down: ambient lighting
+left/right: camera speed
 
 2D Mouse Window Controls:
 
@@ -24,15 +22,17 @@ The Alt key will change the behavour of the corner-dragging - in plan mode it sn
 
 2D Interface for Single-Building Application:
 
-The left window is the plan view. The right window is the profile view. Select an edge by clicking on it, and edit the plan in the left window.
+The left window is the plan view. The right window is the profile view. Select an edge by left clicking on it, and edit the plan in the right window. Ctrl-click will add a point to the plan or profile.
+Click the go button to view the result in 3D.
 Selecting the updates button will update the 3D every time you change something. This can get slow. The go button just creates the 3D for the current design.
-After selecting an edge, assign a profile to it from the combo box above the profile window.
-Create a new profile using the new profile button.
+After selecting an edge, assign a profile to it from the combo box above the profile.
+Create a new profile using the + button above the profile editor.
 The plans must not self-intersect ("don't cross the beams"), or be inside out (or you'll get inside out buildings). Courtyards/holes in footprints must be defined in the opposite direction. If you add a new plan inside an existing shape, it should reverse the loop for you, but no guarantees.
 
 Edit the profiles in a similar way to the plans, note that they can only move upwards, or horizontally (the "monotone restriction", if you talk to Peter about this). To get around this, control-clicking in a profile will add a global event (overhanging roof).
 
 Rules for overhangs:
+
 The start and the end of the overhang have to be on the same side of the nearest wall.
 You can put overhangs on the inside to carve out space.
 Everytime you add a global event to a profile, it is added to all profiles (think about it...)

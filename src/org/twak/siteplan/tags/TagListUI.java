@@ -27,7 +27,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import org.twak.siteplan.anchors.Ship;
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.utils.DuckTypeAlphabetComparator;
@@ -213,7 +213,7 @@ public class TagListUI extends javax.swing.JPanel {
             tag = (PlanTag) tagList.getSelectedValue();
 
             shipOptionsPanel.removeAll();
-            CampSkeleton.instance.selectedTag = tag;
+            SitePlan.instance.selectedTag = tag;
 
             if (tag != null)
             {

@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 
-import org.twak.siteplan.campskeleton.CampSkeleton;
+import org.twak.siteplan.campskeleton.SitePlan;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
 import org.twak.siteplan.jme.Preview;
@@ -144,7 +144,7 @@ public class RenderAnimFrame extends javax.swing.JFrame {
 
     private void browseButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_browseButtonActionPerformed
     {//GEN-HEADEREND:event_browseButtonActionPerformed
-        new SimpleFileChooser( CampSkeleton.instance, false, "select a file in directory to use ;)" )
+        new SimpleFileChooser( SitePlan.instance, false, "select a file in directory to use ;)" )
         {
             @Override
             public void heresTheFile(File f) throws Throwable
@@ -174,22 +174,22 @@ public class RenderAnimFrame extends javax.swing.JFrame {
 
             public void run()
             {
-                CampSkeleton.instance.update( start );
-                Plan plan = CampSkeleton.instance.plan;
+                SitePlan.instance.update( start );
+                Plan plan = SitePlan.instance.plan;
                 PlanSkeleton s = new PlanSkeleton( plan );
                 s.skeleton();
 
                 for ( int i = start; i < end; i++ )
                     try
                     {
-                        CampSkeleton.instance.update( i, false );
-                        plan = CampSkeleton.instance.plan;
+                        SitePlan.instance.update( i, false );
+                        plan = SitePlan.instance.plan;
                         s = new PlanSkeleton( plan );
                         s.skeleton();
 
                         if ( s.output.faces != null )
                         {
-                            Preview preview = CampSkeleton.instance.preview;
+                            Preview preview = SitePlan.instance.preview;
 
 
                     preview.display( s.output, true, true, false );
@@ -246,8 +246,8 @@ public class RenderAnimFrame extends javax.swing.JFrame {
                     }
                 // flush changes from preview
 
-                CampSkeleton.instance.update( 0 );
-                CampSkeleton.instance.somethingChanged();
+                SitePlan.instance.update( 0 );
+                SitePlan.instance.somethingChanged();
                 goButton.setText( "go" );
             }
         }.start();
