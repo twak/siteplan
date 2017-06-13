@@ -278,7 +278,7 @@ public class MeshBuilder {
 					break;
 				}
 					if (a.lengthSquared() == 0  
-							|| 							a.angle( b ) > Math.PI - 0.1) {
+							|| 							a.angle( b ) > Math.PI - 0.001) {
 						loop.remove( (Loopable) current );
 						start = current = current.getPrev();
 					}
