@@ -17,7 +17,7 @@ import org.twak.camp.ui.DirectionHeightEvent;
 import org.twak.camp.ui.HorizontalHeightEvent;
 import org.twak.camp.ui.Marker;
 import org.twak.siteplan.anchors.AnchorHauler.AnchorHeightEvent;
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 import org.twak.utils.PointDistanceComparator;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
@@ -95,7 +95,7 @@ public class ProfileMachine extends Machine
             // if next bar doesn't start with our end, we're the last bar in the monotone set.
             boolean isLast = bar.end != lBar.getNext().get().start;
 
-            angle = MUtils.clamp( angle, -Math.PI / 2, Math.PI / 2 );
+            angle = Mathz.clamp( angle, -Math.PI / 2, Math.PI / 2 );
 
             DirectionHeightEvent he = null;
             

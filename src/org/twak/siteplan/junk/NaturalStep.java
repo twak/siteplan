@@ -22,7 +22,7 @@ import org.twak.siteplan.campskeleton.Profile;
 import org.twak.siteplan.campskeleton.ProfileMachine;
 import org.twak.siteplan.campskeleton.StepUI;
 import org.twak.utils.LContext;
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 import org.twak.utils.Pair;
 import org.twak.utils.collections.ConsecutiveItPairs;
 import org.twak.utils.collections.Loop;
@@ -144,7 +144,7 @@ public class NaturalStep extends NaturalFeature
 
         Line3D l3 = Line3D.fromStartEnd( insertAfter, insertBefore );
         double param = l3.projectParam( new Point3d( m.x, m.y, 0 ) );
-        param = MUtils.clamp( param, 2. / length, 1 - 2. / length );
+        param = Mathz.clamp( param, 2. / length, 1 - 2. / length );
 
         double pStart = param - 0.5 / length;
 
