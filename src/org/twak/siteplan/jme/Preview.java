@@ -17,7 +17,7 @@ import javax.vecmath.Vector3d;
 import org.twak.camp.Output;
 import org.twak.camp.Output.Face;
 import org.twak.siteplan.campskeleton.PlanSkeleton;
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 import org.twak.utils.collections.Arrayz;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.Loopable;
@@ -346,21 +346,21 @@ public class Preview extends SimpleApplication
 
 	private void setFov( int i ) {
 		
-		fov = MUtils.clamp( fov + i, -100, 100 );
+		fov = Mathz.clamp( fov + i, -100, 100 );
 		System.out.println("fov now " + fov);
 		setCameraPerspective();
 	}
 
 	private void setCameraSpeed( int i ) {
 		
-		cameraSpeed = MUtils.clamp(cameraSpeed+i, -25, 3 );
+		cameraSpeed = Mathz.clamp(cameraSpeed+i, -25, 3 );
 		System.out.println("camera speed now " + cameraSpeed);
 		getFlyByCamera().setMoveSpeed( (float) Math.pow (2, (cameraSpeed /2 ) + 8) );
 	}
 	
 	private void setAmbient( int i ) {
 		
-		ambientS = MUtils.clamp( ambientS + i * 0.1f, 0, 2 );
+		ambientS = Mathz.clamp( ambientS + i * 0.1f, 0, 2 );
 		System.out.println("ambient now " + ambientS);
 		ambient.setColor(ColorRGBA.White.mult( ambientS));
   		sun.setColor( new ColorRGBA(1f, 0.95f, 0.99f, 1f).mult( 2- ambientS) );

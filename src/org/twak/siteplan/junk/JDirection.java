@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 
 import org.twak.camp.ui.DirectionEvent;
 import org.twak.camp.ui.MachineEvent;
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 
 /**
  *
@@ -94,8 +94,8 @@ public class JDirection extends JComponent implements SelectableComponent
             direction.angle += dX / (double) 50;
             direction.height -= dY * rack.pixelsToHeight(); // not good, depends on height of JDirectionRack :(
 
-            direction.angle = MUtils.clamp( direction.angle, -Math.PI/2+.1, Math.PI/2-.1);
-            direction.height = MUtils.clamp( direction.height, 0, rack.height);
+            direction.angle = Mathz.clamp( direction.angle, -Math.PI/2+.1, Math.PI/2-.1);
+            direction.height = Mathz.clamp( direction.height, 0, rack.height);
 
             Point sL = getLocation();
             getParent().doLayout(); //...?

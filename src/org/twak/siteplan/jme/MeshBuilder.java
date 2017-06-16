@@ -10,7 +10,7 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;
 import javax.vecmath.Vector3d;
 
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 import org.twak.utils.collections.Arrayz;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
@@ -113,7 +113,7 @@ public class MeshBuilder {
 	public void solidLine( Line3d oLine, double d ) {
 
 		Vector3d along = oLine.dir();
-		addCube ( new Vector3d ( oLine.start) , MUtils.Y_UP, along, d, oLine.length(), d);
+		addCube ( new Vector3d ( oLine.start) , Mathz.Y_UP, along, d, oLine.length(), d);
 		
 	}
 	

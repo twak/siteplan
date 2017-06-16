@@ -15,7 +15,7 @@ import org.twak.siteplan.anchors.Ship;
 import org.twak.siteplan.campskeleton.Global;
 import org.twak.siteplan.campskeleton.Plan;
 import org.twak.siteplan.campskeleton.Profile;
-import org.twak.utils.MUtils;
+import org.twak.utils.Mathz;
 import org.twak.utils.collections.Loop;
 
 /**
@@ -201,7 +201,7 @@ public class PioneerPlan extends Plan
 
     public double getValue (Tween t, int min, int max, int frame)
     {
-        return t.get( MUtils.clamp( (frame - min)/((double)max - min), 0., 1. ));
+        return t.get( Mathz.clamp( (frame - min)/((double)max - min), 0., 1. ));
     }
 
     public static abstract class Tween
