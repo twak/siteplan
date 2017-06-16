@@ -160,7 +160,7 @@ public class MeshBuilder {
 				inds.add (offset + GEOMETRY_INDICES_DATA[j * 3 + i]);
 	}
 	
-	public void add (LoopL<Point2d> flat, Matrix4d to3d) {
+	public void add (LoopL<? extends Point2d> flat, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
 		
 		add( td, true );
