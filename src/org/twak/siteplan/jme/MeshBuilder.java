@@ -162,7 +162,6 @@ public class MeshBuilder {
 	
 	public void add (LoopL<? extends Point2d> flat, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
-		
 		add( td, true );
 	}
 	
