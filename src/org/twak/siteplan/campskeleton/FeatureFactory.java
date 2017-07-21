@@ -27,7 +27,7 @@ import org.twak.camp.ui.Marker;
 import org.twak.utils.Line;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.MultiMap;
-import org.twak.utils.geom.Line3D;
+import org.twak.utils.geom.Ray3d;
 import org.twak.utils.geom.LinearForm3D;
 
 /**
@@ -198,7 +198,7 @@ public class FeatureFactory<E extends Tag>
                         case AbsStart:
                             // do a straight projection (this isn't rotated to the current frame of the bar - eg: won't work with nested features)
                             Vector3d delta = new Vector3d(end); delta.sub(start);
-                            Line3D atSPlane = new Line3D( start, delta );
+                            Ray3d atSPlane = new Ray3d( start, delta );
                             Point3d res = atSPlane.projectSegment( new Point3d (planM.x, planM.y, 0 ) );
                             tran = res == null ? null : new Vector3d ( res );
                             break;

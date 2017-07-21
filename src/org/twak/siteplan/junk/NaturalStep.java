@@ -27,7 +27,7 @@ import org.twak.utils.Pair;
 import org.twak.utils.collections.ConsecutiveItPairs;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.Loopable;
-import org.twak.utils.geom.Line3D;
+import org.twak.utils.geom.Ray3d;
 
 /**
  *
@@ -142,7 +142,7 @@ public class NaturalStep extends NaturalFeature
         if ( length < 2 )
             return insertAfter;
 
-        Line3D l3 = Line3D.fromStartEnd( insertAfter, insertBefore );
+        Ray3d l3 = Ray3d.fromStartEnd( insertAfter, insertBefore );
         double param = l3.projectParam( new Point3d( m.x, m.y, 0 ) );
         param = Mathz.clamp( param, 2. / length, 1 - 2. / length );
 
