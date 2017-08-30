@@ -113,7 +113,17 @@ public class MeshBuilder {
 	public void solidLine( Line3d oLine, double d ) {
 
 		Vector3d along = oLine.dir();
-		addCube ( new Vector3d ( oLine.start) , Mathz.Y_UP, along, d, oLine.length(), d);
+		
+		Point3d start = new Point3d ( oLine.start );
+		
+		Vector3d tmp = new Vector3d( Mathz.Y_UP );
+		tmp.scale( d/2 );
+		start.add( tmp );
+		tmp.cross( Mathz.Y_UP, along );
+		tmp.scale( -d / ( 2 * tmp.length()  ) );
+		start.add( tmp );
+		
+		addCube ( start , Mathz.Y_UP, along, -d, oLine.length(), d);
 		
 	}
 	
