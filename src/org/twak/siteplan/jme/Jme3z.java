@@ -139,48 +139,71 @@ public class Jme3z {
 		return new com.jme3.math.Vector3f( (float) a.x, (float) a.y, (float) a.z );
 	}
 
-	public static Spatial lines( AssetManager am, List<Line3d> roofLines, ColorRGBA color, float width ) {
+	public static Spatial lines( AssetManager am, List<Line3d> roofLines, ColorRGBA color, float width, boolean cuboid ) {
 
-		Mesh m = new Mesh();
+		Mesh m;
+		Geometry geom;
+		
+		if ( cuboid ) {
 
-		m.setMode( Mesh.Mode.Lines );
+			MeshBuilder mb = new MeshBuilder();
 
-		List<Float> coords = new ArrayList<>();
-		List<Integer> inds = new ArrayList<>();
+			for ( Line3d l : roofLines )
+				mb.solidLine( l, width );
 
-		for ( Line3d line : roofLines ) {
+			m = mb.getMesh();
 
-			inds.add( inds.size() );
-			inds.add( inds.size() );
+			geom = new Geometry( "3d lines", m );
 
-			coords.add( (float) line.start.x );
-			coords.add( (float) line.start.y );
-			coords.add( (float) line.start.z );
-			coords.add( (float) line.end.x );
-			coords.add( (float) line.end.y );
-			coords.add( (float) line.end.z );
+			Material mat = new Material( am, "Common/MatDefs/Light/Lighting.j3md" );
 
+			mat.setColor( "Diffuse", color );
+			mat.setColor( "Ambient", color.mult( 0.5f ) );
+			mat.setBoolean( "UseMaterialColors", true );
+
+			geom.setMaterial( mat );
+
+		} else {
+
+			m = new Mesh();
+			m.setMode( Mesh.Mode.Lines );
+
+			List<Float> coords = new ArrayList<>();
+			List<Integer> inds = new ArrayList<>();
+
+			for ( Line3d line : roofLines ) {
+
+				inds.add( inds.size() );
+				inds.add( inds.size() );
+
+				coords.add( (float) line.start.x );
+				coords.add( (float) line.start.y );
+				coords.add( (float) line.start.z );
+				coords.add( (float) line.end.x );
+				coords.add( (float) line.end.y );
+				coords.add( (float) line.end.z );
+
+			}
+
+			m.setBuffer( VertexBuffer.Type.Position, 3, Arrayz.toFloatArray( coords ) );
+			m.setBuffer( VertexBuffer.Type.Index, 2, Arrayz.toIntArray( inds ) );
+
+			geom = new Geometry( "jmez lines", m );
+
+			Material lineMaterial = new Material( am, "Common/MatDefs/Misc/Unshaded.j3md" );
+
+			lineMaterial.getAdditionalRenderState().setLineWidth( width );
+
+			lineMaterial.setColor( "Color", color == null ? ColorRGBA.Pink : color );
+			geom.setMaterial( lineMaterial );
 		}
-
-		m.setBuffer( VertexBuffer.Type.Position, 3, Arrayz.toFloatArray( coords ) );
-		m.setBuffer( VertexBuffer.Type.Index, 2, Arrayz.toIntArray( inds ) );
-
-		Geometry geom = new Geometry( "jmez lines", m );
-
-		Material lineMaterial = new Material( am, "Common/MatDefs/Misc/Unshaded.j3md" );
-
-		lineMaterial.getAdditionalRenderState().setLineWidth( width );
-
-		lineMaterial.setColor( "Color", color == null ? ColorRGBA.Pink : color );
-		geom.setMaterial( lineMaterial );
-
 		
 		geom.updateGeometricState();
 		geom.updateModelBound();
 		
 		return geom;
 	}
-
+	
 	public static void toObj( Mesh m, ObjDump dump, Transform transform ) {
 
 		float[][] verts = new float[3][3];
