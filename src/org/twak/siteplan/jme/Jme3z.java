@@ -310,4 +310,8 @@ public class Jme3z {
 		mat.setBoolean( "UseMaterialColors", true );
 		return mat;
 	}
+
+	public static Point2d to2( Vector3f b ) {
+		return new Point2d( b.x, b.z );
+	}
 }
