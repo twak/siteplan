@@ -104,12 +104,13 @@
 			<artifactId>jme3-core</artifactId>
 			<version>${jme3_v}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>${jme3_g}</groupId>
 			<artifactId>jme3-desktop</artifactId>
 			<version>${jme3_v}</version>
-			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>${jme3_g}</groupId>
 			<artifactId>jme3-lwjgl</artifactId>
