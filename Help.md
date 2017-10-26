@@ -6,7 +6,7 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 
 To run the compiled jar:
  * install [sun's java 1.8+](http://java.sun.com)
- * run the [the jar](https://github.com/twak/siteplan/raw/wiki/siteplan-0.0.1-SNAPSHOT.jar):
+ * run the [the jar](https://drive.google.com/open?id=0B6r_mUgXfBLdaGNOUWtWOG1iNzA):
  ```
  java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar
  ```
@@ -18,7 +18,7 @@ To run the compiled jar:
     * [campskeleton](https://github.com/twak/campskeleton)
   * clone the siteplan repo
   * either
-    ** compile to a jar with "mvn package" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
+    ** compile to a jar with "mvn package assembly:single" in the same directory as siteplan's pom.xml, this will create a jar in the target directory.
     ** build as an eclipse [project](https://github.com/twak/siteplan/blob/master/pom.xml). jutils and campskeleton are also setup for eclipse.
 
 there are lots of bugs, report them on github.
