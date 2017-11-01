@@ -1,7 +1,7 @@
 
 [![](https://farm7.staticflickr.com/6084/6147665705_ec376a4dd5_m_d.jpg)](http://www.flickr.com/photos/twak/6147665705/)
 
-the long overdue release of siteplan, my procedural extrusions implementation. info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>. [video](https://www.youtube.com/watch?v=BrCDKrBS9To). <br />
+a procedural extrusions implementation. info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>. [video](https://www.youtube.com/watch?v=BrCDKrBS9To). <br />
 
 this is a [research project](http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html) - if you use it, please cite us:
 
