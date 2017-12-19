@@ -1,7 +1,6 @@
 package org.twak.siteplan.jme;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.vecmath.Matrix4d;
@@ -19,8 +18,8 @@ import org.twak.utils.collections.Loopz;
 import org.twak.utils.geom.DRectangle;
 import org.twak.utils.geom.Line3d;
 import org.twak.utils.triangulate.EarCutTriangulator;
-import org.twak.utils.ui.Plot;
 
+import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Mesh;
 import com.jme3.scene.Mesh.Mode;
@@ -30,6 +29,7 @@ import com.jme3.util.BufferUtils;
 public class MeshBuilder {
 	
 	public List<Vector3f> verts = new ArrayList<>(), norms = new ArrayList<>();
+	public List<Vector2f> uvs = null;
 	public List<Integer> inds = new ArrayList<>();
 
 	private static final short[] GEOMETRY_INDICES_DATA = {
@@ -59,6 +59,16 @@ public class MeshBuilder {
 			4, 4, 4, 4
 	};
 	
+	
+	private void ensureUVs() {
+		if (uvs != null)
+			return;
+		
+		if (!verts.isEmpty() )
+			throw new Error("no uvs on earlier data :(");
+		
+		uvs = new ArrayList<>();
+	}
 
 	public void addCube (Vector3f corner, Vector3f up, Vector3f along, Vector3f in, float upL, float alongL, float inL ) {
 	
@@ -175,21 +185,42 @@ public class MeshBuilder {
 		add( td, true );
 	}
 	
+	public void add ( LoopL<? extends Point2d> flat, LoopL<? extends Point2d> uvs, Matrix4d to3d) {
+		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
+		add( td, true );
+	}
+	
 	public void add3d (LoopL<? extends Point3d> ll, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( ll, to3d );
 		add( td, true );
 	}
 
 	public void add( DRectangle dRectangle, Matrix4d to3d ) {
+		add( dRectangle, null, to3d );
+	}
+	
+	public void add( DRectangle dRectangle, DRectangle uvs, Matrix4d to3d ) {
 		
-		LoopL flat = new LoopL();
-		Loop<Point2d> loop = new Loop<>();
-		flat.add(loop);
+		if (uvs != null)
+			ensureUVs();
 		
-		for (Point2d pt : dRectangle.points() )
-			loop.append( pt );
+		LoopL flat = new LoopL(), uvFlat = null;
+		Loop<Point2d> loop = flat.loop(), uvLoop = null;
+		Point2d[] points = dRectangle.points(), uvPts = null;
 		
-		add(flat, to3d);
+		if (uvs != null) {
+			uvFlat = new LoopL<>();
+			uvLoop = uvFlat.loop();
+			uvPts = uvs.points();
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			loop.append( points[i] );
+			if (uvs != null)
+				uvLoop.append( uvPts[i] );
+		}
+		
+		add(flat, uvFlat, to3d);
 	}
 	
 	public void add( Point3d ...pts  ) {
