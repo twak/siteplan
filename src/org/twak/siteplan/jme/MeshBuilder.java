@@ -1,6 +1,7 @@
 package org.twak.siteplan.jme;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.vecmath.Matrix4d;
@@ -60,14 +61,16 @@ public class MeshBuilder {
 	};
 	
 	
-	private void ensureUVs() {
+	public MeshBuilder ensureUVs() {
 		if (uvs != null)
-			return;
+			return this;
 		
 		if (!verts.isEmpty() )
 			throw new Error("no uvs on earlier data :(");
 		
 		uvs = new ArrayList<>();
+		
+		return this;
 	}
 
 	public void addCube (Vector3f corner, Vector3f up, Vector3f along, Vector3f in, float upL, float alongL, float inL ) {
@@ -137,7 +140,10 @@ public class MeshBuilder {
 		
 	}
 	
-	public void addInsideRect (Vector3f corner, Vector3f up, Vector3f along, Vector3f in, float upL, float alongL, float inL ) {
+	public void addInsideRect (
+			Vector3f corner, Vector3f up, Vector3f along, Vector3f in, 
+			float upL, float alongL, float inL,
+			float[][] uv ) {
 		
 		Vector3f[] axes = {
 				along.mult( alongL ),
@@ -165,34 +171,65 @@ public class MeshBuilder {
 				axes[2],
 		};
 		
+		if (upL > 0) 
+		{
+			for (Vector3f vv : n)
+				vv.multLocal( -1 );
+		}
+		
+		Vector2f[] u = null;
+		
+		if (uv != null) {
+			
+			Vector2f s = new Vector2f(uv[0][0], uv[0][1]);
+			Vector2f e = new Vector2f(uv[1][0], uv[1][1]);
+			
+			u = new Vector2f[] {
+					
+				new Vector2f( s.x ,s.y ),
+				new Vector2f( e.x ,s.y ),
+				new Vector2f( e.x ,s.y ),
+				new Vector2f( s.x ,s.y ),
+				new Vector2f( e.x ,e.y ),
+				new Vector2f( s.x, e.y ),
+				new Vector2f( e.x ,e.y ),
+				new Vector2f( s.x ,e.y ),
+
+			};
+		}
 		
 		int offset = verts.size();
 		
-		
-		for (int i = 0; i < CORNER_INDICES_DATA.length-2; i++)
+		for (int i = 0; i < CORNER_INDICES_DATA.length-1; i++)
 			verts.add( v[ CORNER_INDICES_DATA[ i ] ] );
 		
-		for (int i = 0; i < NORMAL_INDICES_DATA.length-2; i++)
+		if (uv != null) {
+			ensureUVs();
+			for (int i = 0; i < CORNER_INDICES_DATA.length-1; i++)
+				uvs.add( u[ CORNER_INDICES_DATA[ i ] ] );
+		}
+		
+		for (int i = 0; i < NORMAL_INDICES_DATA.length-1; i++)
 			norms.add( n[ NORMAL_INDICES_DATA[ i ] ] );
 		
-		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3 - 4; j++)
+		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3 - 2; j++)
 			for (int i = 2; i >=0 ; i--) 
 				inds.add (offset + GEOMETRY_INDICES_DATA[j * 3 + i]);
 	}
 	
 	public void add (LoopL<? extends Point2d> flat, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
-		add( td, true );
+		add( td, null, true );
 	}
 	
-	public void add ( LoopL<? extends Point2d> flat, LoopL<? extends Point2d> uvs, Matrix4d to3d) {
+	public void add ( LoopL<? extends Point2d> flat, LoopL<Point2d> uvs, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
-		add( td, true );
+		add( td, uvs, true );
 	}
 	
 	public void add3d (LoopL<? extends Point3d> ll, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( ll, to3d );
-		add( td, true );
+		add( td, null, true );
 	}
 
 	public void add( DRectangle dRectangle, Matrix4d to3d ) {
@@ -204,7 +241,7 @@ public class MeshBuilder {
 		if (uvs != null)
 			ensureUVs();
 		
-		LoopL flat = new LoopL(), uvFlat = null;
+		LoopL<Point2d> flat = new LoopL<>(), uvFlat = null;
 		Loop<Point2d> loop = flat.loop(), uvLoop = null;
 		Point2d[] points = dRectangle.points(), uvPts = null;
 		
@@ -224,30 +261,43 @@ public class MeshBuilder {
 	}
 	
 	public void add( Point3d ...pts  ) {
-		add( new Loop<Point3d> (pts).singleton(), true );
+		add( new Loop<Point3d> (pts).singleton(), null, true );
 	}
 	
-	public void add( LoopL<? extends Point3d> loopl, boolean reverseTriangles ) {
+	public void add( 
+			LoopL<? extends Point3d> loopl, 
+			LoopL<Point2d> uvl, 
+			boolean reverseTriangles ) {
 		
-		fixForTriangulator( loopl );
+		fixForTriangulator( loopl, uvl );
 		
 		if (loopl.count() <= 2)
 			return;
 		
-		for ( Loop<? extends Point3d> loop : loopl ) {
+		for (int li = 0; li < loopl.size(); li++) {
 
+			Loop<? extends Point3d> loop = loopl.get( li );
+			Loop<Point2d> uvLoop = uvl != null ? uvl.get( li ) : null;
+			
 			if (loop.start == null)
 				continue;
 			
-			List<Float> pos = new ArrayList();
-			List<Integer> ids = new ArrayList();
+			List<Float> 
+					pos = new ArrayList<>(),
+					u = new ArrayList<>();
+			
+			List<Integer> ids = new ArrayList<>();
 
 			Vector3d normal = new Vector3d();
 
 			int[] order = reverseTriangles ? new int[] { 2, 1, 0 } : new int[] { 0, 1, 2 };
 
+			
+			Iterator<Loopable<Point2d>> uvIt = (uvLoop == null) ? null : uvLoop.loopableIterator().iterator();
+			
 			for ( Loopable<? extends Point3d> pt : loop.loopableIterator() ) {
 
+				
 				ids.add( ids.size() );
 
 				Point3d p = pt.get();
@@ -268,6 +318,13 @@ public class MeshBuilder {
 					l.cross( l, n );
 					normal.add( l );
 				}
+				
+				Point2d uvd = null;
+				if (uvIt != null) {
+					uvd = uvIt.next().get();
+					u.add ( (float) uvd.x );
+					u.add ( (float) uvd.y );
+				}
 			}
 
 			float[] n = new float[] { (float) normal.x, (float) normal.y, (float) normal.z };
@@ -287,20 +344,38 @@ public class MeshBuilder {
 					this.inds.add(ti[j+order[2]] + offset);
 				}
 
-				for ( int j = 0; j < pos.size(); j += 3 ) {
-					verts.add( new Vector3f( pos.get( j + 0 ), pos.get( j + 1 ), pos.get( j + 2 ) ) );
+				for ( int j = 0; j < pos.size() / 3; j ++ ) {
+					
+					int pi = j * 3;
+					verts.add( new Vector3f( pos.get( pi + 0 ), pos.get( pi + 1 ), pos.get( pi + 2 ) ) );
 					norms.add( new Vector3f( -n[ 0 ], -n[ 1 ], -n[ 2 ] ) );
+					if ( uvl != null) {
+						int ui = j * 2;
+						uvs.add( new Vector2f( u.get( ui + 0 ), u.get( ui + 1 ) ) );
+					}
 				}
 			}
 		}
-
 	}
 
-	private void fixForTriangulator( LoopL<? extends Point3d> loopl ) {
-		for (Loop<? extends Point3d> loop : loopl) 
-		{
+	private void fixForTriangulator( 
+			LoopL<? extends Point3d> loopl,
+			LoopL<? extends Point2d> uvl 
+		) {
+		
+		for (int i = 0; i < loopl.size(); i++) {
+			
+			Loop<? extends Point3d> loop = loopl.get( i );
+			Loop<? extends Point2d> uvLoop = null;
+			
+			if (uvl != null)
+				uvLoop = uvl.get( i );
 			
 			Loopable<? extends Point3d> start = loop.start, current = start;
+			Loopable<? extends Point2d> uvCurrent = null;
+			
+			if (uvl != null)
+				uvCurrent = uvLoop.start;
 			
 			if (current == null)
 				continue;
@@ -315,15 +390,29 @@ public class MeshBuilder {
 				
 				if ( current.getNext() == current ) {
 					loop.start = null;
+					
+					if (uvLoop != null)
+						uvLoop.start = null;
+					
 					break;
 				}
-					if (a.lengthSquared() == 0  
-							|| 							a.angle( b ) > Math.PI - 0.001) {
+					if ( a.lengthSquared() == 0 ||
+						 a.angle( b ) > Math.PI - 0.001) {
+						
 						loop.remove( (Loopable) current );
 						start = current = current.getPrev();
+						
+						if (uvCurrent != null) {
+							uvLoop.remove( (Loopable ) uvCurrent );
+							uvCurrent = uvCurrent.getPrev();
+						}
 					}
 				
 				current = current.next;
+				
+				if (uvCurrent != null)
+					uvCurrent = uvCurrent.next;
+				
 			} while (current != start);
 			
 		}
@@ -341,6 +430,10 @@ public class MeshBuilder {
 		mesh.setBuffer( VertexBuffer.Type.Position, 3, BufferUtils.createFloatBuffer(  verts.toArray( new Vector3f[verts.size()] ) ) );
 		mesh.setBuffer( VertexBuffer.Type.Normal  , 3, BufferUtils.createFloatBuffer( norms.toArray( new Vector3f[norms.size()] ) ) );
 		mesh.setBuffer( VertexBuffer.Type.Index   , 3, BufferUtils.createIntBuffer( Arrayz.toIntArray( inds ) ) );
+		
+		if (uvs != null)
+			mesh.setBuffer( VertexBuffer.Type.TexCoord   , 2, BufferUtils.createFloatBuffer( uvs.toArray( new Vector2f[uvs.size()] ) ) );
+		
 		mesh.updateBound();
 		
 		return mesh;
