@@ -284,7 +284,12 @@ public class PlanSkeleton extends Skeleton
      */
     public ColumnProperties getDefiningColumn (Edge edge)
     {
-        edge = output.getGreatestGrandParent( output.faces.get( edge.start ) ).edge;
+    	Face f = output.getGreatestGrandParent( output.faces.get( edge.start ) );
+    	
+    	if (f == null)
+    		return null;
+    	
+        edge = f.edge;
 
         ColumnProperties cp =  columnProperties.get( edge );
 
