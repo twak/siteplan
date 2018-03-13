@@ -133,7 +133,7 @@ public class AnchorHauler
         Global global;
         Marker profileMarker;
         Profile profile;
-        PlanSkeleton skel;
+        public PlanSkeleton skel;
 
         public CornerClone cornerClone = null;
         // an anchor may initiate, an offset (cap copy and merge back) if it requests this offset

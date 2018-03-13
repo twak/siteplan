@@ -117,15 +117,13 @@ public abstract class Ship
          * Defines the update that happen as a ship's isntance matches an anchor
          *
          * a process may call-back to offset-skeleton to getOffset().registerProfile, above to register offset distances for any machines in first
-         *
-         * @param planAnchor plan anchor we're reporting to (eg window)
-         * @param first  segment to edit (wall segment at the moment)
          * @param planMarker  the position on the plan at this height (eg - the location of the bottom,left of the window
          * @param profileMarker the profile marker
          * @param edge the edge that this segment came from (for normals etc).
          * @param hauler callback for editing the profile
          * @param oldLeadingCorner the corner of the unedited loop that currently starts the edge
-         *
+         * @param planAnchor plan anchor we're reporting to (eg window)
+         * @param first  segment to edit (wall segment at the moment)
          * @return first the start of the remainder of the segment you've just editied. or toEdit if nothing has changed
          *
          */
