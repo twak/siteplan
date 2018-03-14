@@ -1,6 +1,7 @@
 package org.twak.siteplan.jme;
 
 import java.awt.Color;
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.vecmath.Matrix4d;
 import javax.vecmath.Point2d;
 import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;
+//import javax.vecmath.Vector2f;
 //import javax.vecmath.Vector3f;
 import javax.vecmath.Vector3d;
 
@@ -26,6 +28,7 @@ import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Matrix4f;
 import com.jme3.math.Transform;
+import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Mesh;
@@ -34,7 +37,10 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.VertexBuffer;
 import com.jme3.scene.VertexBuffer.Type;
+import com.jme3.scene.mesh.IndexBuffer;
 import com.jme3.scene.shape.Box;
+import com.jme3.texture.Texture2D;
+import com.jme3.util.BufferUtils;
 
 public class Jme3z {
 
@@ -203,42 +209,79 @@ public class Jme3z {
 		
 		return geom;
 	}
-	
+
 	public static void toObj( Mesh m, ObjDump dump, Transform transform ) {
 
+		// todo: normals
+		
 		float[][] verts = new float[3][3];
 		Vector3f a = new Vector3f(), b = new Vector3f(), c = new Vector3f();
 
 		Matrix4f mat = transform.toTransformMatrix();
-		
+
+		VertexBuffer pb = m.getBuffer( Type.Position );
+		VertexBuffer ub = m.getBuffer( Type.TexCoord );
+
+		IndexBuffer ib = m.getIndicesAsList();
+
+		FloatBuffer fpb = (FloatBuffer) pb.getData(), ubp = null;
+		float[][] uvs = null;
+		if ( ub != null && ub.getNumComponents() == 2 ) {
+			ubp = (FloatBuffer) ub.getData();
+			uvs = new float[3][2];
+		}
+
+		Vector3f v1 = new Vector3f(), v2 = new Vector3f(), v3 = new Vector3f();
+		Vector2f u1 = new Vector2f(), u2 = new Vector2f(), u3 = new Vector2f();
+
 		for ( int t = 0; t < m.getTriangleCount(); t++ ) {
 
 			try {
 
-				m.getTriangle( t, a, b, c );
+				int vertIndex = t * 3;
+				int vert1 = ib.get( vertIndex );
+				int vert2 = ib.get( vertIndex + 1 );
+				int vert3 = ib.get( vertIndex + 2 );
 
-				a=mat.mult(a);
-				b=mat.mult(b);
-				c=mat.mult(c);
-				
-				verts[ 0 ][ 0 ] = a.x;
-				verts[ 0 ][ 1 ] = a.y;
-				verts[ 0 ][ 2 ] = a.z;
-				verts[ 1 ][ 0 ] = b.x;
-				verts[ 1 ][ 1 ] = b.y;
-				verts[ 1 ][ 2 ] = b.z;
-				verts[ 2 ][ 0 ] = c.x;
-				verts[ 2 ][ 1 ] = c.y;
-				verts[ 2 ][ 2 ] = c.z;
+				BufferUtils.populateFromBuffer( v1, fpb, vert1 );
+				BufferUtils.populateFromBuffer( v2, fpb, vert2 );
+				BufferUtils.populateFromBuffer( v3, fpb, vert3 );
 
-				dump.addFace( verts, null, null );
+				a = mat.mult( v1 );
+				b = mat.mult( v2 );
+				c = mat.mult( v3 );
+
+				verts[ 0 ][ 0 ] = v1.x;
+				verts[ 0 ][ 1 ] = v1.y;
+				verts[ 0 ][ 2 ] = v1.z;
+				verts[ 1 ][ 0 ] = v2.x;
+				verts[ 1 ][ 1 ] = v2.y;
+				verts[ 1 ][ 2 ] = v2.z;
+				verts[ 2 ][ 0 ] = v3.x;
+				verts[ 2 ][ 1 ] = v3.y;
+				verts[ 2 ][ 2 ] = v3.z;
+
+				if ( uvs != null ) {
+
+					BufferUtils.populateFromBuffer( u1, ubp, vert1 );
+					BufferUtils.populateFromBuffer( u2, ubp, vert2 );
+					BufferUtils.populateFromBuffer( u3, ubp, vert3 );
+
+					uvs[ 0 ][ 0 ] = u1.x;
+					uvs[ 0 ][ 1 ] = u1.y;
+					uvs[ 1 ][ 0 ] = u2.x;
+					uvs[ 1 ][ 1 ] = u2.y;
+					uvs[ 2 ][ 0 ] = u3.x;
+					uvs[ 2 ][ 1 ] = u3.y;
+				}
+
+				dump.addFace( verts, uvs, null );
 			} catch ( Throwable th ) {
 				th.printStackTrace();
 			}
 
 		}
 	}
-
 	
 	public static String MAT_KEY = "material";
 	
@@ -249,6 +292,7 @@ public class Jme3z {
 			for ( Spatial s : ( (Node) spat ).getChildren() ) {
 				
 				Color color = null;
+				String texture = null;
 				if (s instanceof Geometry) {
 					MatParam mp =  ( (Geometry) s ).getMaterial().getParam( "Diffuse" );
 					if (mp != null) {
@@ -256,13 +300,18 @@ public class Jme3z {
 						if (gCol != null)
 							color = new Color(gCol.getRed(), gCol.getGreen(), gCol.getBlue());
 					}
+					
+					mp =  ( (Geometry) s ).getMaterial().getParam( "DiffuseMap" );
+					if (mp != null) 
+						texture = ((Texture2D) mp.getValue() ).getName();
 				}
 				
-//				if (i >= 0)
-//					color = Rainbow.getColour( c++ );
-				
-				if (color != null)
-					dump.setCurrentMaterial( s.getUserData( MAT_KEY ), color, 0.2 );
+				if (color != null) {
+					if (texture != null)
+						dump.setCurrentTexture( texture, s.getUserData( MAT_KEY ), color, 0.2 );
+					else
+						dump.setCurrentMaterial( s.getUserData( MAT_KEY ), color, 0.2 );
+				}
 				
 				dump( dump, s, i+1 );
 			}
