@@ -33,22 +33,27 @@ import org.twak.utils.collections.MultiMap;
  */
 public class PlanSkeleton extends Skeleton
 {
-    public GlobalEventFactory globalFac = null;
-
-    public static String[][] getShipTypes(){ return new String[][] {
+    public static String[][] TAGS = new String[][]	{
+		{"org.twak.siteplan.tags.RoofTag", "Roof"},
+		{"org.twak.siteplan.tags.LowPriorityTag", "Low Priority"},
+		{"org.twak.siteplan.tags.SubdivideTag", "Subdivide"},
+	};
+	
+	public static String[][] SHIPS = new String[][] {
         {"org.twak.siteplan.anchors.MeshShip", "Mesh"},
         {"org.twak.siteplan.anchors.VerticalMeshShip", "Upright Mesh"},
         {"org.twak.siteplan.anchors.NaturalStepShip", "Natural Step"},
         {"org.twak.siteplan.anchors.SubdivideShip", "Subdivide"},
         {"org.twak.siteplan.anchors.CapShip", "Cap"},
-    }; }
-
-    public static String[][] tagTypes = new String[][]
-    {
-        {"org.twak.siteplan.tags.RoofTag", "Roof"},
-        {"org.twak.siteplan.tags.LowPriorityTag", "Low Priority"},
-        {"org.twak.siteplan.tags.SubdivideTag", "Subdivide"},
     };
+    
+	public GlobalEventFactory globalFac = null;
+
+    public static String[][] getShipTypes(){ return SHIPS; }
+
+	public static String[][] getTagTypes() {
+		return TAGS;
+	}
 
 
     // the basic skeleton implementation doesn't know about bars, profiles etc... this structure
@@ -390,4 +395,5 @@ public class PlanSkeleton extends Skeleton
             }
         };
     }
+
 }

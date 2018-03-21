@@ -271,6 +271,9 @@ public class MeshBuilder {
 		
 		fixForTriangulator( loopl, uvl );
 		
+		if (uvl != null)
+			ensureUVs();
+		
 		if (loopl.count() <= 2)
 			return;
 		

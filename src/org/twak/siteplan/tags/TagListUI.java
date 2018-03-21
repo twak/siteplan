@@ -227,7 +227,7 @@ public class TagListUI extends javax.swing.JPanel {
     private void newTagButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newTagButtonMousePressed
 
         DefaultListModel lm = new DefaultListModel();
-        for (String s[] : PlanSkeleton.tagTypes) {
+        for (String s[] : PlanSkeleton.getTagTypes()) {
             lm.addElement(new TwoString(s[1], s[0]));
         }
 

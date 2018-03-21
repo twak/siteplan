@@ -72,7 +72,10 @@ public class MarkerUI extends PointEditor
                     return;
                 }
 
-                ctx.get().tags.remove( Siteplan.instance.selectedTag );
+                if (ctx.get().tags.contains( Siteplan.instance.selectedTag ))
+                	ctx.get().tags.remove( Siteplan.instance.selectedTag );
+                else
+                	ctx.get().tags.clear();
 
                 break;
 
