@@ -226,7 +226,7 @@ public class Jme3z {
 
 		FloatBuffer fpb = (FloatBuffer) pb.getData(), ubp = null;
 		float[][] uvs = null;
-		if ( ub != null && ub.getNumComponents() == 2 ) {
+		if ( ub != null && ub.getNumComponents() == 2 && ub.getNumElements() == pb.getNumElements() ) {
 			ubp = (FloatBuffer) ub.getData();
 			uvs = new float[3][2];
 		}
