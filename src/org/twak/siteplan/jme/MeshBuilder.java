@@ -263,7 +263,6 @@ public class MeshBuilder {
 	public void add( Point3d ...pts  ) {
 		add( new Loop<Point3d> (pts).singleton(), null, true );
 	}
-	
 	public void add( 
 			LoopL<? extends Point3d> loopl, 
 			LoopL<Point2d> uvl, 
