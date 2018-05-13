@@ -18,7 +18,7 @@ import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
 import org.twak.utils.collections.ReverseList;
 import org.twak.utils.geom.PolygonArea;
-import org.twak.utils.ui.Colour;
+import org.twak.utils.ui.Colourz;
 
 /**
  * uses the point editor to create a plan

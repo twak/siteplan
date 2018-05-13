@@ -22,7 +22,7 @@ import org.twak.camp.ui.NaiveMould.PMarker;
 import org.twak.siteplan.anchors.Anchor;
 import org.twak.utils.LContext;
 import org.twak.utils.collections.Loopable;
-import org.twak.utils.ui.Colour;
+import org.twak.utils.ui.Colourz;
 
 /**
  * Shared features for marker manipulations (between planUI and profileUI)
@@ -397,7 +397,7 @@ public class MarkerUI extends PointEditor
     public void drawSpecialMarker( Graphics2D g2, Point2d start )
     {
         int r = 10;
-        g2.setColor( Colour.sky.darker() );
+        g2.setColor( Colourz.sky.darker() );
         g2.drawOval( ma.toX( start.x ) - r, ma.toY( start.y ) - r, r * 2, r * 2 );
     }
 

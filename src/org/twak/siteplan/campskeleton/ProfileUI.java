@@ -27,7 +27,7 @@ import org.twak.utils.LContext;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
 import org.twak.utils.collections.Loopable;
-import org.twak.utils.ui.Colour;
+import org.twak.utils.ui.Colourz;
 
 /**
  * @author twak
@@ -60,7 +60,7 @@ public class ProfileUI extends MarkerUI
         super (profileEdgeSelected);
         this.profile = profile;
         this.plan = plan;
-        setBackground( Colour.sky );
+        setBackground( Colourz.sky );
         setup();
         ma.setZoom(3);
     }
@@ -429,12 +429,12 @@ public class ProfileUI extends MarkerUI
         g2.drawLine( 0, ma.toY( 0 ), getWidth(), ma.toY( 0 ) );
 
         g2.setStroke( new BasicStroke( 1 ) );
-        g2.setColor( Colour.sky.darker() );
+        g2.setColor( Colourz.sky.darker() );
         g2.drawLine( 0,ma.toY( 0), getWidth(), ma.toY(0 ) );
 
         for ( Loop<Bar> e2 : edges )
         {
-            g2.setColor( Colour.sky.darker() );
+            g2.setColor( Colourz.sky.darker() );
             Point start = ma.to( e2.start.get().start );
             g2.drawLine( start.x, start.y, 0, start.y );
         }
