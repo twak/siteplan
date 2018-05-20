@@ -43,12 +43,12 @@ public class MeshBuilder {
 	};
 	
 	private static final int[] CORNER_INDICES_DATA = new int[] {
-			0,1,2,3,    // back
-			1,4,6,2,    // right
-			4,5,7,6,    // front
-			5,0,3,7,    // left
-			2,6,7,3,    // top
-			0,5,4,1     // bottom  
+			0,1,2,3,    // left + (1,0)
+			1,4,6,2,    // top + (0,1)
+			4,5,7,6,    // right + (-1,0)
+			5,0,3,7,    // bottom + (0,-1)
+			2,6,7,3,    // back
+			0,5,4,1     // front
 	};
 	
 	private static final int[] NORMAL_INDICES_DATA = new int[] {
@@ -143,7 +143,7 @@ public class MeshBuilder {
 	public void addInsideRect (
 			Vector3f corner, Vector3f up, Vector3f along, Vector3f in, 
 			float upL, float alongL, float inL,
-			float[][] uv ) {
+			float[][] uv, boolean hasBack ) {
 		
 		Vector3f[] axes = {
 				along.mult( alongL ),
@@ -184,37 +184,60 @@ public class MeshBuilder {
 			Vector2f s = new Vector2f(uv[0][0], uv[0][1]);
 			Vector2f e = new Vector2f(uv[1][0], uv[1][1]);
 			
+			float io = 0f, oo = 0;
+			
 			u = new Vector2f[] {
 					
-				new Vector2f( s.x ,s.y ),
-				new Vector2f( e.x ,s.y ),
-				new Vector2f( e.x ,s.y ),
-				new Vector2f( s.x ,s.y ),
-				new Vector2f( e.x ,e.y ),
-				new Vector2f( s.x, e.y ),
-				new Vector2f( e.x ,e.y ),
-				new Vector2f( s.x ,e.y ),
-
+				new Vector2f( s.x + oo, s.y + oo ), 
+				new Vector2f( e.x + oo, s.y + io ),
+				new Vector2f( e.x + oo, s.y + oo ),
+				new Vector2f( s.x + oo, s.y + oo ),
+				
+				new Vector2f( e.x + io, e.y + io ), // "in"
+				new Vector2f( s.x + io, e.y + io ),
+				new Vector2f( e.x + io, e.y + io ),
+				new Vector2f( s.x + io, e.y + io ),
+				
+//				new Vector2f( s.x + oo, s.y + oo ), 
+//				new Vector2f( e.x + oo, s.y + io ),
+//				new Vector2f( e.x + oo, s.y + oo ),
+//				new Vector2f( s.x + oo, s.y + oo ),
+//				
+//				new Vector2f( e.x + io, e.y + io ), // "in"
+//				new Vector2f( s.x + io, e.y + io ),
+//				new Vector2f( e.x + io, e.y + io ),
+//				new Vector2f( s.x + io, e.y + io ),
 			};
 		}
 		
 		int offset = verts.size();
 		
-		for (int i = 0; i < CORNER_INDICES_DATA.length-1; i++)
+		for (int i = 0; i < CORNER_INDICES_DATA.length-(hasBack ? 4 : 8); i++)
 			verts.add( v[ CORNER_INDICES_DATA[ i ] ] );
 		
 		if (uv != null) {
 			ensureUVs();
-			for (int i = 0; i < CORNER_INDICES_DATA.length-1; i++)
-				uvs.add( u[ CORNER_INDICES_DATA[ i ] ] );
+			for (int i = 0; i < CORNER_INDICES_DATA.length -(hasBack ? 4 : 8); i++) {
+				Vector2f coord = new Vector2f ( u[ CORNER_INDICES_DATA[ i ] ] );
+				
+				if ( i < CORNER_INDICES_DATA.length -8 ) /* mirror uvs if not back */
+					if (i % 4 >= 2) /*inner coords */
+						if ( (i / 4) % 2 == 1) 
+							coord.x += (( i < 8 ) ? -1 /*left*/ : 1 /*right*/ ) * upL * (uv[1][0] - uv[0][0]) / alongL;
+						else
+							coord.y += (( i < 8 ) ? 1 /*bottom*/ : -1 /*top*/ ) * upL * (uv[1][1] - uv[0][1]) / inL;
+				
+				uvs.add( coord );
+			}
 		}
 		
-		for (int i = 0; i < NORMAL_INDICES_DATA.length-1; i++)
+		for (int i = 0; i < NORMAL_INDICES_DATA.length -(hasBack ? 4 : 8); i++)
 			norms.add( n[ NORMAL_INDICES_DATA[ i ] ] );
 		
-		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3 - 2; j++)
-			for (int i = 2; i >=0 ; i--) 
+		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3 - (hasBack ? 2 : 4); j++)
+			for (int i = 2; i >=0 ; i--) { 
 				inds.add (offset + GEOMETRY_INDICES_DATA[j * 3 + i]);
+			}
 	}
 	
 	public void add (LoopL<? extends Point2d> flat, Matrix4d to3d) {
@@ -224,6 +247,11 @@ public class MeshBuilder {
 	
 	public void add ( LoopL<? extends Point2d> flat, LoopL<Point2d> uvs, Matrix4d to3d) {
 		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, 0, 1 ), to3d );
+		add( td, uvs, true );
+	}
+	
+	public void add ( LoopL<? extends Point2d> flat, LoopL<Point2d> uvs, Matrix4d to3d, double depth) {
+		LoopL<Point3d> td = Loopz.transform( Loopz.to3d( flat, depth, 1 ), to3d );
 		add( td, uvs, true );
 	}
 	
@@ -237,6 +265,10 @@ public class MeshBuilder {
 	}
 	
 	public void add( DRectangle dRectangle, DRectangle uvs, Matrix4d to3d ) {
+		add (dRectangle, uvs, to3d, 0);
+	}
+	
+	public void add( DRectangle dRectangle, DRectangle uvs, Matrix4d to3d, double depth ) {
 		
 		if (uvs != null)
 			ensureUVs();
@@ -257,7 +289,7 @@ public class MeshBuilder {
 				uvLoop.append( uvPts[i] );
 		}
 		
-		add(flat, uvFlat, to3d);
+		add(flat, uvFlat, to3d, depth);
 	}
 	
 	public void add( Point3d ...pts  ) {
