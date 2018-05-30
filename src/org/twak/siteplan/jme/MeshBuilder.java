@@ -140,10 +140,15 @@ public class MeshBuilder {
 		
 	}
 	
+	public static final boolean[] 
+			ALL_BUT_FRONT    =  new boolean[] {true, true, true, true, true, false},
+			NO_FRONT_OR_BACK =  new boolean[] {true, true, true, true, false, false};
+			
+	
 	public void addInsideRect (
 			Vector3f corner, Vector3f up, Vector3f along, Vector3f in, 
 			float upL, float alongL, float inL,
-			float[][] uv, boolean hasBack ) {
+			float[][] uv, boolean[] faces ) {
 		
 		Vector3f[] axes = {
 				along.mult( alongL ),
@@ -197,44 +202,37 @@ public class MeshBuilder {
 				new Vector2f( s.x + io, e.y + io ),
 				new Vector2f( e.x + io, e.y + io ),
 				new Vector2f( s.x + io, e.y + io ),
-				
-//				new Vector2f( s.x + oo, s.y + oo ), 
-//				new Vector2f( e.x + oo, s.y + io ),
-//				new Vector2f( e.x + oo, s.y + oo ),
-//				new Vector2f( s.x + oo, s.y + oo ),
-//				
-//				new Vector2f( e.x + io, e.y + io ), // "in"
-//				new Vector2f( s.x + io, e.y + io ),
-//				new Vector2f( e.x + io, e.y + io ),
-//				new Vector2f( s.x + io, e.y + io ),
 			};
 		}
 		
 		int offset = verts.size();
 		
-		for (int i = 0; i < CORNER_INDICES_DATA.length-(hasBack ? 4 : 8); i++)
-			verts.add( v[ CORNER_INDICES_DATA[ i ] ] );
+		for (int i = 0; i < CORNER_INDICES_DATA.length; i++)
+				verts.add( v[ CORNER_INDICES_DATA[ i ] ] );
 		
 		if (uv != null) {
 			ensureUVs();
-			for (int i = 0; i < CORNER_INDICES_DATA.length -(hasBack ? 4 : 8); i++) {
-				Vector2f coord = new Vector2f ( u[ CORNER_INDICES_DATA[ i ] ] );
+			for (int i = 0; i < CORNER_INDICES_DATA.length; i++)
+				{
+					
+					Vector2f coord = new Vector2f ( u[ CORNER_INDICES_DATA[ i ] ] );
 				
-				if ( i < CORNER_INDICES_DATA.length -8 ) /* mirror uvs if not back */
-					if (i % 4 >= 2) /*inner coords */
-						if ( (i / 4) % 2 == 1) 
-							coord.x += (( i < 8 ) ? -1 /*left*/ : 1 /*right*/ ) * upL * (uv[1][0] - uv[0][0]) / alongL;
-						else
-							coord.y += (( i < 8 ) ? 1 /*bottom*/ : -1 /*top*/ ) * upL * (uv[1][1] - uv[0][1]) / inL;
+					if ( i < CORNER_INDICES_DATA.length -8 ) /* mirror uvs if not back */
+						if (i % 4 >= 2) /*inner coords */
+							if ( (i / 4) % 2 == 1) 
+								coord.x += (( i < 8 ) ? -1 /*left*/ : 1 /*right*/ ) * upL * (uv[1][0] - uv[0][0]) / alongL;
+							else
+								coord.y += (( i < 8 ) ? 1 /*bottom*/ : -1 /*top*/ ) * upL * (uv[1][1] - uv[0][1]) / inL;
 				
-				uvs.add( coord );
-			}
+					uvs.add( coord );
+				}
 		}
 		
-		for (int i = 0; i < NORMAL_INDICES_DATA.length -(hasBack ? 4 : 8); i++)
-			norms.add( n[ NORMAL_INDICES_DATA[ i ] ] );
+		for (int i = 0; i < NORMAL_INDICES_DATA.length; i++)
+				norms.add( n[ NORMAL_INDICES_DATA[ i ] ] );
 		
-		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3 - (hasBack ? 2 : 4); j++)
+		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3; j++)
+			if (faces[ ( j / 2 ) ]) 
 			for (int i = 2; i >=0 ; i--) { 
 				inds.add (offset + GEOMETRY_INDICES_DATA[j * 3 + i]);
 			}
