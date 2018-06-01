@@ -16,6 +16,7 @@ import org.twak.camp.ui.*;
 import org.twak.utils.LContext;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
+import org.twak.utils.collections.Loopable;
 import org.twak.utils.collections.ReverseList;
 import org.twak.utils.geom.PolygonArea;
 import org.twak.utils.ui.Colourz;
@@ -230,4 +231,22 @@ public class PlanUI extends MarkerUI
     {
         Siteplan.instance.somethingChanged();
     }
-}
+    
+    protected void addVertex( LContext<Bar> ctx, Point l )
+    {
+        Point2d n = new Point2d( l.x, l.y );
+        Loopable<Bar> loopable = ctx.loop.addAfter( ctx.loopable, new Bar( n, ctx.get().end ) );
+
+        ctx.get().end = n;
+
+        dragged = new LContext<Bar>( loopable, ctx.loop );
+        dragged.hook = n;
+
+        loopable.get().tags.addAll( ctx.get().tags );
+        
+        edgeAdded( dragged );
+        Siteplan.instance.addedBar (loopable.get());
+        
+        refreshMarkersOn( ctx.get() );
+        refreshMarkersOn( loopable.get() );
+    }}

@@ -1795,4 +1795,8 @@ public class Siteplan extends javax.swing.JFrame {
 				loop.remove( e );
 		}
 	}
+
+	public void addedBar( Bar bar ) {
+		
+	}
 }

@@ -241,10 +241,9 @@ public class MarkerUI extends PointEditor
         dragged.hook = n;
 
         loopable.get().tags.addAll( ctx.get().tags );
-//                loopable.get().mould = ctx.get().mould; eventually...not yet!
-
+        
         edgeAdded( dragged );
-
+        
         refreshMarkersOn( ctx.get() );
         refreshMarkersOn( loopable.get() );
     }
