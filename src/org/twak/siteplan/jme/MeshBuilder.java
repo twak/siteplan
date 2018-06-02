@@ -141,6 +141,7 @@ public class MeshBuilder {
 	}
 	
 	public static final boolean[] 
+			ALL              =  new boolean[] {true, true, true, true, true, true},
 			ALL_BUT_FRONT    =  new boolean[] {true, true, true, true, true, false},
 			NO_FRONT_OR_BACK =  new boolean[] {true, true, true, true, false, false};
 			
