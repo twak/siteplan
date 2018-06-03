@@ -1229,6 +1229,8 @@ public class Siteplan extends javax.swing.JFrame {
 						//                        while (preview.isPendingUpdate());
 						//
 						//                         preview.dump(new File ( "C:\\Users\\twak\\step_frames\\"+frame+".obj") );
+					} catch (Throwable th ) {
+						th.printStackTrace();
 					} finally {
 						busy = false;
 						goButton.setText( GO );
