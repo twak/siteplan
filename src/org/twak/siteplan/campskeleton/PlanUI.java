@@ -55,7 +55,8 @@ public class PlanUI extends MarkerUI
         this.shape = shape;
         this.plan = plan;
         setup();
-        ma.setZoom(3);
+        
+        ma.viewOnSetSize( plan.getBounds() );
     }
 
     @Override

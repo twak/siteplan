@@ -20,6 +20,7 @@ import org.twak.utils.Pair;
 import org.twak.utils.collections.ConsecutivePairs;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
+import org.twak.utils.geom.DRectangle;
 
 /**
  * @author twak
@@ -266,4 +267,14 @@ public class Plan
             profiles.put(b, profs[i++]);
         }
     }
+
+	public DRectangle getBounds() {
+		
+		DRectangle.Enveloper out = new DRectangle.Enveloper();
+		
+		for (Bar b : points.eIterator() ) 
+			out.envelop( b.start );
+		
+		return out;
+	}
 }

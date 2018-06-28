@@ -17,6 +17,7 @@ import org.twak.utils.Pair;
 import org.twak.utils.collections.ConsecutiveItPairs;
 import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
+import org.twak.utils.geom.DRectangle;
 import org.twak.utils.ui.Rainbow;
 
 /**
@@ -221,4 +222,16 @@ public class Profile
             chainInfo = new HashMap<Loop<Bar>, ProfileChainInfo>();
         }
     }
+
+	public DRectangle getBounds() {
+		
+		DRectangle.Enveloper out = new DRectangle.Enveloper();
+		
+		for (Bar b : points.eIterator() ) { 
+			out.envelop( b.start );
+			out.envelop( b.end );
+		}
+		
+		return out;
+	}
 }

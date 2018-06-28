@@ -62,7 +62,9 @@ public class ProfileUI extends MarkerUI
         this.plan = plan;
         setBackground( Colourz.sky );
         setup();
-        ma.setZoom(3);
+        
+        ma.viewOnSetSize(profile.getBounds());
+        
     }
 
     @Override
