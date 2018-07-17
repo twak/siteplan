@@ -234,9 +234,9 @@ public class MeshBuilder {
 		
 		for (int j = 0; j < GEOMETRY_INDICES_DATA.length / 3; j++)
 			if (faces[ ( j / 2 ) ]) 
-			for (int i = 2; i >=0 ; i--) { 
+			for (int i = 2; i >=0 ; i--)  
+//			for (int i = 0; i < 3 ; i++) { 
 				inds.add (offset + GEOMETRY_INDICES_DATA[j * 3 + i]);
-			}
 	}
 	
 	public void add (LoopL<? extends Point2d> flat, Matrix4d to3d) {
