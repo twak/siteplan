@@ -61,14 +61,20 @@ public class MeshBuilder {
 	};
 	
 	
-	public MeshBuilder ensureUVs() {
-		if (uvs != null)
-			return this;
+	public MeshBuilder ensureUVs(boolean wantsUVs) {
 		
-		if (!verts.isEmpty() )
-			throw new Error("no uvs on earlier data :(");
+		if (!wantsUVs) {
+			if (uvs != null)
+				throw new Error("must supply uvs");
+		}
+
+		if (wantsUVs) {
+			if (!verts.isEmpty() && uvs == null )
+				throw new Error("no uvs on earlier data :(");
 		
-		uvs = new ArrayList<>();
+			if (uvs == null)
+				uvs = new ArrayList<>();
+		}
 		
 		return this;
 	}
@@ -211,8 +217,10 @@ public class MeshBuilder {
 		for (int i = 0; i < CORNER_INDICES_DATA.length; i++)
 				verts.add( v[ CORNER_INDICES_DATA[ i ] ] );
 		
+		ensureUVs(uv != null);
+		
 		if (uv != null) {
-			ensureUVs();
+			
 			for (int i = 0; i < CORNER_INDICES_DATA.length; i++)
 				{
 					
@@ -269,8 +277,7 @@ public class MeshBuilder {
 	
 	public void add( DRectangle dRectangle, DRectangle uvs, Matrix4d to3d, double depth ) {
 		
-		if (uvs != null)
-			ensureUVs();
+		ensureUVs(uvs != null);
 		
 		LoopL<Point2d> flat = new LoopL<>(), uvFlat = null;
 		Loop<Point2d> loop = flat.loop(), uvLoop = null;
@@ -301,8 +308,7 @@ public class MeshBuilder {
 		
 		fixForTriangulator( loopl, uvl );
 		
-		if (uvl != null)
-			ensureUVs();
+		ensureUVs(uvl != null);
 		
 		if (loopl.count() <= 2)
 			return;
