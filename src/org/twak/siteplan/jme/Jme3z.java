@@ -363,4 +363,8 @@ public class Jme3z {
 	public static Point2d to2( Vector3f b ) {
 		return new Point2d( b.x, b.z );
 	}
+
+	public static boolean isLine( Mode mode ) {
+		return mode == Mode.LineLoop || mode == Mode.Lines || mode == Mode.LineStrip;
+	}
 }
