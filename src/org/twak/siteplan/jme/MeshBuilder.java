@@ -61,6 +61,10 @@ public class MeshBuilder {
 	};
 	
 	
+	public boolean hasUVs() {
+		return uvs != null;
+	}
+	
 	public MeshBuilder ensureUVs(boolean wantsUVs) {
 		
 		if (!wantsUVs) {
