@@ -43,8 +43,10 @@ public class Plan
     // instances of events that are attached to anchors
     public List<Ship> ships = new ArrayList();
 
-//    public BuildFromPlan buildFromPlan = null;
-
+    // can the editor add or remove loops?
+	public boolean allowAddLoop = true, allowRemoveLoop = true;
+	
+    
     public Plan()
     {
         this ( new Global("0") );
@@ -276,5 +278,21 @@ public class Plan
 			out.envelop( b.start );
 		
 		return out;
+	}
+
+	public void setAllowAddLoop(boolean allow) {
+		this.allowAddLoop = allow;
+	}
+	
+	public void setAllowRemoveLoop (boolean allow) {
+		this.allowRemoveLoop = allow;
+	}
+	
+	public boolean allowAddLoop() {
+		return allowAddLoop;
+	}
+	
+	public boolean allowRemoveLoop() {
+		return allowRemoveLoop;
 	}
 }

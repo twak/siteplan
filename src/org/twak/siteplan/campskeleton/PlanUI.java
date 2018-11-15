@@ -69,8 +69,12 @@ public class PlanUI extends MarkerUI
             return false;
 
         // otherwise tis a loop
+        
         if ( ctx.loop.count() <= 3 )
         {
+        	if (!plan.allowRemoveLoop)
+        		return false;
+        	
             if (edges.size () > 1)
                 edges.remove( ctx.loop );
             else
@@ -100,18 +104,25 @@ public class PlanUI extends MarkerUI
     @Override
     protected void edgeAdded(LContext<Bar> ctx)
     {
-        // use a natural huristic based on a non-euclian-distance metric to select the correct profile
+        // use a natural heuristic based on a non-euclian-distance metric to select the correct profile
         Profile profile = plan.profiles.get ( ctx.loopable.getPrev().get() );
         if (profile == null)
             profile = plan.profiles.get( plan.points.get( 0 ).getFirst() );
         plan.profiles.put( ctx.get(), profile );
     }
 
+    protected void polyLoop(Loop<Bar> loop) 
+    {
+        Siteplan.instance.addedLoop (loop);
+    }
+    
     @Override
     public void createSection( Point loc , boolean inside)
     {
-        createCircularPoints( 3, loc.x, loc.y, 50, inside );
-        repaint();
+    	if (plan.allowAddLoop() ) {
+    		createCircularPoints( 3, loc.x, loc.y, 50, inside );
+        	repaint();
+    	}
     }
 
     protected JComponent getWidgetFor ( Bar b )

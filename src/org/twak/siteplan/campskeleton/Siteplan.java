@@ -1799,6 +1799,10 @@ public class Siteplan extends javax.swing.JFrame {
 	}
 
 	public void addedBar( Bar bar ) {
-		
+		// Override me
+	}
+
+	public void addedLoop( Loop<Bar> loop ) {
+		// Override me
 	}
 }
