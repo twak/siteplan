@@ -59,7 +59,7 @@ public class PlanSkeleton extends Skeleton
     // the basic skeleton implementation doesn't know about bars, profiles etc... this structure
     // contains additional informaiton about a horiztonal stack of edges, indexed by the lowest(defining) edge.
     // this edge can be found in Output.
-    private Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap<Edge, ColumnProperties>();
+    public Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap<Edge, ColumnProperties>();
     // acceleration structure for column properties
     public MultiMap<Bar, Edge> planEdgeToBar;
 
