@@ -318,6 +318,9 @@ public class Siteplan extends javax.swing.JFrame {
 		}
 
 		if ( machineCombo.getSelectedItem() != profile ) {
+			
+			setupProfileCombo();
+			
 			fireEvents = false;
 			machineCombo.setSelectedItem( profile );
 			// this occurs if we select an edge from a profile
