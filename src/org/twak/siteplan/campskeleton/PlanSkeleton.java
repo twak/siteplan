@@ -59,7 +59,7 @@ public class PlanSkeleton extends Skeleton
     // the basic skeleton implementation doesn't know about bars, profiles etc... this structure
     // contains additional informaiton about a horiztonal stack of edges, indexed by the lowest(defining) edge.
     // this edge can be found in Output.
-    private Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap<Edge, ColumnProperties>();
+    public Map <Edge, ColumnProperties> columnProperties = new LinkedHashMap<Edge, ColumnProperties>();
     // acceleration structure for column properties
     public MultiMap<Bar, Edge> planEdgeToBar;
 
@@ -87,7 +87,7 @@ public class PlanSkeleton extends Skeleton
         init();
     }
 
-    public void init()
+    public synchronized void init()
     {
         // reset data structures that assume plan unchanged
         plan.clearCache();
@@ -157,16 +157,9 @@ public class PlanSkeleton extends Skeleton
                         e.machine = machines.get(gp).get(0); // assumes root has valency 1
 
                     }
-                    // patch starts and ends to same point
-//                    for (Loopable<Corner> le : loop.loopableIterator()) {
-//                        le.get().nextL.end = le.getNext().get().nextL.start;
-//                    }
                 }
             }
         }
-
-//        Profile sideProfile = new Profile( 100 );
-//        sideProfileMachine = new ProfileMachine( sideProfile );
 
         setup (out);
         
@@ -184,43 +177,6 @@ public class PlanSkeleton extends Skeleton
         anchorHauler = new AnchorHauler( this );
         anchorHauler.add( plan.profiles.values() ) ;
 
-//        if (CampSkeleton.instance != null)
-//        {
-//
-//        pillarFactory = new PillarFactory();
-//        pillarFactory.add( this );
-//        pillarFactory.addToSkeleton( this );
-//
-//        windowFactory = new WindowFactory();
-//        windowFactory.add( this );
-//        windowFactory.addToSkeleton( this );
-//
-//        bayFactory = new NaturalFeatureFactory();
-//        bayFactory.add( plan, planEdgeToBar );
-//        bayFactory.addToSkeleton( this );
-//
-//        meshFactory = new MeshFactory();
-//        meshFactory.add( this );
-//        meshFactory.addToSkeleton( this );
-//
-//        CapFeatureFactory cff = new CapFeatureFactory();
-//        cff.add( this );
-//        cff.addToSkeleton( this );
-//
-//        RepeatNaturalStepFactory rnsf = new RepeatNaturalStepFactory();
-//        rnsf.add( this );
-//        rnsf.addToSkeleton( this );
-////
-////        if ( ProjectKensington.instance != null )
-////        {
-////            threeFactory = new ThreeFactory();
-////            threeFactory.addToSkeleton( this );
-////        }
-//        }
-
-//        ForcedStepFactory fsf = new ForcedStepFactory();
-//        fsf.add( plan, planEdgeToBar );
-//        fsf.addToSkeleton( this );
     }
 
     public void newProfile( Profile profile )

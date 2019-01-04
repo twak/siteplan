@@ -318,6 +318,9 @@ public class Siteplan extends javax.swing.JFrame {
 		}
 
 		if ( machineCombo.getSelectedItem() != profile ) {
+			
+			setupProfileCombo();
+			
 			fireEvents = false;
 			machineCombo.setSelectedItem( profile );
 			// this occurs if we select an edge from a profile
@@ -1218,30 +1221,19 @@ public class Siteplan extends javax.swing.JFrame {
 							Output output = s.output;
 							show( output, s );
 						}
-
-						//                        do {
-						//                            try {
-						//                                Thread.sleep(200);
-						//                            } catch (InterruptedException ex) {
-						//                                ex.printStackTrace();
-						//                            }
-						//                        }
-						//                        while (preview.isPendingUpdate());
-						//
-						//                         preview.dump(new File ( "C:\\Users\\twak\\step_frames\\"+frame+".obj") );
 					} catch (Throwable th ) {
 						th.printStackTrace();
 					} finally {
 						busy = false;
 						goButton.setText( GO );
 						// if something's changed since we started work, run again...
-						if ( dirty )
-							SwingUtilities.invokeLater( new Runnable() {
-
-								public void run() {
-									goButtonActionPerformed( null );
-								}
-							} );
+//						if ( dirty )
+//							SwingUtilities.invokeLater( new Runnable() {
+//
+//								public void run() {
+//									goButtonActionPerformed( null );
+//								}
+//							} );
 					}
 
 				}
@@ -1799,6 +1791,10 @@ public class Siteplan extends javax.swing.JFrame {
 	}
 
 	public void addedBar( Bar bar ) {
-		
+		// Override me
+	}
+
+	public void addedLoop( Loop<Bar> loop ) {
+		// Override me
 	}
 }
