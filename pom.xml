@@ -11,8 +11,8 @@
 		<jme3_g>org.jmonkeyengine</jme3_g>
 		<jme3_v>3.1.0-stable</jme3_v>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      	<maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>  
+      	<maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
 	</properties>
   
 	<build>
@@ -31,8 +31,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-					<source />
-					<target />
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 
