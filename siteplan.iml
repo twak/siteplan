@@ -9,7 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="utils" />
+    <orderEntry type="module" module-name="jutils" />
     <orderEntry type="library" name="Maven: gov.nist.math:jama:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-svggen:1.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-codec:1.10" level="project" />
