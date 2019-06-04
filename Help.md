@@ -1,4 +1,4 @@
-The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrBS9To) for a general idea, and refer back to this page for  more details. the 3d window has changed since the video was created.
+The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrBS9To) for a general idea, and refer back to this page for  more details. the 3d window has changed since the video was created. <a href="http://www.twak.co.uk/2011/04/interactive-architectural-modeling-with.html">blog post</a>.
 
 <a href='http://www.youtube.com/watch?feature=player_embedded&v=BrCDKrBS9To' target='_blank'><img src='http://img.youtube.com/vi/BrCDKrBS9To/0.jpg' width='425' height=344 /></a>
 
