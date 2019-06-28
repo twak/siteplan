@@ -251,15 +251,15 @@ public class Jme3z {
 				b = mat.mult( v2 );
 				c = mat.mult( v3 );
 
-				verts[ 0 ][ 0 ] = v1.x;
-				verts[ 0 ][ 1 ] = v1.y;
-				verts[ 0 ][ 2 ] = v1.z;
-				verts[ 1 ][ 0 ] = v2.x;
-				verts[ 1 ][ 1 ] = v2.y;
-				verts[ 1 ][ 2 ] = v2.z;
-				verts[ 2 ][ 0 ] = v3.x;
-				verts[ 2 ][ 1 ] = v3.y;
-				verts[ 2 ][ 2 ] = v3.z;
+				verts[ 0 ][ 0 ] = a.x;
+				verts[ 0 ][ 1 ] = a.y;
+				verts[ 0 ][ 2 ] = a.z;
+				verts[ 1 ][ 0 ] = b.x;
+				verts[ 1 ][ 1 ] = b.y;
+				verts[ 1 ][ 2 ] = b.z;
+				verts[ 2 ][ 0 ] = c.x;
+				verts[ 2 ][ 1 ] = c.y;
+				verts[ 2 ][ 2 ] = c.z;
 
 				if ( uvs != null ) {
 
