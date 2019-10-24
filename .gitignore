@@ -1,5 +1,26 @@
-/bin/
 /target/
+/bin/
+/build
+.gradle
+
+# Game libs
 /liblwjgl64.so
 /libopenal64.so
-/.classpath
+
+# PyDev
+/.pydevproject
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ
+*.iml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+
+# Mac
+.DS_Store
