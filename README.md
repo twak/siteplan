@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/twak/siteplan.svg)](https://jitpack.io/#twak/siteplan)
 
 [![](https://farm7.staticflickr.com/6084/6147665705_ec376a4dd5_m_d.jpg)](http://www.flickr.com/photos/twak/6147665705/)
 
