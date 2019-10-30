@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/twak/siteplan.svg)](https://jitpack.io/#twak/siteplan)
 
-[![](https://farm7.staticflickr.com/6084/6147665705_ec376a4dd5_m_d.jpg)](http://www.flickr.com/photos/twak/6147665705/)
+![ui pic](https://github.com/twak/siteplan/blob/stable/dist/siteplan.jpg?raw=true)
 
 a procedural extrusions implementation. info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>. [video](https://www.youtube.com/watch?v=BrCDKrBS9To). <br />
 
@@ -19,7 +19,6 @@ this is a [research project](http://twak.blogspot.com/2011/04/interactive-archit
 }
 </pre>
 
-some of the kinds of buildings you can create if you invest a little more time:
+[some of the kinds of buildings](https://youtu.be/HGO_kCp_6ys) you can create if you invest a little more time:
 
-[![](https://farm5.staticflickr.com/4105/4998728536_748924325d_z_d.jpg)](http://farm5.static.flickr.com/4105/4998728536_748924325d_z.jpg") 
 
