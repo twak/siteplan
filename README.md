@@ -1,8 +1,9 @@
 [![](https://jitpack.io/v/twak/siteplan.svg)](https://jitpack.io/#twak/siteplan)
 
+combine 2D plans and profiles to create 3D houses. an implementaiton of our "procedural extrusions". info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>. [video](https://www.youtube.com/watch?v=BrCDKrBS9To). 
+
 ![ui pic](https://github.com/twak/siteplan/blob/stable/dist/siteplan.jpg?raw=true)
 
-a procedural extrusions implementation. info about running or building the project <a href="https://github.com/twak/siteplan/blob/wiki/Help.md">here</a>. [video](https://www.youtube.com/watch?v=BrCDKrBS9To). <br />
 
 this is a [research project](http://twak.blogspot.com/2011/04/interactive-architectural-modeling-with.html) - if you use it, please cite us:
 
