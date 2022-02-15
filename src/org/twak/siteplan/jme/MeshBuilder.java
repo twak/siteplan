@@ -1,8 +1,6 @@
 package org.twak.siteplan.jme;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import javax.vecmath.Matrix4d;
 import javax.vecmath.Point2d;
@@ -10,6 +8,11 @@ import javax.vecmath.Point3d;
 import javax.vecmath.Tuple3d;
 import javax.vecmath.Vector3d;
 
+import org.poly2tri.Poly2Tri;
+import org.poly2tri.geometry.polygon.Polygon;
+import org.poly2tri.geometry.polygon.PolygonPoint;
+import org.poly2tri.triangulation.TriangulationPoint;
+import org.poly2tri.triangulation.delaunay.DelaunayTriangle;
 import org.twak.utils.Mathz;
 import org.twak.utils.collections.Arrayz;
 import org.twak.utils.collections.Loop;
@@ -310,7 +313,7 @@ public class MeshBuilder {
 			LoopL<? extends Point3d> loopl, 
 			LoopL<Point2d> uvl, 
 			boolean reverseTriangles ) {
-		
+
 		fixForTriangulator( loopl, uvl );
 		
 		ensureUVs(uvl != null);
@@ -402,6 +405,8 @@ public class MeshBuilder {
 		}
 	}
 
+
+
 	private void fixForTriangulator( 
 			LoopL<? extends Point3d> loopl,
 			LoopL<? extends Point2d> uvl 
@@ -464,7 +469,55 @@ public class MeshBuilder {
 //		new Plot(loopl);
 	}
 
-	
+	private static Polygon toPolygon(Loop<? extends Point3d> pts) {
+		List<PolygonPoint> lpp = new ArrayList<>();
+		for (Point3d p : pts)
+			lpp.add(new PolygonPoint(p.x, p.y, p.z));
+		return new Polygon(lpp);
+	}
+
+	public void addWithHoles(
+			LoopL<? extends Point3d> loopl,
+			boolean reverseTriangles ) {
+
+		ensureUVs(false);
+
+		for (Loop<? extends Point3d> loop : loopl) {
+
+			Polygon polygon = toPolygon(loop);
+			for (Loop<? extends Point3d> hole : loop.holes)
+				polygon.addHole(toPolygon(hole));
+
+			Poly2Tri.triangulate(polygon);
+			for (DelaunayTriangle tri : polygon.getTriangles() ) {
+
+				int start = inds.size();
+
+				inds.add(start);
+				inds.add(start+1);
+				inds.add(start+2);
+
+				Vector3f a = new Vector3f(tri.points[0].getXf(), tri.points[0].getYf(), tri.points[0].getZf() ),
+						 b = new Vector3f(tri.points[1].getXf(), tri.points[1].getYf(), tri.points[1].getZf() ),
+						 c = new Vector3f(tri.points[2].getXf(), tri.points[2].getYf(), tri.points[2].getZf() );
+
+				Vector3f normal = c.subtract(b).cross(a.subtract(b));
+				normal.normalizeLocal();
+
+				if (normal.lengthSquared() < 0.9)
+					normal.set(0,1,0);
+
+				verts.add(a);
+				verts.add(b);
+				verts.add(c);
+
+				norms.add(normal);
+				norms.add(normal);
+				norms.add(normal);
+			}
+		}
+	}
+
 	public Mesh getMesh() {
 		
 		Mesh mesh = new Mesh();
