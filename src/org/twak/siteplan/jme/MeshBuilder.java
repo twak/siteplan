@@ -489,9 +489,10 @@ public class MeshBuilder {
 				polygon.addHole(toPolygon(hole));
 
 			Poly2Tri.triangulate(polygon);
+
 			for (DelaunayTriangle tri : polygon.getTriangles() ) {
 
-				int start = inds.size();
+				int start = verts.size();
 
 				inds.add(start);
 				inds.add(start+1);
@@ -511,9 +512,9 @@ public class MeshBuilder {
 				verts.add(b);
 				verts.add(c);
 
-				norms.add(normal);
-				norms.add(normal);
-				norms.add(normal);
+				norms.add(new Vector3f(normal));
+				norms.add(new Vector3f(normal));
+				norms.add(new Vector3f(normal));
 			}
 		}
 	}
