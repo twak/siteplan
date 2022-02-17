@@ -50,6 +50,10 @@ public class Jme3z {
 		return new Matrix4f( (float) m.m00, (float) m.m01, (float) m.m02, (float) m.m03, (float) m.m10, (float) m.m11, (float) m.m12, (float) m.m13, (float) m.m20, (float) m.m21, (float) m.m22, (float) m.m23, (float) m.m30, (float) m.m31, (float) m.m32, (float) m.m33 );
 	}
 
+	public static Vector3f toJme (Vector3d v) {
+		return new Vector3f( (float) v.x, (float) v.y, (float) v.z);
+	}
+
 	public static Transform toJmeTransform( Matrix4d m ) {
 		Transform out = new Transform();
 		out.fromTransformMatrix( toJme( m ) );

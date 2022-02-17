@@ -476,16 +476,19 @@ public class MeshBuilder {
 		return new Polygon(lpp);
 	}
 
-	public void addWithHoles(
-			LoopL<? extends Point3d> loopl,
-			boolean reverseTriangles ) {
+	public void addWithHoles( LoopL<Point3d> loopl) {
+
+		if (loopl.isEmpty())
+			return;
+
+		Vector3f targetNormal = Jme3z.toJme( Loopz.normal(loopl.get(0)) );
 
 		ensureUVs(false);
 
-		for (Loop<? extends Point3d> loop : loopl) {
+		for (Loop<Point3d> loop : loopl) {
 
 			Polygon polygon = toPolygon(loop);
-			for (Loop<? extends Point3d> hole : loop.holes)
+			for (Loop<Point3d> hole : loop.holes)
 				polygon.addHole(toPolygon(hole));
 
 			Poly2Tri.triangulate(polygon);
@@ -494,16 +497,24 @@ public class MeshBuilder {
 
 				int start = verts.size();
 
-				inds.add(start);
-				inds.add(start+1);
-				inds.add(start+2);
-
 				Vector3f a = new Vector3f(tri.points[0].getXf(), tri.points[0].getYf(), tri.points[0].getZf() ),
 						 b = new Vector3f(tri.points[1].getXf(), tri.points[1].getYf(), tri.points[1].getZf() ),
 						 c = new Vector3f(tri.points[2].getXf(), tri.points[2].getYf(), tri.points[2].getZf() );
 
 				Vector3f normal = c.subtract(b).cross(a.subtract(b));
 				normal.normalizeLocal();
+
+				// why can't any triangulation library come without gotchas...
+				if (normal.subtract(targetNormal).length() > 0.5 ) {
+					inds.add(start);
+					inds.add(start + 1);
+					inds.add(start + 2);
+				}
+				else {
+					inds.add(start);
+					inds.add(start + 2);
+					inds.add(start + 1);
+				}
 
 				if (normal.lengthSquared() < 0.9)
 					normal.set(0,1,0);
