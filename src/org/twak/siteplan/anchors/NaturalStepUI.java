@@ -31,6 +31,7 @@ import org.twak.utils.collections.Loop;
 import org.twak.utils.collections.LoopL;
 import org.twak.utils.collections.Loopable;
 import org.twak.utils.ui.BackgroundUpdate;
+import org.twak.utils.ui.SaveLoad;
 
 /**
  * @author twak
@@ -261,7 +262,7 @@ public class NaturalStepUI extends PlanUI
         try
         {
             fos = new FileOutputStream( f );
-            new XStream().toXML( step, fos );
+            SaveLoad.createXStream().toXML( step, fos );
         }
         catch ( Exception ex )
         {
@@ -287,7 +288,7 @@ public class NaturalStepUI extends PlanUI
         try
         {
             fis = new FileInputStream(f);
-            NaturalStepShip imported = (NaturalStepShip) new XStream().fromXML(fis);
+            NaturalStepShip imported = (NaturalStepShip) SaveLoad.createXStream().fromXML(fis);
 
             Profile p = plan.profiles.get ( shape.get(0).getFirst() );
             this.shape = step.shape = imported.shape;
