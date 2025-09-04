@@ -6,7 +6,7 @@ The best thing to do is watch the [video](http://www.youtube.com/watch?v=BrCDKrB
 
 To run the compiled jar:
  * install [sun's java 1.8+](http://java.sun.com)
- * run the [the jar](https://drive.google.com/open?id=0B6r_mUgXfBLdaGNOUWtWOG1iNzA):
+ * run the [the jar](https://drive.google.com/file/d/0B6r_mUgXfBLdaGNOUWtWOG1iNzA/view?usp=drive_link&resourcekey=0--OkB6Kyj0mnYrVYvu2gFpw):
  ```
  java -jar siteplan-0.0.1-SNAPSHOT-jar-with-dependencies.jar
  ```
